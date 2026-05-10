@@ -78,7 +78,18 @@ const REGIONS = [
     title: 'NJ Family Base',
     colorVar: '--nj',
     dates: 'Sep 27–28',
-    infoCard: null,
+    infoCard: {
+      prefix: 'nj',
+      eat: [
+        { icon:'🛫', name:'Zaro\'s Bakery',                     badge:'rb-casual', badgeLabel:'Casual', sub:'Newark Airport Terminal B · Grab-and-go pastries, coffee, vegetarian-friendly. Daily 5am–10pm. Best for arrival/departure days.' },
+        { icon:'☕', name:'PJ\'s at The Newark Museum of Art',  badge:'rb-casual', badgeLabel:'Casual', sub:'49 Washington St · Light lunch, coffee, sandwiches. Thu–Fri 12–7pm, Sat–Sun 10–5pm. Pairs with a museum stop.' },
+      ],
+      nohike: [
+        { icon:'🏛', name:'The Newark Museum of Art',           sub:'49 Washington St · Thu–Sun 12–5pm. $10 adult / $8 child. Fully ADA-accessible. Groups 10+ need advance reservation.' },
+        { icon:'🌳', name:'Branch Brook Park',                  sub:'Park Ave &amp; Lake St · Open dawn–10pm, free. Light-rail accessible. Easy leg-stretch for all ages before the drive north.' },
+        { icon:'🗽', name:'Statue of Liberty (Liberty State Park ferry)', sub:'~25–30 min drive to ferry terminal. Ferries year-round, last ~3:30pm. Best for a half-day — don\'t attempt on a compressed airport day.' },
+      ]
+    },
     days: ['d1', 'd2']
   },
   {
@@ -90,10 +101,10 @@ const REGIONS = [
     infoCard: {
       prefix: 'adk',
       eat: [
-        { icon:'🍺', name:'Lake Placid Pub &amp; Brewery',      badge:'rb-brew',   badgeLabel:'Brew',    sub:'Main St · Casual pub grub &amp; local craft beer. Fish &amp; chips are the move. No reservation needed.' },
+        { icon:'🥪', name:'Big Mountain Deli &amp; Creperie',    badge:'rb-casual', badgeLabel:'Casual',  sub:'2475 Main St · Crêpes, sandwiches, smoothies, vegetarian options. Kid-friendly, quick turnover. Sun–Thu 8am–3pm, Fri–Sat 8am–5pm.' },
+        { icon:'☕', name:'Origin Coffee Co.',                   badge:'rb-casual', badgeLabel:'Casual',  sub:'2669 Main St · Best specialty coffee, matcha &amp; smoothies in the village. Breakfast and lunch all day. Strongest non-alcoholic menu in Lake Placid.' },
         { icon:'🍝', name:'Caffe Rustica',                       badge:'rb-fine',   badgeLabel:'Fine',    sub:'1936 Saranac Ave · House-made pasta &amp; fresh seafood. Best Italian in the Adirondacks.' },
         { icon:'🌊', name:'The Cottage at Mirror Lake',          badge:'rb-casual', badgeLabel:'Casual',  sub:'77 Mirror Lake Dr · American food with lakeside patio views. Perfect for a relaxed dinner.' },
-        { icon:'🍕', name:'Big Slide Brewery &amp; Public House',badge:'rb-brew',   badgeLabel:'Brew',    sub:'5686 Cascade Rd · Farm-to-table, artisan wood-fired pizza, local craft beers. Relaxed vibe.' },
         { icon:'🍔', name:'Noon Mark Burgers &amp; Pie',         badge:'rb-casual', badgeLabel:'Casual',  sub:'Main St · Classic diner energy. Great burgers, homemade pies. Very kid-friendly.' },
       ],
       nohike: [
@@ -232,7 +243,7 @@ const DAYS = {
     content: [
       { type:'activity', icon:'💧', title:'High Falls Gorge',             sub:'Short paid walk along AuSable River gorge — great for all ages. ~45 min. Worth it.' },
       { type:'activity', icon:'🍦', title:'Lake Placid village afternoon', sub:'Main Street shops, Olympic museum, Mirror Lake shoreline.' },
-      { type:'activity', icon:'🌙', title:'Dinner on Mirror Lake Drive',   sub:'Generations Restaurant or Lake Placid Pub &amp; Brewery.' },
+      { type:'activity', icon:'🌙', title:'Dinner on Mirror Lake Drive',   sub:'Big Mountain Deli &amp; Creperie for lunch, or The Cottage at Mirror Lake for a lakeside dinner.' },
     ]
   },
   d5: {
