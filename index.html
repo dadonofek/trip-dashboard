@@ -103,12 +103,11 @@
   #itinerary { padding: 32px 16px 64px; max-width: 760px; margin: 0 auto; }
 
   .region-header {
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    display: flex; align-items: center; gap: 12px;
     padding: 24px 0 12px; border-bottom: 2px solid; margin-bottom: 16px;
   }
   .region-header h2 { font-size: 20px; font-weight: 700; }
   .region-header .dates { font-size: 13px; color: var(--muted); margin-left: auto; }
-  .region-header .wx-chip { font-size: 12px; color: var(--muted); white-space: nowrap; }
 
   /* Day card */
   .day-card {
@@ -274,62 +273,6 @@
     background: #334155;
     color: #e2e8f0;
   }
-
-  /* ── SHARED: action buttons & inline code ── */
-  .nav-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 9px 13px; border-radius: 8px; font-size: 12px; font-weight: 700;
-    text-decoration: none; border: 1px solid var(--border); background: var(--card2); color: var(--text);
-    -webkit-tap-highlight-color: transparent; min-height: 40px; cursor: pointer;
-    transition: background .2s, border-color .2s; white-space: nowrap;
-  }
-  .nav-btn:hover { background: #3f4d63; }
-  .nav-btn.primary { background: rgba(37,99,235,0.18); border-color: rgba(37,99,235,0.45); color: #bfdbfe; }
-  .nav-btn.primary:hover { background: rgba(37,99,235,0.3); }
-  .nav-btn.maps { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); color: #86efac; }
-  .nav-btn.maps:hover { background: rgba(16,185,129,0.28); }
-  code { background: rgba(0,0,0,0.3); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
-
-  /* ── TODAY / CONTROL CENTER ── */
-  #today { max-width: 760px; margin: 0 auto; padding: 20px 16px 4px; }
-  .today-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 16px 18px; }
-  .today-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 700; }
-  .today-headline { font-size: 20px; font-weight: 800; margin: 5px 0 3px; line-height: 1.25; }
-  .today-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
-  .today-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-
-  /* ── WEATHER ── */
-  .wx-card { margin-top: 14px; background: var(--card2); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
-  .wx-loading, .wx-error { font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .wx-error a { color: #7dd3fc; }
-  .wx-place { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; margin-bottom: 9px; }
-  .wx-now { display: flex; align-items: center; gap: 12px; }
-  .wx-icon { font-size: 30px; line-height: 1; }
-  .wx-temp { font-size: 26px; font-weight: 800; line-height: 1.1; }
-  .wx-meta { font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .wx-days { display: flex; gap: 8px; margin-top: 12px; }
-  .wx-day { flex: 1; text-align: center; background: rgba(0,0,0,0.22); border-radius: 8px; padding: 8px 4px; }
-  .wx-day .d { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
-  .wx-day .i { font-size: 18px; margin: 3px 0; }
-  .wx-day .t { font-size: 12px; font-weight: 700; }
-  .wx-day .t .lo { color: var(--muted); font-weight: 500; }
-  .wx-day .p { font-size: 10px; color: #7dd3fc; margin-top: 2px; }
-  .wx-warn { margin-top: 10px; font-size: 12px; padding: 7px 10px; border-radius: 7px; line-height: 1.5;
-             background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.3); color: #fcd34d; }
-  .wx-source { font-size: 10px; color: var(--muted); margin-top: 8px; }
-  .wx-source a { color: var(--muted); }
-
-  /* ── DRIVE BAR ── */
-  .drive-bar { flex-wrap: wrap; }
-  .drive-bar .drive-text { flex: 1; min-width: 60%; }
-  .drive-bar .nav-btn { margin-left: auto; }
-
-  /* ── TRIP MAP (Google My Maps) ── */
-  #trip-map { max-width: 760px; margin: 0 auto; padding: 20px 16px 0; }
-  .tripmap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-  .tripmap-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-  .tripmap-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-  .tripmap-embed { width: 100%; aspect-ratio: 16 / 10; border: 0; border-radius: 10px; display: block; }
 </style>
 <script src="trip-data.js"></script>
 </head>
@@ -337,21 +280,16 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#today">📅 Today</a>
   <a href="#map-section">🗺 Map</a>
-  <a href="#trip-map">🧭 My Map</a>
   <a href="#nj" class="nj">NJ</a>
   <a href="#adirondacks" class="adk">Adirondacks</a>
   <a href="#lake-george" class="lg">Lake George</a>
   <a href="#finger-lakes" class="fl">Finger Lakes</a>
   <a href="#hudson" class="hv">Hudson Valley</a>
-  <a href="#logistics">✅ Ops Center</a>
+  <a href="#logistics">✅ Checklist</a>
 </nav>
 
 <div class="page">
-
-<!-- ═══════════════ TODAY / CONTROL CENTER ═══════════════ -->
-<section id="today"></section>
 
 <!-- ═══════════════ MAP ═══════════════ -->
 <section id="map-section">
@@ -369,9 +307,6 @@
     📅 See day-by-day ↓
   </div>
 </section>
-
-<!-- ═══════════════ TRIP MAP (Google My Maps) ═══════════════ -->
-<section id="trip-map"></section>
 
 <!-- ═══════════════ ITINERARY ═══════════════ -->
 <section id="itinerary"></section>
@@ -404,10 +339,7 @@ function renderActivity(a) {
 }
 
 function renderDriveBar(d) {
-  const navBtn = d.route
-    ? `<a class="nav-btn maps" href="${gmapsDirUrl(d.route)}" target="_blank" rel="noopener">🧭 Navigate</a>`
-    : '';
-  return `<div class="drive-bar">🚗 <span class="drive-text">${d.text}</span>${navBtn}</div>`;
+  return `<div class="drive-bar">🚗 ${d.text}</div>`;
 }
 
 function renderHikePanel(prefix, tab) {
@@ -487,14 +419,10 @@ function renderInfoCard(card) {
 }
 
 function renderRegion(region) {
-  const wxChip = region.weather
-    ? `<span class="wx-chip" id="wxchip-${region.id}">🌡️ …</span>`
-    : '';
   const header = `<div id="${region.id}" class="region-header" style="border-color:var(${region.colorVar})">
     <span style="font-size:24px">${region.emoji}</span>
     <h2 style="color:var(${region.colorVar})">${region.title}</h2>
     <span class="dates">${region.dates}</span>
-    ${wxChip}
   </div>`;
   const infoCard = region.infoCard ? renderInfoCard(region.infoCard) : '';
   const days     = region.days.map(id => renderDay(id, DAYS[id])).join('');
@@ -574,211 +502,9 @@ function renderResources() {
     ${sections}`;
 }
 
-// ══════════════════════════════════════
-// GOOGLE MAPS LINK HELPERS
-// ══════════════════════════════════════
-function gmapsSearchUrl(query) {
-  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query);
-}
-function gmapsDirUrl(route) {
-  const p = new URLSearchParams({ api: '1', origin: route.from, destination: route.to, travelmode: 'driving' });
-  if (route.via && route.via.length) p.set('waypoints', route.via.join('|'));
-  return 'https://www.google.com/maps/dir/?' + p.toString();
-}
-
-// ══════════════════════════════════════
-// LIVE WEATHER (Open-Meteo — no key, CORS-enabled, free for non-commercial use)
-// ══════════════════════════════════════
-const WX_CODES = {
-  0:['☀️','Clear sky'], 1:['🌤️','Mostly clear'], 2:['⛅','Partly cloudy'], 3:['☁️','Overcast'],
-  45:['🌫️','Fog'], 48:['🌫️','Freezing fog'],
-  51:['🌦️','Light drizzle'], 53:['🌦️','Drizzle'], 55:['🌧️','Heavy drizzle'],
-  56:['🌧️','Freezing drizzle'], 57:['🌧️','Freezing drizzle'],
-  61:['🌦️','Light rain'], 63:['🌧️','Rain'], 65:['🌧️','Heavy rain'],
-  66:['🌧️','Freezing rain'], 67:['🌧️','Freezing rain'],
-  71:['🌨️','Light snow'], 73:['🌨️','Snow'], 75:['❄️','Heavy snow'], 77:['🌨️','Snow grains'],
-  80:['🌦️','Rain showers'], 81:['🌧️','Rain showers'], 82:['⛈️','Heavy rain showers'],
-  85:['🌨️','Snow showers'], 86:['❄️','Heavy snow showers'],
-  95:['⛈️','Thunderstorm'], 96:['⛈️','Thunderstorm w/ hail'], 99:['⛈️','Severe thunderstorm']
-};
-function wxInfo(code) { return WX_CODES[code] || ['🌡️','—']; }
-
-function wxApiUrl(loc) {
-  return `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}`
-    + `&current=temperature_2m,precipitation,weather_code,wind_speed_10m`
-    + `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max`
-    + `&timezone=auto&forecast_days=3&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch`;
-}
-
-function renderWxFull(loc, j) {
-  const c = j.current, d = j.daily;
-  const [emo, txt] = wxInfo(c.weather_code);
-  const days = d.time.map((iso, i) => {
-    const dt = new Date(iso + 'T12:00:00');
-    const lbl = i === 0 ? 'Today' : dt.toLocaleDateString(undefined, { weekday: 'short' });
-    const [de] = wxInfo(d.weather_code[i]);
-    const pp = d.precipitation_probability_max[i];
-    return `<div class="wx-day"><div class="d">${lbl}</div><div class="i">${de}</div>
-      <div class="t">${Math.round(d.temperature_2m_max[i])}°<span class="lo"> / ${Math.round(d.temperature_2m_min[i])}°</span></div>
-      ${pp != null ? `<div class="p">${pp}% 🌧</div>` : ''}</div>`;
-  }).join('');
-  const warns = [];
-  const probs = d.precipitation_probability_max.filter(v => v != null);
-  const pmax = probs.length ? Math.max(...probs) : 0;
-  const tmin = Math.min(...d.temperature_2m_min);
-  if (c.precipitation > 0) warns.push('Raining right now — bring rain covers.');
-  else if (pmax >= 50) warns.push(`Up to ${pmax}% rain chance over the next few days — pack rain layers.`);
-  if (tmin <= 40) warns.push(`Mornings near ${Math.round(tmin)}°F — warm layers for the kids.`);
-  if (c.wind_speed_10m >= 25) warns.push(`Breezy (${Math.round(c.wind_speed_10m)} mph) — windproof jackets.`);
-  const warnHtml = warns.length ? `<div class="wx-warn">⚠️ ${warns.join(' ')}</div>` : '';
-  return `<div class="wx-place">Live conditions · ${loc.name}</div>
-    <div class="wx-now">
-      <div class="wx-icon">${emo}</div>
-      <div><div class="wx-temp">${Math.round(c.temperature_2m)}°F</div>
-      <div class="wx-meta">${txt} · wind ${Math.round(c.wind_speed_10m)} mph</div></div>
-    </div>
-    <div class="wx-days">${days}</div>
-    ${warnHtml}
-    <div class="wx-source">Source: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 3-day outlook; becomes trip-accurate within ~2 weeks of travel. Deeper forecasts in the Ops Center.</div>`;
-}
-
-async function loadWeatherInto(el, loc, opts) {
-  opts = opts || {};
-  if (opts.compact) { el.textContent = '🌡️ …'; }
-  else { el.innerHTML = '<div class="wx-loading">Loading live weather…</div>'; }
-  try {
-    const r = await fetch(wxApiUrl(loc));
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const j = await r.json();
-    if (opts.compact) {
-      const [emo] = wxInfo(j.current.weather_code);
-      el.textContent = `${emo} ${Math.round(j.current.temperature_2m)}°F now`;
-      el.title = `Live conditions in ${loc.name}`;
-    } else {
-      el.innerHTML = renderWxFull(loc, j);
-    }
-  } catch (e) {
-    if (opts.compact) { el.textContent = ''; }
-    else {
-      el.innerHTML = '<div class="wx-error">Live weather unavailable — check your connection, or open the '
-        + '<a href="https://forecast.weather.gov/" target="_blank" rel="noopener">NWS forecast</a>.</div>';
-    }
-  }
-}
-
-// ══════════════════════════════════════
-// TODAY / CONTROL-CENTER PANEL
-// ══════════════════════════════════════
-function sameDay(a, b) {
-  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
-}
-function buildTripDays() {
-  const year = new Date(TRIP_META.startDate).getFullYear();
-  const out = [];
-  REGIONS.forEach(r => (r.days || []).forEach(id => {
-    const day = DAYS[id];
-    if (!day) return;
-    const dt = new Date(`${day.date} ${year}`);
-    if (!isNaN(dt)) out.push({ id, region: r, day, date: dt });
-  }));
-  out.sort((a, b) => a.date - b.date);
-  return out;
-}
-function findDriveRoute(day) {
-  const item = (day.content || []).find(c => c.type === 'drive' && c.route);
-  return item ? item.route : null;
-}
-
-function renderToday() {
-  const el = document.getElementById('today');
-  const days = buildTripDays();
-  const today0 = new Date(); today0.setHours(0, 0, 0, 0);
-  const first = days[0].date;
-  const tripEnd = new Date(TRIP_META.endDate + 'T12:00:00');
-
-  let entry = null, eyebrow, headline, sub;
-  if (today0 < new Date(first.getFullYear(), first.getMonth(), first.getDate())) {
-    const n = Math.round((first - today0) / 86400000);
-    entry = days[0];
-    eyebrow = 'Countdown';
-    headline = `${n} day${n === 1 ? '' : 's'} until the trip`;
-    sub = `First leg: ${entry.day.title}. Live weather below is for ${entry.region.weather.name.split(',')[0]} right now — it becomes accurate for your dates as travel approaches.`;
-  } else if (today0 > tripEnd) {
-    eyebrow = 'Trip complete';
-    headline = 'Welcome home 🍂';
-    sub = 'Hope the foliage delivered. The dashboard stays put for the next adventure.';
-  } else {
-    entry = days.find(d => sameDay(d.date, today0)) || days.find(d => d.date >= today0);
-    if (entry && sameDay(entry.date, today0)) {
-      eyebrow = 'Today on the trip · ' + entry.date.toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' });
-      headline = entry.day.title;
-      sub = `${entry.region.emoji} ${entry.region.title} · ${entry.day.badgeLabel} day`;
-    } else if (entry) {
-      const n = Math.round((entry.date - today0) / 86400000);
-      eyebrow = 'Up next · ' + (n === 1 ? 'tomorrow' : 'in ' + n + ' days');
-      headline = entry.day.title;
-      sub = `${entry.region.emoji} ${entry.region.title}`;
-    } else {
-      entry = { region: REGIONS.find(r => r.id === 'nj'), day: { content: [] }, date: today0 };
-      eyebrow = 'Wind-down in NJ';
-      headline = 'Family time before the flight home';
-      sub = 'NJ day-trip ideas are under the NJ section below. Live weather is for Newark right now.';
-    }
-  }
-
-  const actions = [];
-  if (entry) {
-    const route = findDriveRoute(entry.day);
-    if (route) actions.push(`<a class="nav-btn maps" href="${gmapsDirUrl(route)}" target="_blank" rel="noopener">🧭 Navigate today's drive</a>`);
-    if (entry.region.weather) actions.push(`<a class="nav-btn maps" href="${gmapsSearchUrl(entry.region.weather.name)}" target="_blank" rel="noopener">📍 Open ${entry.region.weather.name.split(',')[0]} in Google Maps</a>`);
-    actions.push(`<a class="nav-btn" href="#${entry.region.id}" onclick="document.getElementById('${entry.region.id}').scrollIntoView({behavior:'smooth'});return false;">📅 Day-by-day for ${entry.region.title.split(' · ')[0]}</a>`);
-  }
-  actions.push(`<a class="nav-btn" href="#logistics" onclick="document.getElementById('logistics').scrollIntoView({behavior:'smooth'});return false;">✅ Ops Center · foliage &amp; bookings</a>`);
-
-  el.innerHTML = `<div class="today-card">
-    <div class="today-eyebrow">${eyebrow}</div>
-    <div class="today-headline">${headline}</div>
-    <div class="today-sub">${sub}</div>
-    <div class="today-actions">${actions.join('')}</div>
-    ${entry && entry.region.weather ? `<div class="wx-card" id="wx-today"></div>` : ''}
-  </div>`;
-
-  if (entry && entry.region.weather) {
-    loadWeatherInto(document.getElementById('wx-today'), entry.region.weather);
-  }
-}
-
-// ══════════════════════════════════════
-// TRIP MAP (Google My Maps embed, or build-your-own placeholder)
-// ══════════════════════════════════════
-function renderTripMap() {
-  const el = document.getElementById('trip-map');
-  if (TRIP_META.myMapsEmbedUrl) {
-    el.innerHTML = `<div class="tripmap-card">
-      <h3>🧭 Trip Map</h3>
-      <iframe class="tripmap-embed" src="${TRIP_META.myMapsEmbedUrl}" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>`;
-  } else {
-    el.innerHTML = `<div class="tripmap-card">
-      <h3>🧭 Trip Map &amp; Navigation</h3>
-      <p>For turn-by-turn directions, use the <strong>Navigate</strong> button on each drive day above, or the buttons in the <em>Today</em> panel. For one shared map with custom layers — hotels, food, rainy-day backups, pharmacies, scenic foliage pull-offs — build a free Google "My Maps", then paste its embed URL into <code>trip-data.js</code> → <code>TRIP_META.myMapsEmbedUrl</code> to show it right here.</p>
-      <a class="nav-btn primary" href="https://www.google.com/maps/d/" target="_blank" rel="noopener">➕ Create a Google My Map</a>
-    </div>`;
-  }
-}
-
 // Render everything synchronously so the DOM is ready for the map observer
-renderToday();
-renderTripMap();
 renderItinerary();
 renderResources();
-
-// Kick off live weather for each region header (compact "now" chips)
-REGIONS.forEach(r => {
-  if (!r.weather) return;
-  const chip = document.getElementById('wxchip-' + r.id);
-  if (chip) loadWeatherInto(chip, r.weather, { compact: true });
-});
 
 // ══════════════════════════════════════
 // NON-MAP UTILS (work without Leaflet)
@@ -881,7 +607,7 @@ window.addEventListener('load', function () {
   });
 
   // ── NAV ACTIVE STATE ──
-  const sections = ['today','map-section','trip-map','nj','adirondacks','lake-george','finger-lakes','hudson','logistics'];
+  const sections = ['map-section','nj','adirondacks','lake-george','finger-lakes','hudson','logistics'];
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {

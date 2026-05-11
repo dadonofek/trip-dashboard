@@ -3,33 +3,6 @@
 //  index.html reads this and renders everything automatically.
 // ─────────────────────────────────────────────────────────────
 
-// ── TRIP META ──────────────────────────────────────────────
-// Powers the "Today" panel countdown and live-weather lookups.
-const TRIP_META = {
-  startDate: '2026-09-27',   // first day of the road trip (d3)
-  endDate:   '2026-10-15',   // last day in NJ before flying home
-  // OPTIONAL: paste the *embed* URL of your own Google "My Maps"
-  // (My Maps → Share → Embed on my site → copy the src="..." value).
-  // Leave as '' to show a "build your own" placeholder instead.
-  myMapsEmbedUrl: ''
-};
-
-// ── FOLIAGE LINKS ──────────────────────────────────────────
-// New-York-specific live foliage reports / predictive maps.
-// (No stable public foliage API exists — these are the sources to
-//  check the week before you leave. Also surfaced in RESOURCES.)
-const FOLIAGE_LINKS = [
-  { label: 'Official I LOVE NY Fall Foliage Report',
-    url: 'https://www.iloveny.com/things-to-do/fall/foliage-report/',
-    sub: 'Statewide weekly report + interactive color map, updated through October by NY State volunteers.' },
-  { label: 'ExploreFall — New York',
-    url: 'https://www.explorefall.com/states/new-york',
-    sub: 'County-by-county color predictions and reader reports.' },
-  { label: 'SmokyMountains.com Predictive Foliage Map',
-    url: 'https://smokymountains.com/fall-foliage-map/',
-    sub: 'Nationwide week-by-week slider — drag to your travel dates for an at-a-glance forecast.' }
-];
-
 // ── MAP ROUTE (lat/lng pairs) ──────────────────────────────
 const ROUTE = [
   [40.6895,-74.1745], // EWR / NJ start
@@ -105,7 +78,6 @@ const REGIONS = [
     title: 'NJ Family Base',
     colorVar: '--nj',
     dates: 'Oct 9–15',
-    weather: { name: 'Newark, NJ', lat: 40.7357, lon: -74.1724 },
     infoCard: {
       prefix: 'nj',
       eat: [
@@ -126,7 +98,6 @@ const REGIONS = [
     title: 'Adirondacks · Lake Placid',
     colorVar: '--adirondacks',
     dates: 'Sep 27 – Oct 2',
-    weather: { name: 'Lake Placid, NY', lat: 44.2795, lon: -73.9799 },
     infoCard: {
       prefix: 'adk',
       eat: [
@@ -152,7 +123,6 @@ const REGIONS = [
     title: 'Lake George',
     colorVar: '--lake-george',
     dates: 'Oct 2–4',
-    weather: { name: 'Lake George, NY', lat: 43.4262, lon: -73.7123 },
     infoCard: {
       prefix: 'lg',
       eat: [
@@ -178,7 +148,6 @@ const REGIONS = [
     title: 'Finger Lakes',
     colorVar: '--finger-lakes',
     dates: 'Oct 4–7',
-    weather: { name: 'Watkins Glen, NY', lat: 42.3806, lon: -76.8733 },
     infoCard: {
       prefix: 'fl',
       eat: [
@@ -205,7 +174,6 @@ const REGIONS = [
     title: 'Hudson Valley · Catskills',
     colorVar: '--hudson',
     dates: 'Oct 7–9',
-    weather: { name: 'New Paltz, NY', lat: 41.7476, lon: -74.0868 },
     infoCard: {
       prefix: 'hv',
       eat: [
@@ -265,8 +233,7 @@ const DAYS = {
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'activity', icon:'✈️', title:'Land at EWR', sub:'Pick up rental car at the EWR Rental Car Center — AirTrain to Terminal A, then walk the covered corridor to the rental building.' },
-      { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular',
-        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Saratoga Springs, NY','Keene Valley, NY'] } },
+      { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular' },
       { type:'activity', icon:'🎠', title:'Stop option A: Saratoga Springs (~3 hrs in)', sub:'Congress Park Carousel: $1/ride, kids under 5 free. Runs Sundays through Halloween — 27 Sep is a Sunday. Stroller-friendly park with duck pond. Lunch on Broadway Ave, Target nearby for supplies. Best family decompression stop before the mountains.' },
       { type:'activity', icon:'🏛', title:'Saratoga indoor backup (weekdays)', tag:'optional', sub:'Children\'s Museum at Saratoga (65 S Broadway) — Tue–Sat 9am–4pm, Sun 1–4pm. $14/person, under 12 months free. Ages 0–10, dedicated infant/toddler zone. Good if weather is poor.' },
       { type:'activity', icon:'🌊', title:'Stop option B: Lake George village (3.5 hrs in)', tag:'optional', sub:'More scenic than Saratoga. Shepard Park waterfront is free with a playground and foliage views. Minne Ha-Ha 1-hr paddlewheel cruise (~$17–26/adult, kids under 4 free) — book ahead, check October schedule. This is where the Adirondack feeling properly begins.' },
@@ -305,8 +272,7 @@ const DAYS = {
     date: 'Sep 30', title: 'Wild Center + Tupper Lake',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
-      { type:'drive', text:'~45 min drive to Tupper Lake · day trip from Lake Placid base',
-        route:{ from:'Lake Placid, NY', to:'The Wild Center, Tupper Lake, NY' } },
+      { type:'drive', text:'~45 min drive to Tupper Lake · day trip from Lake Placid base' },
       { type:'activity', icon:'🦦', title:'The Wild Center', sub:'Wild Walk canopy trail, Pines Play Area, animal encounters, 115 acres. Best full family nature day near Lake Placid. Open daily.' },
       { type:'hiketabs', prefix:'sep30', tabs:[
         { id:'base', label:'Trail Option', active:true,
@@ -340,8 +306,7 @@ const DAYS = {
     date: 'Oct 2', title: 'Drive Lake Placid → Lake George (~1.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~70 miles · ~1.5 hrs · NY-73 E → I-87 S',
-        route:{ from:'Lake Placid, NY', to:'Lake George Village, NY' } },
+      { type:'drive', text:'~70 miles · ~1.5 hrs · NY-73 E → I-87 S' },
       { type:'activity', icon:'🏨', title:'Check in Lake George Village',    sub:'Fort William Henry Hotel or lakefront motel. Easy base for Prospect Mtn.' },
       { type:'activity', icon:'🌊', title:'Lake George waterfront stroll',   sub:'Million Dollar Beach area, Canada St shops and ice cream.' },
     ]
@@ -359,8 +324,7 @@ const DAYS = {
     date: 'Oct 4', title: 'Drive Lake George → Watkins Glen (~5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~217 miles · ~5h05–5h15 · I-87 S → I-90 W → I-88 S → NY-414 S · Treat as a full transfer day',
-        route:{ from:'Lake George, NY', to:'Watkins Glen, NY', via:['Albany, NY'] } },
+      { type:'drive', text:'~217 miles · ~5h05–5h15 · I-87 S → I-90 W → I-88 S → NY-414 S · Treat as a full transfer day' },
       { type:'activity', icon:'🛑', title:'Plan for one proper meal break', sub:'5+ hours with small children needs at least one structured rest stop — schedule by time, not by complaints.' },
       { type:'activity', icon:'🏨', title:'Check in near Watkins Glen', sub:'Seneca Lodge (kitchenette cabins next to gorge entrance) or lakeside inn. If late arrival, skip the lakefront walk and take an early dinner.' },
     ]
@@ -404,8 +368,7 @@ const DAYS = {
     date: 'Oct 7', title: 'Drive Finger Lakes → New Paltz (~3 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~200 miles · ~3 hrs · I-86 E → NY-17 → I-87 S → Exit 18',
-        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Mount Tremper, NY (Route 28 Catskills)'] } },
+      { type:'drive', text:'~200 miles · ~3 hrs · I-86 E → NY-17 → I-87 S → Exit 18' },
       { type:'activity', icon:'🛑', title:'Catskill Mountains scenic drive', sub:'Route 28 through the Catskills is stunning in October. Add 30 min but worth it.' },
       { type:'activity', icon:'🏨', title:'Check in New Paltz',              sub:'Village is walkable. Minnewaska accessible by 15-min drive. Mohonk nearby.' },
     ]
@@ -435,8 +398,7 @@ const DAYS = {
     date: 'Oct 9', title: 'Drive New Paltz → NJ (~1.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~90 miles · ~1.5 hrs · I-87 S → I-287 W',
-        route:{ from:'New Paltz, NY', to:'Newark, NJ' } },
+      { type:'drive', text:'~90 miles · ~1.5 hrs · I-87 S → I-287 W' },
       { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 9–15 wind-down, family time, EWR departure.' },
     ]
   },
@@ -498,10 +460,11 @@ const RESOURCES = {
       icon: '🍂',
       title: 'Foliage Tracking',
       items: [
-        { label: 'Official I LOVE NY Fall Foliage Report', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://www.iloveny.com/things-to-do/fall/foliage-report/', notes: 'Statewide weekly report + interactive color map (Adirondacks, Catskills, Finger Lakes regions)' },
-        { label: 'ExploreFall — New York', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://www.explorefall.com/states/new-york', notes: 'County-by-county color predictions and reader reports' },
-        { label: 'SmokyMountains.com Predictive Foliage Map', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://smokymountains.com/fall-foliage-map/', notes: 'Nationwide week-by-week slider — drag to your travel dates' },
-        { label: 'Adirondack Foliage Report', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://visitadirondacks.com/things-to-do/foliage', notes: 'Best for the Lake Placid / High Peaks stretch (peaks late Sep — you arrive on time)' },
+        { label: 'New England Peak Foliage Map', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://newengland.com/foliage/foliage/peak-fall-foliage-map/', notes: 'Best overall regional predictor' },
+        { label: 'New Hampshire Official Foliage Tracker', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://www.visitnh.gov/plan-your-trip/fall/foliage-tracker', notes: 'Official NH tourism source' },
+        { label: 'White Mountains Foliage Tracker', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://www.visitwhitemountains.com/events/fall-foliage/foliage-tracker/', notes: 'Best for Kancamagus / North Conway area' },
+        { label: 'Jeff Foliage Guide', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://jeff-foliage.com/', notes: 'Strong practical recommendations for avoiding crowds' },
+        { label: 'NH Peak Foliage Prediction Map', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://www.visitnh.gov/plan-your-trip/fall/peak-foliage-map' },
         { label: 'Monitor foliage reports — 7 days before Sep 27 arrival', type: 'todo', priority: 'critical', status: 'pending' },
       ]
     },
@@ -523,12 +486,10 @@ const RESOURCES = {
       id: 'weather',
       icon: '🌤',
       title: 'Live Weather',
-      intro: 'Live current conditions + a 3-day outlook for the region you\'re in are shown on the <strong>Today</strong> panel and in each region header (powered by Open-Meteo). These links are the deeper forecasts for trip planning.',
       items: [
-        { label: 'Whiteface Mountain summit forecast (Adirondacks)', type: 'live-weather', priority: 'critical', status: 'pending', url: 'https://www.mountain-forecast.com/peaks/Whiteface-Mountain/forecasts/1483', notes: 'Summit often 10–20°F colder than the village — pack extra layers' },
-        { label: 'Adirondacks / North Country — NWS Burlington', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/btv/' },
-        { label: 'Capital Region & Hudson Valley — NWS Albany', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/aly/' },
-        { label: 'Finger Lakes / Southern Tier — NWS Binghamton', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/bgm/' },
+        { label: 'White Mountains / Mt Washington forecast', type: 'live-weather', priority: 'critical', status: 'pending', url: 'https://www.mountain-forecast.com/peaks/Mount-Washington-2/forecasts/1917', notes: 'Summit often 20°F colder than base' },
+        { label: 'Adirondacks Weather — NWS Burlington', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/btv/' },
+        { label: 'Kancamagus Highway scenic drive conditions', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://kancamagushighway.com/' },
       ]
     },
     {
