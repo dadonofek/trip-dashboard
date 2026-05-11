@@ -404,59 +404,109 @@ const DAYS = {
   },
 };
 
-// ── LOGISTICS ──────────────────────────────────────────────
-const LOGISTICS = {
-  carRental: {
-    icon: '🚗',
-    title: 'Car Rental — EWR',
-    intro: 'All major agencies operate from the <strong>EWR Rental Car Center</strong> — take the free AirTrain from your terminal (follow signs, ~10 min ride). On-site: <strong>Hertz, Avis, Budget, Enterprise, National, Alamo, Dollar, Thrifty.</strong>',
-    items: [
-      '<strong>Book in advance</strong> — walk-up rates can be 3–4× higher. Compare on <em>AutoSlash</em> or Kayak, then book direct.',
-      '<strong>Get an SUV or wagon</strong> — Adirondack mountain roads + luggage + passengers = you want the space &amp; clearance.',
-      '<strong>E-ZPass transponder</strong> — NY &amp; NJ tolls are fully cashless. Accept one from the rental agency or bring your own. Without it, "toll-by-mail" adds $3.50+ per toll at a high markup.',
-      '<strong>Photograph all 4 corners</strong> at pickup and again at dropoff — timestamp photos protect against disputes.',
-      '<strong>Return with a full tank</strong> — refuel 2–3 miles from the airport. Gas at the rental return is expensive.',
-      'Have passport, home driver\'s license, and credit card (main driver\'s name) ready at the counter.',
-    ]
-  },
-  cards: [
+// ── RESOURCES (trip operations center) ─────────────────────
+// Each section has: id, icon, title, intro (optional), items[]
+// Each item has:
+//   label        — display text
+//   type         — booking | info | todo | live-map | live-weather | forecast
+//   priority     — critical | recommended | optional
+//   status       — pending | reserved | done
+//   url          — (optional) direct link
+//   dates        — (optional) e.g. "Sep 27 – Oct 2"
+//   notes        — (optional) sub-text hint
+//   reservation_deadline — (optional) e.g. "2026-08-01"
+const RESOURCES = {
+  sections: [
     {
-      icon: '🏨', title: 'Accommodations',
+      id: 'flights',
+      icon: '✈️',
+      title: 'Flights',
       items: [
-        'Book Saratoga Springs hotel (Sep 27 — suite or downtown with parking)',
-        'Book Lake Placid hotel (Mirror Lake Inn or Main St motel)',
-        'Book Lake George hotel (lakefront)',
-        'Book near Watkins Glen (Seneca Lodge?)',
-        'Book New Paltz hotel/B&amp;B',
+        { label: 'EL AL flight booking (EWR round-trip)', type: 'booking', priority: 'critical', status: 'pending' },
+        { label: 'ESTA — US visa waiver application', type: 'booking', priority: 'critical', status: 'pending', url: 'https://esta.cbp.dhs.gov/', notes: 'Apply at least 72 hrs before departure' },
+        { label: 'Newark Airport (EWR) terminal map', type: 'info', priority: 'recommended', status: 'pending', url: 'https://www.newarkairport.com/maps-and-guides' },
+        { label: 'EWR Rental Car Center — AirTrain directions', type: 'info', priority: 'recommended', status: 'pending', url: 'https://www.newarkairport.com/transportation/airport-car-rentals' },
       ]
     },
     {
-      icon: '🎟', title: 'Reservations Needed',
+      id: 'car',
+      icon: '🚗',
+      title: 'Car Rental — EWR',
+      intro: 'All major agencies at the <strong>EWR Rental Car Center</strong> — free AirTrain from any terminal (~10 min). <strong>Book in advance</strong>: walk-up rates run 3–4× higher. NY &amp; NJ tolls are fully cashless — accept an E-ZPass transponder from the agency or bring your own.',
       items: [
-        'Minnewaska parking reservation (fills fast)',
-        'Whiteface Veterans\' Memorial Highway (open through 12 Oct, no ticket needed)',
-        'Mohonk day hiker pass (if splurging)',
-        'Watkins Glen entry (check pass options)',
+        { label: 'Alamo — Newark Airport (SUV / minivan)', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.alamo.com/en/car-rental/locations/us/nj/ewr.html' },
+        { label: 'National — Newark Airport (alternative)', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.nationalcar.com/en/car-rental/locations/us/nj/newark-liberty-international-airport.html' },
+        { label: 'Hertz — Newark Airport', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.hertz.com/rentacar/location/unitedstates/newjersey/newark/EWRT11' },
+        { label: 'NJ EZPass — cashless tolls info', type: 'info', priority: 'critical', status: 'pending', url: 'https://www.ezpassnj.com/' },
+        { label: 'Verify child seat availability with rental company', type: 'todo', priority: 'critical', status: 'pending' },
+        { label: 'Photograph all 4 corners at pickup + dropoff', type: 'todo', priority: 'recommended', status: 'pending' },
       ]
     },
     {
-      icon: '🎒', title: 'Gear Checklist',
+      id: 'hotels',
+      icon: '🏨',
+      title: 'Hotels & Stays',
       items: [
-        'Waterproof layer (rain is likely in Adirondacks)',
-        'Hiking shoes / waterproof boots',
-        'Layers (Oct nights are cold 35–45°F)',
-        'Snacks, reusable water bottles',
-        'Car phone mount + offline maps downloaded',
+        { label: 'Lake Placid — Mirror Lake Inn or Main St motel', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 27 – Oct 2', reservation_deadline: '2026-07-01' },
+        { label: 'Lake George — lakefront hotel (Columbus Day weekend!)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 2 – Oct 4', reservation_deadline: '2026-07-15' },
+        { label: 'Watkins Glen — Seneca Lodge or lakeside inn', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 4 – Oct 7', reservation_deadline: '2026-08-01' },
+        { label: 'New Paltz — village hotel / B&B', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 7 – Oct 9', reservation_deadline: '2026-08-01' },
+        { label: 'NY State Campgrounds — Reserve America', type: 'booking', priority: 'optional', status: 'pending', url: 'https://newyorkstateparks.reserveamerica.com/' },
+        { label: 'Ausable Chasm Campground (optional base camp)', type: 'booking', priority: 'optional', status: 'pending', url: 'https://www.ausablechasm.com/ausable-chasm-campground' },
       ]
     },
     {
-      icon: '🍂', title: 'Foliage Tips',
+      id: 'foliage',
+      icon: '🍂',
+      title: 'Foliage Tracking',
       items: [
-        'Check foliagetracker.com week before departure',
-        'Adirondacks peak: late Sep (arrive early!)',
-        'Finger Lakes/Hudson Valley peak: early Oct',
-        'Book weekend activities early — foliage crowds!',
+        { label: 'New England Peak Foliage Map', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://newengland.com/foliage/foliage/peak-fall-foliage-map/', notes: 'Best overall regional predictor' },
+        { label: 'New Hampshire Official Foliage Tracker', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://www.visitnh.gov/plan-your-trip/fall/foliage-tracker', notes: 'Official NH tourism source' },
+        { label: 'White Mountains Foliage Tracker', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://www.visitwhitemountains.com/events/fall-foliage/foliage-tracker/', notes: 'Best for Kancamagus / North Conway area' },
+        { label: 'Jeff Foliage Guide', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://jeff-foliage.com/', notes: 'Strong practical recommendations for avoiding crowds' },
+        { label: 'NH Peak Foliage Prediction Map', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://www.visitnh.gov/plan-your-trip/fall/peak-foliage-map' },
+        { label: 'Monitor foliage reports — 7 days before Sep 27 arrival', type: 'todo', priority: 'critical', status: 'pending' },
       ]
     },
+    {
+      id: 'activities',
+      icon: '🎟',
+      title: 'Reservations & Attractions',
+      items: [
+        { label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Fills fast on Oct weekends' },
+        { label: 'Ausable Chasm — hours & rates', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.ausablechasm.com/hours-rates' },
+        { label: 'Whiteface Mountain Gondola', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://whiteface.com/', notes: 'Gondola Fri–Sun only after Sep 11' },
+        { label: 'Watkins Glen State Park entry', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://parks.ny.gov/parks/watkinsglen' },
+        { label: 'Mohonk day hiker pass (optional splurge ~$30/pp)', type: 'booking', priority: 'optional', status: 'pending' },
+        { label: 'Wild Center — Tupper Lake visitor info', type: 'info', priority: 'recommended', status: 'pending', url: 'https://wildcenter.org/' },
+        { label: 'Adirondacks Visitor Guide — first-time visitors', type: 'info', priority: 'recommended', status: 'pending', url: 'https://visitadirondacks.com/first-time-visitors' },
+      ]
+    },
+    {
+      id: 'weather',
+      icon: '🌤',
+      title: 'Live Weather',
+      items: [
+        { label: 'White Mountains / Mt Washington forecast', type: 'live-weather', priority: 'critical', status: 'pending', url: 'https://www.mountain-forecast.com/peaks/Mount-Washington-2/forecasts/1917', notes: 'Summit often 20°F colder than base' },
+        { label: 'Adirondacks Weather — NWS Burlington', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/btv/' },
+        { label: 'Kancamagus Highway scenic drive conditions', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://kancamagushighway.com/' },
+      ]
+    },
+    {
+      id: 'ops',
+      icon: '📋',
+      title: 'Ops & Gear',
+      items: [
+        { label: 'Download offline Google Maps (all 5 regions)', type: 'todo', priority: 'critical', status: 'pending', url: 'https://support.google.com/maps/answer/6291838', notes: 'Needs Wi-Fi — do before departure' },
+        { label: 'Buy US eSIM — Airalo or Holafly', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.airalo.com/', notes: 'Activate 1 day before landing' },
+        { label: 'Install NY Tolls by Mail app (backup if no E-ZPass)', type: 'todo', priority: 'critical', status: 'pending' },
+        { label: 'Pack rain backup activity list per region', type: 'todo', priority: 'recommended', status: 'pending' },
+        { label: 'Waterproof layer for each family member', type: 'todo', priority: 'critical', status: 'pending' },
+        { label: 'Hiking shoes / waterproof boots', type: 'todo', priority: 'critical', status: 'pending' },
+        { label: 'Layers — Oct nights are cold (35–45°F)', type: 'todo', priority: 'critical', status: 'pending' },
+        { label: 'Snacks & reusable water bottles', type: 'todo', priority: 'recommended', status: 'pending' },
+        { label: 'Car phone mount', type: 'todo', priority: 'recommended', status: 'pending' },
+      ]
+    }
   ]
 };

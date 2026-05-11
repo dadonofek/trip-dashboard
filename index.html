@@ -216,15 +216,42 @@
   .rb-wine   { background: rgba(220,38,38,0.15);   color: #fca5a5; }
   .rb-must   { background: rgba(6,182,212,0.15);   color: #67e8f9; }
 
-  /* ── LOGISTICS ── */
+  /* ── RESOURCES (trip operations center) ── */
   #logistics { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
-  .logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 500px) { .logistics-grid { grid-template-columns: 1fr; } }
-  .log-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-  .log-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .check-item { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 13px; cursor: pointer; }
-  .check-item input[type=checkbox] { margin-top: 1px; accent-color: var(--adirondacks); }
-  .check-item.done span { text-decoration: line-through; color: var(--muted); }
+  .res-legend { font-size: 11px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .res-legend-item { display: flex; align-items: center; gap: 4px; }
+  .res-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .res-section-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px 10px; border-bottom: 1px solid var(--border); }
+  .res-section-header h3 { font-size: 14px; font-weight: 700; flex: 1; }
+  .res-intro { font-size: 12px; color: var(--muted); padding: 10px 16px 8px; line-height: 1.5; border-bottom: 1px solid rgba(71,85,105,0.3); }
+  .res-item { display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-bottom: 1px solid rgba(71,85,105,0.22); }
+  .res-item:last-child { border-bottom: none; }
+  .res-item-left { display: flex; align-items: flex-start; gap: 8px; flex: 1; min-width: 0; }
+  .res-item-label { font-size: 13px; line-height: 1.4; }
+  .res-item-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .res-item-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+  /* Priority dot */
+  .pri-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .pri-critical    { background: #ef4444; }
+  .pri-recommended { background: #f59e0b; }
+  .pri-optional    { background: #475569; }
+  /* Status chip — click to cycle pending → reserved → done */
+  .status-chip { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 99px; cursor: pointer; border: none; white-space: nowrap; transition: background .15s, color .15s; -webkit-tap-highlight-color: transparent; min-height: 26px; display: inline-flex; align-items: center; }
+  .status-pending  { background: rgba(100,116,139,0.2); color: #94a3b8; }
+  .status-reserved { background: rgba(245,158,11,0.2);  color: #fcd34d; }
+  .status-done     { background: rgba(16,185,129,0.2);  color: #6ee7b7; }
+  /* Action buttons */
+  .res-btn { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background .15s; -webkit-tap-highlight-color: transparent; display: inline-flex; align-items: center; gap: 3px; border: 1px solid; min-height: 26px; }
+  .res-btn-booking { background: rgba(5,150,105,0.15);  border-color: rgba(5,150,105,0.4);  color: #6ee7b7; }
+  .res-btn-booking:hover { background: rgba(5,150,105,0.28); }
+  .res-btn-info    { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4); color: #a5b4fc; }
+  .res-btn-info:hover { background: rgba(99,102,241,0.28); }
+  .res-btn-map     { background: rgba(6,182,212,0.15);  border-color: rgba(6,182,212,0.4);  color: #67e8f9; }
+  .res-btn-map:hover { background: rgba(6,182,212,0.28); }
+  .res-btn-weather { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #93c5fd; }
+  .res-btn-weather:hover { background: rgba(59,130,246,0.28); }
+  .res-btn-guide   { background: rgba(100,116,139,0.15); border-color: rgba(100,116,139,0.4); color: #94a3b8; }
+  .res-btn-guide:hover { background: rgba(100,116,139,0.28); }
 
   /* ── FOOTER ── */
   footer { text-align: center; padding: 24px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); }
@@ -406,36 +433,78 @@ function renderItinerary() {
   document.getElementById('itinerary').innerHTML = REGIONS.map(renderRegion).join('');
 }
 
-function renderLogistics() {
-  const { carRental, cards } = LOGISTICS;
-  const carItems = carRental.items.map(item =>
-    `<label class="check-item"><input type="checkbox" onchange="markDone(this)"><span>${item}</span></label>`
-  ).join('');
-  const gridCards = cards.map(card => {
-    const items = card.items.map(item =>
-      `<label class="check-item"><input type="checkbox" onchange="markDone(this)"><span>${item}</span></label>`
-    ).join('');
-    return `<div class="log-card"><h3>${card.icon} ${card.title}</h3>${items}</div>`;
-  }).join('');
+const STATUS_LABELS = { pending: '⬜ Pending', reserved: '🟨 Reserved', done: '🟩 Done' };
+const STATUS_CYCLE  = { pending: 'reserved', reserved: 'done', done: 'pending' };
 
+const TYPE_BTN = {
+  booking:      ['📅 Book',       'res-btn-booking'],
+  info:         ['ℹ Info',        'res-btn-info'],
+  'live-map':   ['🗺 Map',        'res-btn-map'],
+  'live-weather':['🌤 Weather',   'res-btn-weather'],
+  forecast:     ['📊 Forecast',   'res-btn-map'],
+  todo:         ['↗ Guide',       'res-btn-guide'],
+};
+
+function getResBtn(item) {
+  if (!item.url) return '';
+  const [label, cls] = TYPE_BTN[item.type] || ['↗ Open', 'res-btn-info'];
+  return `<a class="res-btn ${cls}" href="${item.url}" target="_blank" rel="noopener">${label}</a>`;
+}
+
+function renderResItem(item) {
+  const priClass = `pri-${item.priority || 'optional'}`;
+  const status   = item.status || 'pending';
+  const subParts = [item.dates, item.notes];
+  if (item.reservation_deadline) subParts.push(`⚠️ Book by ${item.reservation_deadline}`);
+  const sub = subParts.filter(Boolean).join(' · ');
+  return `<div class="res-item">
+    <div class="res-item-left">
+      <div class="pri-dot ${priClass}"></div>
+      <div>
+        <div class="res-item-label">${item.label}</div>
+        ${sub ? `<div class="res-item-sub">${sub}</div>` : ''}
+      </div>
+    </div>
+    <div class="res-item-right">
+      ${getResBtn(item)}
+      <button class="status-chip status-${status}" data-status="${status}"
+        onclick="cycleStatus(this)">${STATUS_LABELS[status]}</button>
+    </div>
+  </div>`;
+}
+
+function renderResSection(section) {
+  const intro = section.intro ? `<div class="res-intro">${section.intro}</div>` : '';
+  const items = section.items.map(renderResItem).join('');
+  return `<div class="res-section">
+    <div class="res-section-header">
+      <span style="font-size:20px">${section.icon}</span>
+      <h3>${section.title}</h3>
+    </div>
+    ${intro}
+    ${items}
+  </div>`;
+}
+
+function renderResources() {
+  const sections = RESOURCES.sections.map(renderResSection).join('');
   document.getElementById('logistics').innerHTML = `
     <div class="region-header" style="border-color:var(--border); padding-top:8px">
       <span style="font-size:24px">✅</span>
-      <h2>Logistics &amp; Checklist</h2>
+      <h2>Trip Operations Center</h2>
     </div>
-    <div class="logistics-grid">
-      <div class="log-card" style="grid-column: 1 / -1; border-color: rgba(99,102,241,0.4);">
-        <h3>${carRental.icon} ${carRental.title}</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:12px; line-height:1.5">${carRental.intro}</p>
-        ${carItems}
-      </div>
-      ${gridCards}
-    </div>`;
+    <div class="res-legend">
+      <span class="res-legend-item"><span class="pri-dot pri-critical" style="display:inline-block"></span> Critical</span>
+      <span class="res-legend-item"><span class="pri-dot pri-recommended" style="display:inline-block"></span> Recommended</span>
+      <span class="res-legend-item"><span class="pri-dot pri-optional" style="display:inline-block"></span> Optional</span>
+      <span style="color:#475569">· tap status chip to update</span>
+    </div>
+    ${sections}`;
 }
 
 // Render everything synchronously so the DOM is ready for the map observer
 renderItinerary();
-renderLogistics();
+renderResources();
 
 // ══════════════════════════════════════
 // NON-MAP UTILS (work without Leaflet)
@@ -458,8 +527,11 @@ function hikeTab(prefix, tab) {
   });
 }
 
-function markDone(cb) {
-  cb.closest('.check-item').classList.toggle('done', cb.checked);
+function cycleStatus(chip) {
+  const next = STATUS_CYCLE[chip.dataset.status];
+  chip.dataset.status = next;
+  chip.className = `status-chip status-${next}`;
+  chip.textContent = STATUS_LABELS[next];
 }
 
 function riTab(region, tab) {
