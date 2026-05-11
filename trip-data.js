@@ -233,7 +233,8 @@ const DAYS = {
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'activity', icon:'✈️', title:'Land at EWR', sub:'Pick up rental car at the EWR Rental Car Center — AirTrain to Terminal A, then walk the covered corridor to the rental building.' },
-      { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular' },
+      { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular',
+        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Saratoga Springs, NY','Keene Valley, NY'] } },
       { type:'activity', icon:'🎠', title:'Stop option A: Saratoga Springs (~3 hrs in)', sub:'Congress Park Carousel: $1/ride, kids under 5 free. Runs Sundays through Halloween — 27 Sep is a Sunday. Stroller-friendly park with duck pond. Lunch on Broadway Ave, Target nearby for supplies. Best family decompression stop before the mountains.' },
       { type:'activity', icon:'🏛', title:'Saratoga indoor backup (weekdays)', tag:'optional', sub:'Children\'s Museum at Saratoga (65 S Broadway) — Tue–Sat 9am–4pm, Sun 1–4pm. $14/person, under 12 months free. Ages 0–10, dedicated infant/toddler zone. Good if weather is poor.' },
       { type:'activity', icon:'🌊', title:'Stop option B: Lake George village (3.5 hrs in)', tag:'optional', sub:'More scenic than Saratoga. Shepard Park waterfront is free with a playground and foliage views. Minne Ha-Ha 1-hr paddlewheel cruise (~$17–26/adult, kids under 4 free) — book ahead, check October schedule. This is where the Adirondack feeling properly begins.' },
@@ -272,7 +273,8 @@ const DAYS = {
     date: 'Sep 30', title: 'Wild Center + Tupper Lake',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
-      { type:'drive', text:'~45 min drive to Tupper Lake · day trip from Lake Placid base' },
+      { type:'drive', text:'~45 min drive to Tupper Lake · day trip from Lake Placid base',
+        route:{ from:'Lake Placid, NY', to:'The Wild Center, Tupper Lake, NY' } },
       { type:'activity', icon:'🦦', title:'The Wild Center', sub:'Wild Walk canopy trail, Pines Play Area, animal encounters, 115 acres. Best full family nature day near Lake Placid. Open daily.' },
       { type:'hiketabs', prefix:'sep30', tabs:[
         { id:'base', label:'Trail Option', active:true,
@@ -306,7 +308,8 @@ const DAYS = {
     date: 'Oct 2', title: 'Drive Lake Placid → Lake George (~1.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~70 miles · ~1.5 hrs · NY-73 E → I-87 S' },
+      { type:'drive', text:'~70 miles · ~1.5 hrs · NY-73 E → I-87 S',
+        route:{ from:'Lake Placid, NY', to:'Lake George Village, NY' } },
       { type:'activity', icon:'🏨', title:'Check in Lake George Village',    sub:'Fort William Henry Hotel or lakefront motel. Easy base for Prospect Mtn.' },
       { type:'activity', icon:'🌊', title:'Lake George waterfront stroll',   sub:'Million Dollar Beach area, Canada St shops and ice cream.' },
     ]
@@ -324,7 +327,8 @@ const DAYS = {
     date: 'Oct 4', title: 'Drive Lake George → Watkins Glen (~5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~217 miles · ~5h05–5h15 · I-87 S → I-90 W → I-88 S → NY-414 S · Treat as a full transfer day' },
+      { type:'drive', text:'~217 miles · ~5h05–5h15 · I-87 S → I-90 W → I-88 S → NY-414 S · Treat as a full transfer day',
+        route:{ from:'Lake George, NY', to:'Watkins Glen, NY', via:['Albany, NY'] } },
       { type:'activity', icon:'🛑', title:'Plan for one proper meal break', sub:'5+ hours with small children needs at least one structured rest stop — schedule by time, not by complaints.' },
       { type:'activity', icon:'🏨', title:'Check in near Watkins Glen', sub:'Seneca Lodge (kitchenette cabins next to gorge entrance) or lakeside inn. If late arrival, skip the lakefront walk and take an early dinner.' },
     ]
@@ -368,7 +372,8 @@ const DAYS = {
     date: 'Oct 7', title: 'Drive Finger Lakes → New Paltz (~3 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~200 miles · ~3 hrs · I-86 E → NY-17 → I-87 S → Exit 18' },
+      { type:'drive', text:'~200 miles · ~3 hrs · I-86 E → NY-17 → I-87 S → Exit 18',
+        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Mount Tremper, NY (Route 28 Catskills)'] } },
       { type:'activity', icon:'🛑', title:'Catskill Mountains scenic drive', sub:'Route 28 through the Catskills is stunning in October. Add 30 min but worth it.' },
       { type:'activity', icon:'🏨', title:'Check in New Paltz',              sub:'Village is walkable. Minnewaska accessible by 15-min drive. Mohonk nearby.' },
     ]
@@ -398,7 +403,8 @@ const DAYS = {
     date: 'Oct 9', title: 'Drive New Paltz → NJ (~1.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~90 miles · ~1.5 hrs · I-87 S → I-287 W' },
+      { type:'drive', text:'~90 miles · ~1.5 hrs · I-87 S → I-287 W',
+        route:{ from:'New Paltz, NY', to:'Newark, NJ' } },
       { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 9–15 wind-down, family time, EWR departure.' },
     ]
   },

@@ -273,6 +273,22 @@
     background: #334155;
     color: #e2e8f0;
   }
+
+  /* ── ACTION BUTTONS (Google Maps links etc.) ── */
+  .nav-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700;
+    text-decoration: none; border: 1px solid var(--border); background: var(--card2); color: var(--text);
+    -webkit-tap-highlight-color: transparent; min-height: 36px; cursor: pointer;
+    transition: background .2s, border-color .2s; white-space: nowrap;
+  }
+  .nav-btn:hover { background: #3f4d63; }
+  .nav-btn.maps { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); color: #86efac; }
+  .nav-btn.maps:hover { background: rgba(16,185,129,0.28); }
+  /* drive bar with a Navigate button */
+  .drive-bar { flex-wrap: wrap; }
+  .drive-bar .drive-text { flex: 1; min-width: 60%; }
+  .drive-bar .nav-btn { margin-left: auto; }
 </style>
 <script src="trip-data.js"></script>
 </head>
@@ -338,8 +354,18 @@ function renderActivity(a) {
   </div>`;
 }
 
+// Build a Google Maps turn-by-turn directions URL from a { from, to, via? } route.
+function gmapsDirUrl(route) {
+  const p = new URLSearchParams({ api: '1', origin: route.from, destination: route.to, travelmode: 'driving' });
+  if (route.via && route.via.length) p.set('waypoints', route.via.join('|'));
+  return 'https://www.google.com/maps/dir/?' + p.toString();
+}
+
 function renderDriveBar(d) {
-  return `<div class="drive-bar">🚗 ${d.text}</div>`;
+  const navBtn = d.route
+    ? `<a class="nav-btn maps" href="${gmapsDirUrl(d.route)}" target="_blank" rel="noopener">🧭 Navigate</a>`
+    : '';
+  return `<div class="drive-bar">🚗 <span class="drive-text">${d.text}</span>${navBtn}</div>`;
 }
 
 function renderHikePanel(prefix, tab) {
