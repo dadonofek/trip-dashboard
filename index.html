@@ -376,7 +376,6 @@
   <a href="#calendar">📅 Calendar</a>
   <a href="#nj" class="nj">NJ</a>
   <a href="#adirondacks" class="adk">Adirondacks</a>
-  <a href="#lake-george" class="lg">Lake George</a>
   <a href="#finger-lakes" class="fl">Finger Lakes</a>
   <a href="#hudson" class="hv">Hudson Valley</a>
   <a href="#logistics">✅ Checklist</a>
@@ -391,7 +390,6 @@
     <h4>Legend</h4>
     <div class="leg-row"><div class="leg-dot" style="background:var(--nj)"></div> NJ / EWR</div>
     <div class="leg-row"><div class="leg-dot" style="background:var(--adirondacks)"></div> Adirondacks</div>
-    <div class="leg-row"><div class="leg-dot" style="background:var(--lake-george)"></div> Lake George</div>
     <div class="leg-row"><div class="leg-dot" style="background:var(--finger-lakes)"></div> Finger Lakes</div>
     <div class="leg-row"><div class="leg-dot" style="background:var(--hudson)"></div> Hudson Valley</div>
     <div class="leg-row"><div class="leg-dot" style="background:#64748b"></div> Activity stop</div>
@@ -983,7 +981,7 @@ window.addEventListener('load', function () {
   });
 
   // ── NAV ACTIVE STATE ──
-  const sections = ['map-section','calendar','nj','adirondacks','lake-george','finger-lakes','hudson','logistics'];
+  const sections = ['map-section','calendar','nj','adirondacks','finger-lakes','hudson','logistics'];
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {

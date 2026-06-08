@@ -6,7 +6,7 @@
 // ── TRIP SPAN ──────────────────────────────────────────────
 // Overall trip window (ISO dates). Drives the calendar view's
 // month range and the in-range day shading.
-const TRIP = { start: '2026-09-27', end: '2026-10-15' };
+const TRIP = { start: '2026-09-25', end: '2026-10-15' };
 
 // ── MAP ROUTE (lat/lng pairs) ──────────────────────────────
 const ROUTE = [
@@ -57,20 +57,21 @@ const ROUTE = [
 
 // ── MAP MARKERS ────────────────────────────────────────────
 const STOPS = [
-  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', main:true,  regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 9–15' },
-  { lat:43.0831, lng:-73.7846, label:'🏛', color:'#64748b', main:false, regionId:'adirondacks',   title:'Saratoga Springs (lunch stop)',     dates:'Sep 27' },
-  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', main:true,  regionId:'adirondacks',   title:'Lake Placid / Mirror Lake',        dates:'Sep 27 – Oct 2' },
-  { lat:43.4262, lng:-73.7123, label:'LG', color:'#0284C7', main:true,  regionId:'lake-george',   title:'Lake George Village',              dates:'Oct 2–4' },
-  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Watkins Glen State Park',          dates:'Oct 4–7' },
-  { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 6' },
-  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', main:true,  regionId:'hudson',        title:'New Paltz',                        dates:'Oct 7–9' },
-  { lat:44.3516, lng:-73.8587, label:'💧', color:'#64748b', main:false, regionId:'adirondacks',   title:'High Falls Gorge',                 dates:'Sep 29' },
-  { lat:44.3659, lng:-73.9026, label:'🏔', color:'#64748b', main:false, regionId:'adirondacks',   title:'Whiteface Veterans\' Memorial Highway', dates:'Oct 1' },
+  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', main:true,  regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 7–15' },
+  { lat:43.0831, lng:-73.7846, label:'🏛', color:'#64748b', main:false, regionId:'adirondacks',   title:'Saratoga Springs (lunch stop)',     dates:'Sep 25' },
+  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', main:true,  regionId:'adirondacks',   title:'Lake Placid / Mirror Lake',        dates:'Sep 25 – 30' },
+  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Watkins Glen State Park',          dates:'Sep 30 – Oct 4' },
+  { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Corning Museum of Glass',          dates:'Oct 1' },
+  { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 3' },
+  { lat:42.6958, lng:-74.3368, label:'HC', color:'#DC2626', main:true,  regionId:'hudson',        title:'Howe Caverns',                     dates:'Oct 4' },
+  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', main:true,  regionId:'hudson',        title:'New Paltz',                        dates:'Oct 4–7' },
+  { lat:44.3516, lng:-73.8587, label:'💧', color:'#64748b', main:false, regionId:'adirondacks',   title:'High Falls Gorge',                 dates:'Sep 28' },
+  { lat:44.3659, lng:-73.9026, label:'🏔', color:'#64748b', main:false, regionId:'adirondacks',   title:'Whiteface Veterans\' Memorial Highway', dates:'Sep 29' },
   { lat:44.2279, lng:-74.4644, label:'🦦', color:'#64748b', main:false, regionId:'adirondacks',   title:'The Wild Center, Tupper Lake',     dates:'Sep 30' },
-  { lat:43.4246, lng:-73.7532, label:'⛰', color:'#64748b', main:false, regionId:'lake-george',   title:'Prospect Mountain',                dates:'Oct 3' },
-  { lat:42.5386, lng:-76.6073, label:'💦', color:'#64748b', main:false, regionId:'finger-lakes',  title:'Taughannock Falls',                dates:'Oct 5/6' },
-  { lat:41.7350, lng:-74.2373, label:'🏞', color:'#64748b', main:false, regionId:'hudson',        title:'Minnewaska State Park',            dates:'Oct 8' },
-  { lat:41.7688, lng:-74.1567, label:'🏰', color:'#64748b', main:false, regionId:'hudson',        title:'Mohonk Preserve',                  dates:'Oct 8 (optional splurge)' },
+  { lat:42.5386, lng:-76.6073, label:'💦', color:'#64748b', main:false, regionId:'finger-lakes',  title:'Taughannock Falls',                dates:'Oct 3' },
+  { lat:41.7079, lng:-74.0110, label:'WH', color:'#DC2626', main:false, regionId:'hudson',        title:'Walkway Over the Hudson',          dates:'Oct 5' },
+  { lat:41.7350, lng:-74.2373, label:'🏞', color:'#64748b', main:false, regionId:'hudson',        title:'Minnewaska State Park',            dates:'Oct 5' },
+  { lat:41.7688, lng:-74.1567, label:'🏰', color:'#64748b', main:false, regionId:'hudson',        title:'Mohonk Preserve',                  dates:'Oct 5 (optional splurge)' },
 ];
 
 // ── REGIONS ────────────────────────────────────────────────
@@ -82,7 +83,7 @@ const REGIONS = [
     emoji: '🏠',
     title: 'NJ Family Base',
     colorVar: '--nj',
-    dates: 'Oct 9–15',
+    dates: 'Oct 7 – 15',
     weather: { name: 'Newark, NJ', lat: 40.7357, lon: -74.1724 },
     infoCard: {
       prefix: 'nj',
@@ -103,7 +104,7 @@ const REGIONS = [
     emoji: '🏔',
     title: 'Adirondacks · Lake Placid',
     colorVar: '--adirondacks',
-    dates: 'Sep 27 – Oct 2',
+    dates: 'Sep 25–30',
     weather: { name: 'Lake Placid, NY', lat: 44.2795, lon: -73.9799 },
     infoCard: {
       prefix: 'adk',
@@ -122,40 +123,14 @@ const REGIONS = [
         { icon:'🛍', name:'Main Street Shopping',         sub:'Galleries, outdoor gear, fudge shops, Olympic memorabilia stores. An easy 2-hour wander with something for everyone.' },
       ]
     },
-    days: ['d3', 'd_sep28', 'd4', 'd5', 'd_oct1', 'd6']
-  },
-  {
-    id: 'lake-george',
-    emoji: '🌊',
-    title: 'Lake George',
-    colorVar: '--lake-george',
-    dates: 'Oct 2–4',
-    weather: { name: 'Lake George, NY', lat: 43.4262, lon: -73.7123 },
-    infoCard: {
-      prefix: 'lg',
-      eat: [
-        { icon:'🏕', name:'Log Jam Restaurant',      badge:'rb-fine',   badgeLabel:'Fine',   sub:'1484 US-9 · #1 rated in the area. Adirondack lodge decor, cozy fireplaces, unlimited salad bar. Book ahead on weekends.', url:'https://www.logjamrestaurant.com/menus/' },
-        { icon:'🌊', name:'Algonquin Restaurant',    badge:'rb-fine',   badgeLabel:'Fine',   sub:'Bolton Landing (~20 min) · True lakeside dining, live deck music in season, handcrafted dishes &amp; sweeping water views.', url:'https://www.thealgonquin.com/algonquin-restaurant/' },
-        { icon:'🍝', name:'Mario\'s Restaurant',     badge:'rb-casual', badgeLabel:'Casual', sub:'Canada St · Authentic Italian: veal parm, fettuccine alfredo made fresh. Reliable family crowd-pleaser.', url:'https://marioslakegeorge.com/menu/' },
-        { icon:'🥞', name:'The Silo',                badge:'rb-casual', badgeLabel:'Casual', sub:'Queensbury (~10 min south) · Best breakfast in the region. Massive portions, signature apple cider donuts. Arrive early.', url:'https://thesiloqueensbury.com/home/silo_menu/' },
-        { icon:'🏰', name:'Shepard\'s',              badge:'rb-fine',   badgeLabel:'Fine',   sub:'Stone Queen Anne mansion, lakeside views. Great for a special dinner. Reserve ahead.', url:'https://www.erlowest.com/dining/shepards-at-erlowest/' },
-      ],
-      nohike: [
-        { icon:'🏰', name:'Fort William Henry Museum',  sub:'Canada St · Living history museum of the 1757 French &amp; Indian War siege. Guided tours, re-enactments, period artifacts.', url:'https://www.fwhmuseum.com/visit/tours-tickets/' },
-        { icon:'🍷', name:'Adirondack Winery',          sub:'In the Village · Wine tasting room with Adirondack-inspired labels. Easy walk from the waterfront. Pick a bottle for the evening.', url:'https://www.adirondackwinery.com/visit/' },
-        { icon:'🚢', name:'Lake George Boat Cruise',    sub:'Lake George Steamboat Co or Shoreline Cruises · See the fall foliage from the water. 1–2 hr tours depart from the village dock.', url:'https://lakegeorgesteamboat.com/' },
-        { icon:'🎨', name:'The Hyde Collection',        sub:'Glens Falls (~15 min) · World-class art in a 1912 historic home — Rembrandt, Picasso, Rubens. Free on Sundays.', url:'https://www.hydecollection.org/hours-admission/' },
-        { icon:'🛍', name:'Lake George Outlets',        sub:'Half-mile south of Village · 50+ stores (J.Crew, Coach, etc). Good backup for a rainy afternoon.' },
-      ]
-    },
-    days: ['d7', 'd8']
+    days: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6']
   },
   {
     id: 'finger-lakes',
     emoji: '🍷',
     title: 'Finger Lakes',
     colorVar: '--finger-lakes',
-    dates: 'Oct 4–7',
+    dates: 'Sep 30 – Oct 4',
     weather: { name: 'Watkins Glen, NY', lat: 42.3806, lon: -76.8733 },
     infoCard: {
       prefix: 'fl',
@@ -175,14 +150,14 @@ const REGIONS = [
         { icon:'🎭', name:'Hangar Theatre',                sub:'Ithaca · Professional regional theater in a converted 1940s airplane hangar. Check schedule for fall shows.' },
       ]
     },
-    days: ['d9', 'd10', 'd11']
+    days: ['d7', 'd8', 'd9', 'd10']
   },
   {
     id: 'hudson',
     emoji: '🍂',
     title: 'Hudson Valley · Catskills',
     colorVar: '--hudson',
-    dates: 'Oct 7–9',
+    dates: 'Oct 4 – Oct 7',
     weather: { name: 'New Paltz, NY', lat: 41.7476, lon: -74.0868 },
     infoCard: {
       prefix: 'hv',
@@ -201,7 +176,7 @@ const REGIONS = [
         { icon:'🎨', name:'Olana State Historic Site',         sub:'Hudson, ~1 hr north · Frederic Church\'s Persian-style mansion with jaw-dropping Hudson Valley panorama. Stunning in October foliage.' },
       ]
     },
-    days: ['d12', 'd13']
+    days: ['d11', 'd12', 'd13', 'd14']
   }
 ];
 
@@ -226,41 +201,52 @@ const REGIONS = [
 //     desc  — appended inline to title: "<strong>title</strong>desc"
 //     note  — rendered as a separate <p> below stats (no note → <br>)
 const DAYS = {
-  d3: {
-    date: '2026-09-27', title: 'Arrive EWR → Drive to Lake Placid (~5 hrs)',
+  d1: {
+    date: '2026-09-25', title: 'Arrive EWR → Lake Placid (~5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'activity', icon:'✈️', title:'Land at EWR', sub:'Pick up rental car at the EWR Rental Car Center — AirTrain to Terminal A, then walk the covered corridor to the rental building.' },
       { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular',
         route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Saratoga Springs, NY','Keene Valley, NY'] } },
-      { type:'activity', icon:'🎠', title:'Stop option A: Saratoga Springs (~3 hrs in)', sub:'Congress Park Carousel: $1/ride, kids under 5 free. Runs Sundays through Halloween — 27 Sep is a Sunday. Stroller-friendly park with duck pond. Lunch on Broadway Ave, Target nearby for supplies. Best family decompression stop before the mountains.' },
-      { type:'activity', icon:'🏛', title:'Saratoga indoor backup (weekdays)', tag:'optional', sub:'Children\'s Museum at Saratoga (65 S Broadway) — Tue–Sat 9am–4pm, Sun 1–4pm. $14/person, under 12 months free. Ages 0–10, dedicated infant/toddler zone. Good if weather is poor.' },
-      { type:'activity', icon:'🌊', title:'Stop option B: Lake George village (3.5 hrs in)', tag:'optional', sub:'More scenic than Saratoga. Shepard Park waterfront is free with a playground and foliage views. Minne Ha-Ha 1-hr paddlewheel cruise (~$17–26/adult, kids under 4 free) — book ahead, check October schedule. This is where the Adirondack feeling properly begins.' },
+      { type:'activity', icon:'🎠', title:'Stop option A: Saratoga Springs (~3 hrs in)', sub:'Congress Park Carousel: $1/ride, kids under 5 free. Runs weekends in fall — 25 Sep is a Friday, so the indoor Children\'s Museum (below) is the better Saratoga stop on arrival day. Stroller-friendly park with duck pond. Lunch on Broadway Ave, Target nearby for supplies. Best family decompression stop before the mountains.' },
+      { type:'activity', icon:'🏛', title:'Saratoga indoor backup', tag:'optional', sub:'Children\'s Museum at Saratoga (65 S Broadway) — Tue–Sat 9am–4pm, Sun 1–4pm. $14/person, under 12 months free. Ages 0–10, dedicated infant/toddler zone. Good arrival-day option (Fri) or if weather is poor.' },
+      { type:'activity', icon:'🌊', title:'Stop option B: Lake George village (3.5 hrs in)', tag:'optional', sub:'More scenic than Saratoga. Shepard Park waterfront is free with a playground and foliage views. Minne Ha-Ha 1-hr paddlewheel cruise (~$17–26/adult, kids under 4 free) — book ahead, check October schedule. This is where the Adirondack feeling properly begins. You can also come back here as a weekend excursion from the NJ base.' },
       { type:'activity', icon:'🍽', title:'Lunch stop: Noon Mark Diner, Keene Valley', tag:'optional', sub:'1770 NY-73, Keene Valley — daily 7am–4pm. Classic Adirondack diner since 1981. Homemade pies, locally sourced comfort food, high chairs. Perfect 30-min break right on the NY-73 mountain stretch into Lake Placid.' },
       { type:'activity', icon:'🏞', title:'Photo stop: Cascade Lakes pull-off (on NY-73)', sub:'Best zero-effort foliage stop on the entire drive. Twin alpine lakes with sheer cliffs reflecting fall colour. Free parking lot, picnic tables, 10–20 min. Fills early on fall weekends — stop on the way in, not the way back.' },
       { type:'activity', icon:'🏨', title:'Check in Lake Placid', sub:'Mirror Lake Inn or condo with kitchenette. Walk Mirror Lake in the evening — the Rt 73 stretch through Keene Valley is dramatic even at dusk.' },
     ]
   },
-  d_sep28: {
-    date: '2026-09-28', title: 'First morning in Lake Placid — soft settle-in day',
+  d2: {
+    date: '2026-09-26', title: 'Lake Placid easy day + race packet pickup',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
-      { type:'activity', icon:'☕', title:'Slow village morning', sub:'Origin Coffee Co. (2669 Main St) for specialty coffee and breakfast. No alarm — recovery day, especially if the Sep 27 drive was tiring.' },
-      { type:'activity', icon:'🚣', title:'Mirror Lake Boat Rentals', sub:'Pedal-boats and hydrobikes daily 10am–sunset through mid-October. No reservations. Calm flat water, perfect for small kids.', url:'https://www.mlboatrental.com/' },
-      { type:'activity', icon:'🌿', title:'Mirror Lake Loop walk', sub:'Easy flat shoreline loop, stroller-friendly. Beautiful late-September foliage right from the village. Good substitute if the boats don\'t interest the kids.' },
-      { type:'activity', icon:'🏘', title:'Day trip option: Saranac Lake (15 min)', tag:'optional', sub:'Calmer and less touristy than Lake Placid. Adirondack Carousel ($2.50/ride, Fri 12–5pm, Sat 10am–5pm, Sun 12–5pm) — 24 hand-carved wildlife figures, very popular with young kids. Lake Flower waterfront walk. Significantly cheaper dining and lodging than Lake Placid.' },
-      { type:'activity', icon:'🦋', title:'Paul Smith\'s VIC (20 min from Saranac Lake)', tag:'optional', sub:'Free trails, Tue–Sun 9am–5pm. One fully paved stroller/wheelchair-accessible mile with lookouts. Free butterfly house. Best zero-cost nature stop in the region if you want an easy walk.' },
+      { type:'activity', icon:'🌿', title:'Mirror Lake loop walk', sub:'Easy flat shoreline loop right from the village, stroller-friendly. Beautiful late-September foliage. Keep the day soft — the half marathon is tomorrow.' },
+      { type:'activity', icon:'🏆', title:'Olympic Village sites', sub:'Olympic Center and Museum (2634 Main St, 9:30am–5pm) plus the Olympic Jumping Complex. North America\'s 2nd-largest Winter Olympic collection and the 1980 "Miracle on Ice" rink. Great for all ages.', url:'https://lakeplacidolympicmuseum.org/visit/' },
+      { type:'activity', icon:'🛍', title:'Main Street wander', sub:'Galleries, outdoor gear, fudge shops and Olympic memorabilia. Easy 1–2 hour stroll with something for everyone. Grab coffee at Origin Coffee Co. (2669 Main St).' },
+      { type:'activity', icon:'🎽', title:'Adirondack Marathon Expo & Packet Pickup', sub:'Collect race bibs, timing chips and shirts at the official expo (Sat Sep 26). Confirm exact location and hours on the race site — pickup is also available race morning in Schroon Lake, but getting it done today keeps Sunday calm.', url:'https://www.adirondackmarathon.org/' },
+    ]
+  },
+  d3: {
+    date: '2026-09-27', title: 'Adirondack Half Marathon',
+    badge: 'hike', badgeLabel: 'Race',
+    content: [
+      { type:'drive', text:'~45 min drive south to the start · Schroon Lake · half marathon starts 9am — leave Lake Placid early',
+        route:{ from:'Lake Placid, NY', to:'Schroon Lake, NY' } },
+      { type:'activity', icon:'🏁', title:'Schroon Lake start', sub:'The Adirondack Half Marathon starts at 9am in the town of Schroon, on a scenic loop around Schroon Lake. Arrive with time to park, warm up and find the family cheering spot.', url:'https://www.adirondackmarathon.org/half-marathon' },
+      { type:'activity', icon:'🏃', title:'Half marathon', sub:'13.1 miles around Schroon Lake with rolling foliage views. Part of the Adirondack Marathon Distance Festival.', url:'https://www.adirondackmarathon.org/' },
+      { type:'activity', icon:'🍽', title:'Recovery lunch', sub:'Refuel in Schroon Lake or back in Lake Placid. Big Mountain Deli or Noon Mark Diner are easy, kid-friendly post-race options.' },
+      { type:'activity', icon:'🛋', title:'Easy afternoon', sub:'No agenda. Mirror Lake, an ice cream on Main Street, legs up. Save the bigger outings for the next two days.' },
     ]
   },
   d4: {
-    date: '2026-09-29', title: 'High Falls Gorge + Lake Placid village',
+    date: '2026-09-28', title: 'High Falls Gorge + Lake Placid village',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
       { type:'activity', icon:'💧', title:'High Falls Gorge', sub:'Short paid walk along AuSable River gorge. Easy Path is stroller-suitable; suspended walkways better with backpack carrier. ~45 min. Free parking.', url:'https://highfallsgorge.com/tickets/', urlLabel:'🎟 Tickets &amp; hours' },
-      { type:'hiketabs', prefix:'sep29', tabs:[
+      { type:'hiketabs', prefix:'sep28', tabs:[
         { id:'base', label:'Afternoon Trail', active:true,
           title:'Brewster Peninsula Loop',
-          note:'Short easy circuit near Lake Placid. Abandon early if kids flag.',
+          note:'Short easy circuit near Lake Placid. Abandon early if kids flag — recovery is still the priority the day after the race.',
           stats:['2.1 mi','~150 ft','Easy'],
           url:'https://www.alltrails.com/trail/us/new-york/brewster-peninsula-boundary-and-ridge-trail-loop' },
       ]},
@@ -268,6 +254,24 @@ const DAYS = {
     ]
   },
   d5: {
+    date: '2026-09-29', title: 'Whiteface Veterans\' Memorial Highway',
+    badge: 'hike', badgeLabel: 'Hike/Ride',
+    content: [
+      { type:'activity', icon:'🏔', title:'Whiteface Veterans\' Memorial Highway', sub:'Open through 12 Oct. Drive-up summit with the best foliage view in the Adirondacks. Summit is at least 10°F colder than the base — pack extra layers. Note: the gondola runs Fri–Sun only after 11 Sep; Sep 29 is a Tuesday, so the highway is the right call.', url:'https://lakeplacidlegacysites.com/todo/whiteface-veterans-memorial-highway/' },
+      { type:'activity', icon:'🏋', title:'Mt. Van Hoevenberg (backup)', tag:'rain plan', sub:'Indoor climbing wall or Legacy Tour if weather closes the summit. Good all-ages fallback.' },
+      { type:'hiketabs', prefix:'sep29', tabs:[
+        { id:'base',    label:'Base Hike', active:true,
+          title:'Mt. Baker Trail', desc:' — easy family loop near Lake Placid village.',
+          stats:['2.2 mi','~250 ft gain','Easy'],
+          url:'https://www.alltrails.com/trail/us/new-york/baker-mountain' },
+        { id:'upgrade', label:'Upgrade',
+          title:'Mt. Van Hoevenberg', desc:' — solid panorama, moderate switchbacks.',
+          stats:['5.2 mi','~1,200 ft gain','Moderate'],
+          url:'https://www.alltrails.com/trail/us/new-york/mt-van-hoevenberg' },
+      ]},
+    ]
+  },
+  d6: {
     date: '2026-09-30', title: 'Wild Center + Tupper Lake',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
@@ -284,58 +288,33 @@ const DAYS = {
       { type:'activity', icon:'🎠', title:'Adirondack Carousel, Saranac Lake', tag:'optional', sub:'Year-round family stop on the drive back. Hand-carved Adirondack wildlife carousel.' },
     ]
   },
-  d_oct1: {
-    date: '2026-10-01', title: 'Whiteface Veterans\' Memorial Highway',
-    badge: 'hike', badgeLabel: 'Hike/Ride',
-    content: [
-      { type:'activity', icon:'🏔', title:'Whiteface Veterans\' Memorial Highway', sub:'Open through 12 Oct. Drive-up summit with the best foliage view in the Adirondacks. Summit is at least 10°F colder than the base — pack extra layers. Note: the gondola runs Fri–Sun only after 11 Sep; Oct 1 is a Thursday, so the highway is the right call.', url:'https://lakeplacidlegacysites.com/todo/whiteface-veterans-memorial-highway/' },
-      { type:'activity', icon:'🏋', title:'Mt. Van Hoevenberg (backup)', tag:'rain plan', sub:'Indoor climbing wall or Legacy Tour if weather closes the summit. Good all-ages fallback.' },
-      { type:'hiketabs', prefix:'oct1', tabs:[
-        { id:'base',    label:'Base Hike', active:true,
-          title:'Mt. Baker Trail', desc:' — easy family loop near Lake Placid village.',
-          stats:['2.2 mi','~250 ft gain','Easy'],
-          url:'https://www.alltrails.com/trail/us/new-york/baker-mountain' },
-        { id:'upgrade', label:'Upgrade',
-          title:'Mt. Van Hoevenberg', desc:' — solid panorama, moderate switchbacks.',
-          stats:['5.2 mi','~1,200 ft gain','Moderate'],
-          url:'https://www.alltrails.com/trail/us/new-york/mt-van-hoevenberg' },
-      ]},
-    ]
-  },
-  d6: {
-    date: '2026-10-02', title: 'Drive Lake Placid → Lake George (~1.5 hrs)',
-    badge: 'drive', badgeLabel: 'Drive',
-    content: [
-      { type:'drive', text:'~70 miles · ~1.5 hrs · NY-73 E → I-87 S',
-        route:{ from:'Lake Placid, NY', to:'Lake George Village, NY' } },
-      { type:'activity', icon:'🏨', title:'Check in Lake George Village',    sub:'Fort William Henry Hotel or lakefront motel. Easy base for Prospect Mtn.' },
-      { type:'activity', icon:'🌊', title:'Lake George waterfront stroll',   sub:'Million Dollar Beach area, Canada St shops and ice cream.' },
-    ]
-  },
   d7: {
-    date: '2026-10-03', title: 'Prospect Mountain + Lake George village',
-    badge: 'explore', badgeLabel: 'Explore',
-    content: [
-      { type:'activity', icon:'🚗', title:'Prospect Mountain Veterans Memorial Highway', sub:'Drive-up summit (or hike if trail open). Sweeping 100-mile foliage view. Free to hike, small fee to drive.' },
-      { type:'activity', icon:'⛵', title:'Minne Ha-Ha paddlewheel cruise', tag:'optional', sub:'One-hour paddlewheel cruise on Lake George. Great for kids. Departs from the village dock.' },
-      { type:'activity', icon:'🌳', title:'Shepard Park waterfront', sub:'Free play at the village park. Beach access, benches, lawn space — easy afternoon wind-down.' },
-    ]
-  },
-  d8: {
-    date: '2026-10-04', title: 'Drive Lake George → Watkins Glen (~5 hrs)',
+    date: '2026-09-30', title: 'Drive Lake Placid → Watkins Glen (~4.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~217 miles · ~5h05–5h15 · I-87 S → I-90 W → I-88 S → NY-414 S · Treat as a full transfer day',
-        route:{ from:'Lake George, NY', to:'Watkins Glen, NY', via:['Albany, NY'] } },
-      { type:'activity', icon:'🛑', title:'Plan for one proper meal break', sub:'5+ hours with small children needs at least one structured rest stop — schedule by time, not by complaints.' },
+      { type:'drive', text:'~225 miles · ~4.5 hrs · I-87 S → I-90 W → I-86 W → NY-414 S · Treat as a full transfer day',
+        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Albany, NY','Syracuse, NY'] } },
+      { type:'activity', icon:'🛑', title:'Plan for one proper meal break', sub:'4.5+ hours with small children needs at least one structured rest stop — schedule by time, not by complaints.' },
       { type:'activity', icon:'🏨', title:'Check in near Watkins Glen', sub:'Seneca Lodge (kitchenette cabins next to gorge entrance) or lakeside inn. If late arrival, skip the lakefront walk and take an early dinner.' },
     ]
   },
+  d8: {
+    date: '2026-10-01', title: 'Corning Museum of Glass',
+    badge: 'explore', badgeLabel: 'Must-do',
+    content: [
+      { type:'drive', text:'~45 min south from Watkins Glen · easy day trip',
+        route:{ from:'Watkins Glen, NY', to:'Corning Museum of Glass, Corning, NY' } },
+      { type:'activity', icon:'🔬', title:'Corning Museum of Glass', sub:'$25/adult, kids under 17 free. Open 9am–5pm daily. One of the best museums in the US — easily fills 3+ hours. Fully indoor, so it is the region\'s best rain-proof day.', url:'https://home.cmog.org/visit' },
+      { type:'activity', icon:'🔥', title:'Live glassblowing demos', sub:'Hot Shop demonstrations run throughout the day in the amphitheater. Watch molten glass shaped in real time — captivating for all ages.' },
+      { type:'activity', icon:'🎨', title:'Make-your-own glass', sub:'Make Your Own Glass experiences (ornament, flower, pendant) — small extra fee, often timed-entry. Book on arrival or online to lock a slot.' },
+      { type:'activity', icon:'🖼', title:'Museum galleries', sub:'35 centuries of glass art and a hands-on innovation center. Café on site for lunch. Rain-proof — keep this in your back pocket if a gorge day gets washed out.' },
+    ]
+  },
   d9: {
-    date: '2026-10-05', title: 'Watkins Glen Gorge Trail',
+    date: '2026-10-02', title: 'Watkins Glen Gorge Trail',
     badge: 'hike', badgeLabel: 'Hike',
     content: [
-      { type:'activity', icon:'🏞', title:'Watkins Glen Gorge Trail', sub:'800 stone steps, 19 waterfalls, dramatic gorge walls. The best gorge hike in NY. Arrive early — gets busy. Note: the park shuttle runs weekends only after Sep 8 — Oct 5 is a Monday so no shuttle. Plan an out-and-back, not a full loop.', url:'https://parks.ny.gov/visit/state-parks/watkins-glen-state-park' },
+      { type:'activity', icon:'🏞', title:'Watkins Glen Gorge Trail', sub:'800 stone steps, 19 waterfalls, dramatic gorge walls. The best gorge hike in NY. Arrive early — gets busy. Note: the park shuttle runs weekends only after Sep 8 — Oct 2 is a Friday so no shuttle. Plan an out-and-back, not a full loop.', url:'https://parks.ny.gov/visit/state-parks/watkins-glen-state-park' },
       { type:'hiketabs', prefix:'wg', tabs:[
         { id:'base',    label:'Base',    active:true,
           title:'Gorge Trail out-and-back',
@@ -351,7 +330,7 @@ const DAYS = {
     ]
   },
   d10: {
-    date: '2026-10-06', title: 'Taughannock Falls + Ithaca',
+    date: '2026-10-03', title: 'Taughannock Falls + Ithaca',
     badge: 'hike', badgeLabel: 'Hike',
     content: [
       { type:'activity', icon:'💧', title:'Taughannock Falls State Park',
@@ -363,17 +342,18 @@ const DAYS = {
     ]
   },
   d11: {
-    date: '2026-10-07', title: 'Drive Finger Lakes → New Paltz (~3 hrs)',
+    date: '2026-10-04', title: 'Howe Caverns → New Paltz (~4 hrs total)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~200 miles · ~3 hrs · I-86 E → NY-17 → I-87 S → Exit 18',
-        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Mount Tremper, NY (Route 28 Catskills)'] } },
-      { type:'activity', icon:'🛑', title:'Catskill Mountains scenic drive', sub:'Route 28 through the Catskills is stunning in October. Add 30 min but worth it.' },
-      { type:'activity', icon:'🏨', title:'Check in New Paltz',              sub:'Village is walkable. Minnewaska accessible by 15-min drive. Mohonk nearby.' },
+      { type:'drive', text:'Finger Lakes → Howe Caverns → New Paltz · ~3 hrs to the caverns, ~1.5 hrs on to New Paltz · I-86 E → I-88 E → I-87 S',
+        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Howe Caverns, Howes Cave, NY'] } },
+      { type:'activity', icon:'🕳', title:'Howe Caverns cave tour', sub:'156 feet underground, 52°F year-round — bring a layer. The classic 1.5-hr guided Traditional Tour walks paved, lit paths through the caverns. Fully rain-proof. Book ahead on a Columbus Day weekend Saturday.', url:'https://howecaverns.com/' },
+      { type:'activity', icon:'🚣', title:'Underground boat ride', sub:'The tour ends with a quiet boat ride across the Lake of Venus on the underground river — a hit with kids.' },
+      { type:'activity', icon:'🏨', title:'Continue to New Paltz', sub:'~1.5 hrs on to New Paltz. Village is walkable; Minnewaska is a 15-min drive and Mohonk is nearby. Check in and take an easy dinner on Main Street.' },
     ]
   },
   d12: {
-    date: '2026-10-08', title: 'Minnewaska State Park · Shawangunk Ridge',
+    date: '2026-10-05', title: 'Minnewaska State Park · Shawangunk Ridge',
     badge: 'hike', badgeLabel: 'Hike',
     content: [
       { type:'activity', icon:'🏔', title:'Minnewaska State Park Preserve', sub:'Sky Lakes, white conglomerate cliffs, incredible foliage. Reserve parking online in advance — fills up fast on weekends.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
@@ -389,18 +369,26 @@ const DAYS = {
           stats:['8 mi','~900 ft','Moderate'],
           url:'https://www.alltrails.com/trail/us/new-york/lake-awosting-via-reserve-access-and-purple-loop' },
       ]},
-      { type:'activity', icon:'🌉', title:'Walkway Over the Hudson', sub:'Highland, ~20 min from New Paltz · Free, open 7am–sunset. 1.28 miles gate-to-gate, 212 ft above the Hudson River. Fully fenced — excellent with small children. The best dramatic Hudson Valley view without any trail difficulty. Easy 5.1 km out-and-back.', url:'https://walkway.org/visit/' },
       { type:'activity', icon:'🏰', title:'Mohonk Preserve / Mountain House', tag:'splurge', style:'margin-top:10px',
         sub:'Spectacular Victorian castle resort. Day hiker fee ~$30/person. Worth it if budget allows.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
     ]
   },
   d13: {
-    date: '2026-10-09', title: 'Drive New Paltz → NJ (~1.5 hrs)',
+    date: '2026-10-06', title: 'Walkway Over the Hudson + apple orchard',
+    badge: 'explore', badgeLabel: 'Explore',
+    content: [
+      { type:'activity', icon:'🌉', title:'Walkway Over the Hudson', sub:'Highland, ~20 min from New Paltz · Free, open 7am–sunset. 1.28 miles gate-to-gate, 212 ft above the Hudson River. Fully fenced — excellent with small children. The best dramatic Hudson Valley view without any trail difficulty. Easy 5.1 km out-and-back.', url:'https://walkway.org/visit/' },
+      { type:'activity', icon:'🍎', title:'Apple orchard — Masker Orchards', sub:'Warwick, ~50 min · Classic pick-your-own with hayride access to the rows. Big, festive, very kid-friendly in peak October apple season.', url:'https://www.maskers.com/' },
+      { type:'activity', icon:'🍏', title:'Alternative: Fishkill Farms', tag:'optional', sub:'Hopewell Junction, ~35 min · Smaller, more curated pick-your-own with apples, cider donuts and a farm store. Good rainy-weekend backup to Masker.', url:'https://www.fishkillfarms.com/' },
+    ]
+  },
+  d14: {
+    date: '2026-10-07', title: 'Drive New Paltz → NJ (~1.5 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'drive', text:'~90 miles · ~1.5 hrs · I-87 S → I-287 W',
         route:{ from:'New Paltz, NY', to:'Newark, NJ' } },
-      { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 9–15 wind-down, family time, EWR departure.' },
+      { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 7–15 wind-down and family time. A Lake George reunion weekend (~Oct 10–12) makes an easy excursion from here before the EWR departure.' },
     ]
   },
 };
@@ -448,10 +436,10 @@ const RESOURCES = {
       icon: '🏨',
       title: 'Hotels & Stays',
       items: [
-        { label: 'Lake Placid — Mirror Lake Inn or Main St motel', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 27 – Oct 2', reservation_deadline: '2026-07-01', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
-        { label: 'Lake George — lakefront hotel (Columbus Day weekend!)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 2 – Oct 4', reservation_deadline: '2026-07-15' },
-        { label: 'Watkins Glen — Seneca Lodge or lakeside inn', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 4 – Oct 7', reservation_deadline: '2026-08-01' },
-        { label: 'New Paltz — village hotel / B&B', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 7 – Oct 9', reservation_deadline: '2026-08-01' },
+        { label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', reservation_deadline: '2026-07-01', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
+        { label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (4 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 4', reservation_deadline: '2026-08-01' },
+        { label: 'Hudson Valley — New Paltz village hotel / B&B (3 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 4 – Oct 7', reservation_deadline: '2026-08-01' },
+        { label: 'NJ — family base (no booking needed)', type: 'info', priority: 'recommended', status: 'done', dates: 'Oct 7 – Oct 15' },
         { label: 'NY State Campgrounds — Reserve America', type: 'booking', priority: 'optional', status: 'pending', url: 'https://newyorkstateparks.reserveamerica.com/' },
         { label: 'Ausable Chasm Campground (optional base camp)', type: 'booking', priority: 'optional', status: 'pending', url: 'https://www.ausablechasm.com/ausable-chasm-campground' },
       ]
@@ -473,6 +461,9 @@ const RESOURCES = {
       icon: '🎟',
       title: 'Reservations & Attractions',
       items: [
+        { label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/', notes: 'Sun Sep 27 · Schroon Lake · expo & packet pickup Sat Sep 26' },
+        { label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
+        { label: 'Howe Caverns Tour', type: 'booking', priority: 'critical', status: 'pending', url: 'https://howecaverns.com/', notes: 'Oct 4 · cave tour + boat ride en route to New Paltz' },
         { label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Fills fast on Oct weekends' },
         { label: 'Ausable Chasm — hours & rates', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.ausablechasm.com/hours-rates' },
         { label: 'Whiteface Mountain Gondola', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://whiteface.com/', notes: 'Gondola Fri–Sun only after Sep 11' },
