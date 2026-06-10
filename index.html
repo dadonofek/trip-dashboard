@@ -229,8 +229,6 @@
 
   /* ── RESOURCES (trip operations center) ── */
   #logistics { max-width: 760px; margin: 0 auto; padding: 0 16px 64px; }
-  .res-legend { font-size: 11px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
-  .res-legend-item { display: flex; align-items: center; gap: 4px; }
   .res-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
   .res-section-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px 10px; border-bottom: 1px solid var(--border); }
   .res-section-header h3 { font-size: 14px; font-weight: 700; flex: 1; }
@@ -246,21 +244,41 @@
   .pri-critical    { background: #ef4444; }
   .pri-recommended { background: #f59e0b; }
   .pri-optional    { background: #475569; }
-  /* Status chip — click to cycle pending → reserved → done */
-  .status-chip { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 99px; cursor: pointer; border: none; white-space: nowrap; transition: background .15s, color .15s; -webkit-tap-highlight-color: transparent; min-height: 26px; display: inline-flex; align-items: center; }
-  .status-pending  { background: rgba(100,116,139,0.2); color: #94a3b8; }
-  .status-reserved { background: rgba(245,158,11,0.2);  color: #fcd34d; }
-  .status-done     { background: rgba(16,185,129,0.2);  color: #6ee7b7; }
+  /* One-tap done checkbox */
+  .task-check {
+    width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+    border: 2px solid var(--border); background: transparent; color: transparent;
+    font-size: 16px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .15s, border-color .15s; -webkit-tap-highlight-color: transparent;
+  }
+  .task-check.done { background: #059669; border-color: #059669; color: #fff; }
+  .task-label-done .res-item-label { text-decoration: line-through; color: var(--muted); }
+  /* Progress bar */
+  .res-progress { margin: 4px 0 12px; }
+  .res-progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+  .res-progress-bar  { height: 8px; border-radius: 99px; background: rgba(148,163,184,0.15); overflow: hidden; }
+  .res-progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #059669, #10b981); transition: width .3s; }
+  /* To do / Done / All filter pills */
+  .res-filters { display: flex; gap: 8px; margin-bottom: 14px; }
+  .res-filter {
+    font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 99px;
+    border: 1px solid var(--border); background: transparent; color: var(--muted);
+    cursor: pointer; min-height: 34px; -webkit-tap-highlight-color: transparent;
+    transition: background .15s, color .15s;
+  }
+  .res-filter.active { background: var(--card2); color: var(--text); border-color: var(--muted); }
+  .res-count { font-size: 11px; color: var(--muted); font-weight: 600; }
+  .res-empty { text-align: center; color: var(--muted); padding: 28px 16px; font-size: 13px; }
+  /* Compact quick-links row (foliage etc.) */
+  .quick-links { font-size: 12px; color: var(--muted); margin: 0 0 12px; line-height: 1.8; }
+  .quick-links a { color: #fcd34d; }
   /* Action buttons */
   .res-btn { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background .15s; -webkit-tap-highlight-color: transparent; display: inline-flex; align-items: center; gap: 3px; border: 1px solid; min-height: 26px; }
   .res-btn-booking { background: rgba(5,150,105,0.15);  border-color: rgba(5,150,105,0.4);  color: #6ee7b7; }
   .res-btn-booking:hover { background: rgba(5,150,105,0.28); }
   .res-btn-info    { background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4); color: #a5b4fc; }
   .res-btn-info:hover { background: rgba(99,102,241,0.28); }
-  .res-btn-map     { background: rgba(6,182,212,0.15);  border-color: rgba(6,182,212,0.4);  color: #67e8f9; }
-  .res-btn-map:hover { background: rgba(6,182,212,0.28); }
-  .res-btn-weather { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #93c5fd; }
-  .res-btn-weather:hover { background: rgba(59,130,246,0.28); }
   .res-btn-guide   { background: rgba(100,116,139,0.15); border-color: rgba(100,116,139,0.4); color: #94a3b8; }
   .res-btn-guide:hover { background: rgba(100,116,139,0.28); }
   /* Booking reference — confirmation text + link, saved per task */
@@ -338,15 +356,24 @@
     border: 3px solid rgba(255,255,255,0.9);
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
-  .marker-opt {
-    width: 24px; height: 24px; border-radius: 50%;
+  .marker-poi {
+    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px;
-    border: 2px solid rgba(255,255,255,0.7);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    background: #334155;
-    color: #e2e8f0;
+    border: 2px solid rgba(255,255,255,0.8);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+    background: #334155; color: #e2e8f0;
   }
+  .marker-poi.activity { background: #475569; }
+  .marker-poi.hike     { background: #4d7c0f; }
+  .marker-poi.scenic   { background: #047857; }
+  .marker-poi.food     { background: #b45309; }
+  /* popup "Open in Google Maps" button */
+  .popup-gmaps {
+    display: inline-block; margin-top: 8px; padding: 5px 10px; border-radius: 6px;
+    background: #1d4ed8; color: #fff !important; font-size: 12px; font-weight: 600;
+    text-decoration: none;
+  }
+  .popup-site { display: inline-block; margin-top: 8px; margin-left: 6px; font-size: 12px; font-weight: 600; color: #1d4ed8; text-decoration: none; }
 
   /* ── ACTION BUTTONS (Google Maps links etc.) ── */
   .nav-btn {
@@ -366,7 +393,7 @@
 </style>
 <!-- ?v= cache-buster: bump this whenever trip-data.js changes so browsers
      (notably iOS Safari on GitHub Pages) fetch the fresh data file -->
-<script src="trip-data.js?v=20260607"></script>
+<script src="trip-data.js?v=20260610"></script>
 </head>
 <body>
 
@@ -392,7 +419,8 @@
     <div class="leg-row"><div class="leg-dot" style="background:var(--adirondacks)"></div> Adirondacks</div>
     <div class="leg-row"><div class="leg-dot" style="background:var(--finger-lakes)"></div> Finger Lakes</div>
     <div class="leg-row"><div class="leg-dot" style="background:var(--hudson)"></div> Hudson Valley</div>
-    <div class="leg-row"><div class="leg-dot" style="background:#64748b"></div> Activity stop</div>
+    <div class="leg-row"><div class="leg-dot" style="background:#475569"></div> Activities <span style="color:var(--muted)">(zoom in)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#b45309"></div> Food <span style="color:var(--muted)">(zoom in more)</span></div>
   </div>
   <div class="scroll-hint" onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'})">
     📅 See day-by-day ↓
@@ -632,10 +660,10 @@ function goToDay(id) {
 }
 
 // ── TASK STATE (localStorage) ──────────────────────────────
-// Status changes and booking references survive a page reload by
-// living in localStorage. State is keyed by "<sectionId>-<index>"
-// so it stays valid as long as the RESOURCES item order is stable.
-const TASK_STORE_KEY = 'trip-dashboard-tasks-v1';
+// Done-state and booking references survive a page reload by living
+// in localStorage, keyed by each item's stable `key` from trip-data.js.
+// (v2: simplified pending/reserved/done cycle to a one-tap done toggle.)
+const TASK_STORE_KEY = 'trip-dashboard-tasks-v2';
 function loadTaskState() {
   try { return JSON.parse(localStorage.getItem(TASK_STORE_KEY)) || {}; }
   catch (e) { console.warn('Could not read saved tasks:', e); return {}; }
@@ -664,16 +692,10 @@ function decodeEntities(s) {
     .replace(/&#39;/g, "'").replace(/&quot;/g, '"');
 }
 
-const STATUS_LABELS = { pending: '⬜ Pending', reserved: '🟨 Reserved', done: '🟩 Done' };
-const STATUS_CYCLE  = { pending: 'reserved', reserved: 'done', done: 'pending' };
-
 const TYPE_BTN = {
-  booking:      ['📅 Book',       'res-btn-booking'],
-  info:         ['ℹ Info',        'res-btn-info'],
-  'live-map':   ['🗺 Map',        'res-btn-map'],
-  'live-weather':['🌤 Weather',   'res-btn-weather'],
-  forecast:     ['📊 Forecast',   'res-btn-map'],
-  todo:         ['↗ Guide',       'res-btn-guide'],
+  booking: ['📅 Book', 'res-btn-booking'],
+  info:    ['ℹ Info',  'res-btn-info'],
+  todo:    ['↗ Guide', 'res-btn-guide'],
 };
 
 function getResBtn(item) {
@@ -682,11 +704,20 @@ function getResBtn(item) {
   return `<a class="res-btn ${cls}" href="${item.url}" target="_blank" rel="noopener">${label}</a>`;
 }
 
-function renderResItem(item, sectionId, i) {
-  const key      = `${sectionId}-${i}`;
+function taskKey(section, item, i) { return item.key || `${section.id}-${i}`; }
+function isTaskDone(item, key) {
+  const st = TASK_STATE[key];
+  if (st && typeof st.done === 'boolean') return st.done;
+  return item.status === 'done';
+}
+
+// 'open' (default) hides finished tasks so the list stays short.
+let RES_FILTER = 'open';
+function setResFilter(f) { RES_FILTER = f; renderResources(); }
+
+function renderResItem(item, key, done) {
   const saved    = TASK_STATE[key] || {};
   const priClass = `pri-${item.priority || 'optional'}`;
-  const status   = saved.status || item.status || 'pending';
   const subParts = [item.dates, item.notes];
   if (item.reservation_deadline) subParts.push(`⚠️ Book by ${item.reservation_deadline}`);
   const sub = subParts.filter(Boolean).join(' · ');
@@ -700,8 +731,10 @@ function renderResItem(item, sectionId, i) {
       `${refLink ? ` <a href="${escapeHtml(refLink)}" target="_blank" rel="noopener">open ↗</a>` : ''}</div>`
     : '';
 
-  return `<div class="res-item">
+  return `<div class="res-item${done ? ' task-label-done' : ''}">
     <div class="res-item-left">
+      <button class="task-check${done ? ' done' : ''}" title="Mark ${done ? 'not done' : 'done'}"
+        onclick="toggleDone('${key}', ${done ? 'false' : 'true'})">✓</button>
       <div class="pri-dot ${priClass}"></div>
       <div>
         <div class="res-item-label">${item.label}</div>
@@ -713,8 +746,6 @@ function renderResItem(item, sectionId, i) {
       ${getResBtn(item)}
       <button class="res-ref-btn${hasRef ? ' has-ref' : ''}" title="Booking reference / confirmation"
         onclick="toggleRef('${key}')">📎</button>
-      <button class="status-chip status-${status}" data-status="${status}" data-key="${key}"
-        onclick="cycleStatus(this)">${STATUS_LABELS[status]}</button>
     </div>
     <div class="res-ref-editor" id="refedit-${key}" hidden>
       <input class="res-ref-input" id="refnote-${key}" placeholder="Confirmation # / notes"
@@ -730,12 +761,21 @@ function renderResItem(item, sectionId, i) {
 }
 
 function renderResSection(section) {
+  const states = section.items.map((item, i) => {
+    const key = taskKey(section, item, i);
+    return { item, key, done: isTaskDone(item, key) };
+  });
+  const doneCount = states.filter(s => s.done).length;
+  const visible = states.filter(s =>
+    RES_FILTER === 'all' || (RES_FILTER === 'open' ? !s.done : s.done));
+  if (!visible.length) return '';
   const intro = section.intro ? `<div class="res-intro">${section.intro}</div>` : '';
-  const items = section.items.map((item, i) => renderResItem(item, section.id, i)).join('');
+  const items = visible.map(s => renderResItem(s.item, s.key, s.done)).join('');
   return `<div class="res-section">
     <div class="res-section-header">
       <span style="font-size:20px">${section.icon}</span>
       <h3>${section.title}</h3>
+      <span class="res-count">${doneCount}/${section.items.length} done</span>
     </div>
     ${intro}
     ${items}
@@ -743,20 +783,36 @@ function renderResSection(section) {
 }
 
 function renderResources() {
+  let total = 0, doneTotal = 0;
+  RESOURCES.sections.forEach(sec => sec.items.forEach((item, i) => {
+    total++;
+    if (isTaskDone(item, taskKey(sec, item, i))) doneTotal++;
+  }));
+  const pct = total ? Math.round(doneTotal / total * 100) : 0;
+  const filters = [['open', 'To do'], ['done', 'Done'], ['all', 'All']].map(([f, label]) =>
+    `<button class="res-filter${RES_FILTER === f ? ' active' : ''}" onclick="setResFilter('${f}')">${label}</button>`
+  ).join('');
+  const foliage = (typeof FOLIAGE_LINKS !== 'undefined' && FOLIAGE_LINKS.length)
+    ? `<div class="quick-links">🍂 Foliage check: ` + FOLIAGE_LINKS.map(l =>
+        `<a href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`).join(' · ') + `</div>`
+    : '';
   const sections = RESOURCES.sections.map(renderResSection).join('');
+  const empty = sections
+    ? ''
+    : `<div class="res-empty">${RES_FILTER === 'open' ? 'All tasks done 🎉' : 'Nothing here yet'}</div>`;
   document.getElementById('logistics').innerHTML = `
     <div class="region-header" style="border-color:var(--border); padding-top:8px">
       <span style="font-size:24px">✅</span>
-      <h2>Trip Operations Center</h2>
+      <h2>Trip Checklist</h2>
       <button class="res-export" onclick="exportTasks()">⬇ Export tasks</button>
     </div>
-    <div class="res-legend">
-      <span class="res-legend-item"><span class="pri-dot pri-critical" style="display:inline-block"></span> Critical</span>
-      <span class="res-legend-item"><span class="pri-dot pri-recommended" style="display:inline-block"></span> Recommended</span>
-      <span class="res-legend-item"><span class="pri-dot pri-optional" style="display:inline-block"></span> Optional</span>
-      <span style="color:#475569">· tap status chip to update</span>
+    ${foliage}
+    <div class="res-progress">
+      <div class="res-progress-label"><span>${doneTotal} of ${total} done</span><span>${pct}%</span></div>
+      <div class="res-progress-bar"><div class="res-progress-fill" style="width:${pct}%"></div></div>
     </div>
-    ${sections}`;
+    <div class="res-filters">${filters}</div>
+    ${sections}${empty}`;
 }
 
 // Run a render step in isolation — a failure in one section must never
@@ -838,18 +894,12 @@ function hikeTab(prefix, tab) {
   });
 }
 
-function cycleStatus(chip) {
-  const next = STATUS_CYCLE[chip.dataset.status];
-  chip.dataset.status = next;
-  chip.className = `status-chip status-${next}`;
-  chip.textContent = STATUS_LABELS[next];
-  const key = chip.dataset.key;
-  if (!key) return;
+function toggleDone(key, done) {
   const st = TASK_STATE[key] || {};
-  st.status = next;
-  if (next === 'pending' && !st.refNote && !st.refUrl) delete TASK_STATE[key];
-  else TASK_STATE[key] = st;
+  st.done = done;
+  TASK_STATE[key] = st;
   saveTaskState();
+  renderResources();
 }
 
 // Show/hide the inline reference editor for a task.
@@ -865,7 +915,7 @@ function saveRef(key) {
   const st = TASK_STATE[key] || {};
   if (note) st.refNote = note; else delete st.refNote;
   if (url)  st.refUrl  = url;  else delete st.refUrl;
-  if (!st.refNote && !st.refUrl && (!st.status || st.status === 'pending')) delete TASK_STATE[key];
+  if (!st.refNote && !st.refUrl && typeof st.done !== 'boolean') delete TASK_STATE[key];
   else TASK_STATE[key] = st;
   saveTaskState();
   renderResources();
@@ -875,7 +925,7 @@ function clearRef(key) {
   const st = TASK_STATE[key];
   if (st) {
     delete st.refNote; delete st.refUrl;
-    if (!st.status || st.status === 'pending') delete TASK_STATE[key];
+    if (typeof st.done !== 'boolean') delete TASK_STATE[key];
   }
   saveTaskState();
   renderResources();
@@ -887,11 +937,12 @@ function exportTasks() {
   const tasks = [];
   RESOURCES.sections.forEach(sec => {
     sec.items.forEach((item, i) => {
-      const st = TASK_STATE[`${sec.id}-${i}`] || {};
+      const key = taskKey(sec, item, i);
+      const st = TASK_STATE[key] || {};
       tasks.push({
         section: decodeEntities(sec.title),
         task: decodeEntities(item.label),
-        status: st.status || item.status || 'pending',
+        status: isTaskDone(item, key) ? 'done' : 'pending',
         reference: st.refNote || item.refNote || '',
         link: st.refUrl || item.refUrl || ''
       });
@@ -960,25 +1011,56 @@ window.addEventListener('load', function () {
   // ── ROUTE & MARKERS (from trip-data.js) ──
   L.polyline(ROUTE, { color:'#1E40AF', weight:4, opacity:0.85, smoothFactor:1 }).addTo(map);
 
+  // Every popup gets a one-tap handoff into the native Google Maps app.
+  function gmapsSearchBtn(query) {
+    const url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query);
+    return `<a class="popup-gmaps" href="${url}" target="_blank" rel="noopener">🧭 Google Maps</a>`;
+  }
+
+  // Main trip stops — always visible, give the zoomed-out overview.
   STOPS.forEach(s => {
-    const iconHtml = s.main
-      ? `<div class="marker-main" style="background:${s.color}">${s.label}</div>`
-      : `<div class="marker-opt">${s.label}</div>`;
     const icon = L.divIcon({
-      html: iconHtml, className: '',
-      iconSize:   s.main ? [34,34] : [24,24],
-      iconAnchor: s.main ? [17,17] : [12,12],
-      popupAnchor: [0, s.main ? -20 : -15]
+      html: `<div class="marker-main" style="background:${s.color}">${s.label}</div>`,
+      className: '', iconSize: [34,34], iconAnchor: [17,17], popupAnchor: [0,-20]
     });
     L.marker([s.lat, s.lng], { icon })
       .addTo(map)
       .bindPopup(`
-        <div style="font-family:-apple-system,sans-serif;min-width:140px">
+        <div style="font-family:-apple-system,sans-serif;min-width:160px">
           <div style="font-weight:700;font-size:14px;color:#1e293b;margin-bottom:4px">${s.title}</div>
-          <div style="font-size:12px;color:#64748b;margin-bottom:${s.regionId ? 8 : 0}px">${s.dates}</div>
-          ${s.regionId ? `<a href="#${s.regionId}" onclick="document.getElementById('${s.regionId}').scrollIntoView({behavior:'smooth'});return false;" style="display:inline-block;font-size:12px;font-weight:600;color:#1d4ed8;text-decoration:none">View section ↓</a>` : ''}
+          <div style="font-size:12px;color:#64748b">${s.dates}</div>
+          ${gmapsSearchBtn(s.title)}
+          ${s.regionId ? `<a class="popup-site" href="#${s.regionId}" onclick="document.getElementById('${s.regionId}').scrollIntoView({behavior:'smooth'});return false;">Plan ↓</a>` : ''}
         </div>`);
   });
+
+  // POIs — tiered by zoom so detail never hides the overview:
+  // tier 2 (activities, hikes, optional stops) from zoom 9,
+  // tier 3 (restaurants, in-town spots) from zoom 11.
+  function poiMarker(p) {
+    const size = p.tier === 2 ? 26 : 22;
+    const icon = L.divIcon({
+      html: `<div class="marker-poi ${p.cat}" style="width:${size}px;height:${size}px;font-size:${size - 13}px">${p.icon}</div>`,
+      className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-size/2-3]
+    });
+    return L.marker([p.lat, p.lng], { icon }).bindPopup(`
+      <div style="font-family:-apple-system,sans-serif;min-width:170px;max-width:230px">
+        <div style="font-weight:700;font-size:14px;color:#1e293b;margin-bottom:2px">${p.icon} ${p.name}</div>
+        <div style="font-size:11px;color:#94a3b8;margin-bottom:4px">${p.area}</div>
+        ${p.sub ? `<div style="font-size:12px;color:#475569;line-height:1.4">${p.sub}</div>` : ''}
+        ${gmapsSearchBtn(p.gq || (p.name + ', ' + p.area))}
+        ${p.url ? `<a class="popup-site" href="${p.url}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+      </div>`);
+  }
+  const tier2Layer = L.layerGroup(POIS.filter(p => p.tier === 2).map(poiMarker));
+  const tier3Layer = L.layerGroup(POIS.filter(p => p.tier === 3).map(poiMarker));
+  function updatePoiLayers() {
+    const z = map.getZoom();
+    if (z >= 9)  map.addLayer(tier2Layer); else map.removeLayer(tier2Layer);
+    if (z >= 11) map.addLayer(tier3Layer); else map.removeLayer(tier3Layer);
+  }
+  map.on('zoomend', updatePoiLayers);
+  updatePoiLayers();
 
   // ── NAV ACTIVE STATE ──
   const sections = ['map-section','calendar','nj','adirondacks','finger-lakes','hudson','logistics'];

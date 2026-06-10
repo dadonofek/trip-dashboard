@@ -55,23 +55,93 @@ const ROUTE = [
   [40.6895,-74.1745]  // ★ EWR / NJ end
 ];
 
-// ── MAP MARKERS ────────────────────────────────────────────
+// ── MAP MARKERS — MAIN STOPS ───────────────────────────────
+// Always visible at any zoom: the trip's anchor locations.
 const STOPS = [
-  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', main:true,  regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 7–15' },
-  { lat:43.0831, lng:-73.7846, label:'🏛', color:'#64748b', main:false, regionId:'adirondacks',   title:'Saratoga Springs (lunch stop)',     dates:'Sep 25' },
-  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', main:true,  regionId:'adirondacks',   title:'Lake Placid / Mirror Lake',        dates:'Sep 25 – 30' },
-  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Watkins Glen State Park',          dates:'Sep 30 – Oct 4' },
-  { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Corning Museum of Glass',          dates:'Oct 1' },
-  { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', main:true,  regionId:'finger-lakes',  title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 3' },
-  { lat:42.6958, lng:-74.3368, label:'HC', color:'#DC2626', main:true,  regionId:'hudson',        title:'Howe Caverns',                     dates:'Oct 4' },
-  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', main:true,  regionId:'hudson',        title:'New Paltz',                        dates:'Oct 4–7' },
-  { lat:44.3516, lng:-73.8587, label:'💧', color:'#64748b', main:false, regionId:'adirondacks',   title:'High Falls Gorge',                 dates:'Sep 28' },
-  { lat:44.3659, lng:-73.9026, label:'🏔', color:'#64748b', main:false, regionId:'adirondacks',   title:'Whiteface Veterans\' Memorial Highway', dates:'Sep 29' },
-  { lat:44.2279, lng:-74.4644, label:'🦦', color:'#64748b', main:false, regionId:'adirondacks',   title:'The Wild Center, Tupper Lake',     dates:'Sep 30' },
-  { lat:42.5386, lng:-76.6073, label:'💦', color:'#64748b', main:false, regionId:'finger-lakes',  title:'Taughannock Falls',                dates:'Oct 3' },
-  { lat:41.7079, lng:-74.0110, label:'WH', color:'#DC2626', main:false, regionId:'hudson',        title:'Walkway Over the Hudson',          dates:'Oct 5' },
-  { lat:41.7350, lng:-74.2373, label:'🏞', color:'#64748b', main:false, regionId:'hudson',        title:'Minnewaska State Park',            dates:'Oct 5' },
-  { lat:41.7688, lng:-74.1567, label:'🏰', color:'#64748b', main:false, regionId:'hudson',        title:'Mohonk Preserve',                  dates:'Oct 5 (optional splurge)' },
+  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 7–15' },
+  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', regionId:'adirondacks',  title:'Lake Placid / Mirror Lake',        dates:'Sep 25 – 30' },
+  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', regionId:'finger-lakes', title:'Watkins Glen State Park',          dates:'Sep 30 – Oct 4' },
+  { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',          dates:'Oct 1' },
+  { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', regionId:'finger-lakes', title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 3' },
+  { lat:42.6958, lng:-74.3368, label:'HC', color:'#DC2626', regionId:'hudson',       title:'Howe Caverns',                     dates:'Oct 4' },
+  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', regionId:'hudson',       title:'New Paltz',                        dates:'Oct 4–7' },
+];
+
+// ── MAP POIs — EVERYTHING ELSE ─────────────────────────────
+// tier 2 appears from zoom 9 (day-trip activities, hikes, optional
+// stops); tier 3 from zoom 11 (restaurants, in-town spots).
+// cat drives the marker colour: activity | hike | scenic | food
+// gq (optional) overrides the Google-Maps search query.
+const POIS = [
+  // — Arrival-day & drive stops —
+  { lat:43.0790, lng:-73.7850, tier:2, cat:'activity', icon:'🎠', name:'Saratoga Springs stop',        area:'Saratoga Springs, NY', sub:'Arrival-day break: Congress Park, lunch on Broadway, Target for supplies.', gq:'Congress Park, Saratoga Springs, NY' },
+  { lat:43.0760, lng:-73.7900, tier:3, cat:'activity', icon:'🏛', name:'Children\'s Museum at Saratoga', area:'Saratoga Springs, NY', sub:'65 S Broadway · $14/person, ages 0–10. Arrival-day or rainy-day backup.' },
+  { lat:43.4250, lng:-73.7110, tier:2, cat:'scenic',   icon:'🌊', name:'Lake George village',           area:'Lake George, NY',      sub:'Shepard Park waterfront + Minne Ha-Ha cruise. Optional stop or weekend trip from NJ.' },
+  { lat:44.2190, lng:-73.8800, tier:2, cat:'scenic',   icon:'🏞', name:'Cascade Lakes pull-off',        area:'NY-73, Keene, NY',     sub:'Best zero-effort foliage stop on the whole drive. Free lot, 10–20 min.', gq:'Cascade Lakes, NY-73, Keene NY' },
+  { lat:44.1910, lng:-73.7900, tier:2, cat:'food',     icon:'🥧', name:'Noon Mark Diner',               area:'Keene Valley, NY',     sub:'Classic Adirondack diner on NY-73. Homemade pies, high chairs. Perfect drive break.' },
+  { lat:43.8390, lng:-73.7610, tier:2, cat:'activity', icon:'🏁', name:'Half Marathon start',           area:'Schroon Lake, NY',     sub:'Adirondack Half Marathon · Sun Sep 27, 9am start.', url:'https://www.adirondackmarathon.org/' },
+
+  // — Adirondacks: activities & hikes —
+  { lat:44.3516, lng:-73.8587, tier:2, cat:'activity', icon:'💧', name:'High Falls Gorge',              area:'Wilmington, NY',       sub:'Paid gorge walk along the AuSable River. Easy Path is stroller-suitable.', url:'https://highfallsgorge.com/tickets/' },
+  { lat:44.3659, lng:-73.9026, tier:2, cat:'scenic',   icon:'🏔', name:'Whiteface Veterans\' Mem. Hwy', area:'Wilmington, NY',       sub:'Drive-up summit, best foliage view in the Adirondacks. Summit 10°F+ colder.', url:'https://lakeplacidlegacysites.com/todo/whiteface-veterans-memorial-highway/' },
+  { lat:44.2279, lng:-74.4644, tier:2, cat:'activity', icon:'🦦', name:'The Wild Center',               area:'Tupper Lake, NY',      sub:'Wild Walk canopy trail, animal encounters. Best family nature day near Lake Placid.', url:'https://www.wildcenter.org/visit/' },
+  { lat:44.3260, lng:-74.1350, tier:2, cat:'activity', icon:'🎠', name:'Adirondack Carousel',           area:'Saranac Lake, NY',     sub:'Hand-carved wildlife carousel. Easy stop on the drive back from Tupper Lake.' },
+  { lat:44.2930, lng:-73.9650, tier:2, cat:'hike',     icon:'🥾', name:'Mt. Baker Trail',               area:'Saranac Lake, NY',     sub:'2.2 mi, ~250 ft, easy family loop near the village.', url:'https://www.alltrails.com/trail/us/new-york/baker-mountain' },
+  { lat:44.2180, lng:-73.9210, tier:2, cat:'hike',     icon:'🥾', name:'Mt. Van Hoevenberg',            area:'Lake Placid, NY',      sub:'5.2 mi, ~1,200 ft, moderate panorama hike. Indoor climbing wall as rain plan.', url:'https://www.alltrails.com/trail/us/new-york/mt-van-hoevenberg' },
+  { lat:44.2750, lng:-74.0000, tier:2, cat:'hike',     icon:'🥾', name:'Brewster Peninsula Loop',       area:'Lake Placid, NY',      sub:'2.1 mi, ~150 ft, easy shoreline circuit.', url:'https://www.alltrails.com/trail/us/new-york/brewster-peninsula-boundary-and-ridge-trail-loop' },
+  { lat:44.2800, lng:-73.9830, tier:3, cat:'activity', icon:'🏆', name:'Olympic Museum & Center',       area:'Lake Placid, NY',      sub:'2634 Main St · 1980 "Miracle on Ice" rink, daily 9:30–5.', url:'https://lakeplacidolympicmuseum.org/visit/' },
+  { lat:44.2862, lng:-73.9806, tier:3, cat:'activity', icon:'🛶', name:'Mirror Lake paddling',          area:'Lake Placid, NY',      sub:'Kayak & canoe rentals, calm flat water for all ages.', url:'https://www.mlboatrental.com/', gq:'Mirror Lake Boat Rental, Lake Placid NY' },
+  { lat:44.2848, lng:-74.0006, tier:3, cat:'activity', icon:'🎳', name:'Big Z\'s Bowling',              area:'Lake Placid, NY',      sub:'Lanes, arcade, simulators. Solid rainy-day option.' },
+  { lat:44.2779, lng:-73.9817, tier:3, cat:'activity', icon:'🎬', name:'Palace Theatre',                area:'Lake Placid, NY',      sub:'Historic downtown cinema. Cozy afternoon escape.' },
+
+  // — Adirondacks: food —
+  { lat:44.2786, lng:-73.9822, tier:3, cat:'food', icon:'🥪', name:'Big Mountain Deli & Creperie', area:'Lake Placid, NY', sub:'Crêpes, sandwiches, smoothies. Kid-friendly, quick.', url:'https://order.toasttab.com/online/big-mountain-deli-creperie-2475-main-street' },
+  { lat:44.2823, lng:-73.9850, tier:3, cat:'food', icon:'☕', name:'Origin Coffee Co.',            area:'Lake Placid, NY', sub:'Best specialty coffee & smoothies in the village.', url:'https://www.origincoffeeadk.com/menus' },
+  { lat:44.2839, lng:-73.9966, tier:3, cat:'food', icon:'🍝', name:'Caffe Rustica',                area:'Lake Placid, NY', sub:'House-made pasta & seafood. Best Italian in the Adirondacks.', url:'https://www.rusticalp.com/menu' },
+  { lat:44.2842, lng:-73.9821, tier:3, cat:'food', icon:'🌊', name:'The Cottage at Mirror Lake',   area:'Lake Placid, NY', sub:'Lakeside patio, relaxed American dinner.' },
+  { lat:44.2810, lng:-73.9840, tier:3, cat:'food', icon:'🍔', name:'Noon Mark Burgers & Pie',      area:'Lake Placid, NY', sub:'Diner energy, great burgers & homemade pies.' },
+
+  // — Finger Lakes: activities —
+  { lat:42.5386, lng:-76.6073, tier:2, cat:'hike',     icon:'💦', name:'Taughannock Falls',          area:'Trumansburg, NY', sub:'215 ft — taller than Niagara. Flat gorge trail, ~1.5 mi rt.', url:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
+  { lat:42.6126, lng:-76.8550, tier:2, cat:'activity', icon:'🍷', name:'Seneca Lake Wine Trail',     area:'Lodi, NY',        sub:'35+ wineries. Highlights: Wagner Vineyards, Hazlitt\'s 1852.', gq:'Wagner Vineyards, Lodi NY' },
+  { lat:42.5950, lng:-77.0590, tier:2, cat:'activity', icon:'🌾', name:'Windmill Farm Market',       area:'Penn Yan, NY',    sub:'Saturdays only. Big open-air market: food, crafts, produce.' },
+  { lat:42.4670, lng:-76.5320, tier:2, cat:'activity', icon:'🦕', name:'Museum of the Earth',        area:'Ithaca, NY',      sub:'Fossils, dinosaurs, hands-on paleontology. Very kid-friendly.', url:'https://www.museumoftheearth.org/visit/plan-your-visit' },
+  { lat:42.4520, lng:-76.5000, tier:2, cat:'activity', icon:'🔬', name:'Sciencenter',                area:'Ithaca, NY',      sub:'250+ interactive exhibits, Curiosity Corner for under-4s. Best indoor backup.', url:'https://sciencenter.org/visit/hours-pricing/' },
+  { lat:42.4500, lng:-76.4690, tier:2, cat:'scenic',   icon:'🌿', name:'Cornell Botanic Gardens',    area:'Ithaca, NY',      sub:'Free, beautiful fall colour. Dry-weather option.', url:'https://cornellbotanicgardens.org/visit' },
+  { lat:42.4550, lng:-76.5090, tier:3, cat:'activity', icon:'🎭', name:'Hangar Theatre',             area:'Ithaca, NY',      sub:'Regional theater in a converted 1940s hangar.' },
+  { lat:42.4396, lng:-76.4970, tier:3, cat:'activity', icon:'🛍', name:'Ithaca Commons',             area:'Ithaca, NY',      sub:'Collegetown energy, great food diversity for dinner.' },
+
+  // — Finger Lakes: food —
+  { lat:42.3838, lng:-76.8714, tier:3, cat:'food', icon:'🍷', name:'Graft Wine + Cider Bar',  area:'Watkins Glen, NY', sub:'Farm-to-table, all local. Best sit-down dinner in town.', url:'https://www.graftwineciderbar.com/' },
+  { lat:42.3876, lng:-76.8700, tier:3, cat:'food', icon:'🚂', name:'Seneca Harbor Station',   area:'Watkins Glen, NY', sub:'1876 train station, lake views, seafood & steaks.', url:'https://senecaharborstation.com/restaurant/' },
+  { lat:42.3820, lng:-76.8720, tier:3, cat:'food', icon:'🌿', name:'Ravinous Kitchen',        area:'Watkins Glen, NY', sub:'Field-to-table, weekly changing seasonal menu.' },
+  { lat:42.4410, lng:-76.4980, tier:3, cat:'food', icon:'🌱', name:'Moosewood Restaurant',    area:'Ithaca, NY',       sub:'Legendary vegetarian institution since 1973.', url:'https://www.moosewoodrestaurant.com/menu' },
+  { lat:42.4500, lng:-76.5120, tier:3, cat:'food', icon:'🐟', name:'BoatYard Grill',          area:'Ithaca, NY',       sub:'Best seafood in Ithaca, Cayuga Lake dock views.', url:'https://boatyardgrill.com/hours.php' },
+  { lat:42.4400, lng:-76.4960, tier:3, cat:'food', icon:'🍕', name:'Revelry Yards',           area:'Ithaca, NY',       sub:'Wood-fired pizza + craft micro-brewery upstairs.', url:'https://www.revelryyards.com/menus.html' },
+
+  // — Hudson Valley: activities —
+  { lat:41.7085, lng:-73.9610, tier:2, cat:'activity', icon:'🌉', name:'Walkway Over the Hudson', area:'Highland, NY',          sub:'Free, 212 ft above the river, fully fenced — great with kids.', url:'https://walkway.org/visit/' },
+  { lat:41.7350, lng:-74.2373, tier:2, cat:'hike',     icon:'🏞', name:'Minnewaska State Park',   area:'Kerhonkson, NY',        sub:'Sky Lakes & white cliffs. Reserve parking online ahead.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
+  { lat:41.7688, lng:-74.1567, tier:2, cat:'hike',     icon:'🏰', name:'Mohonk Preserve',         area:'New Paltz, NY',         sub:'Victorian castle resort, day hiker pass ~$30/pp. Optional splurge.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
+  { lat:41.2590, lng:-74.3290, tier:2, cat:'activity', icon:'🍎', name:'Masker Orchards',         area:'Warwick, NY',           sub:'Classic pick-your-own with hayrides. Peak October apple season.', url:'https://www.maskers.com/' },
+  { lat:41.5440, lng:-73.8020, tier:2, cat:'activity', icon:'🍏', name:'Fishkill Farms',          area:'Hopewell Junction, NY', sub:'Smaller curated pick-your-own, cider donuts. Backup to Masker.', url:'https://www.fishkillfarms.com/' },
+  { lat:42.0410, lng:-74.1180, tier:2, cat:'activity', icon:'🎸', name:'Woodstock Village',       area:'Woodstock, NY',         sub:'The iconic music town. Galleries, shops, live music. Half-day escape.' },
+  { lat:41.7690, lng:-73.9350, tier:2, cat:'activity', icon:'🏡', name:'FDR Home & Library',      area:'Hyde Park, NY',         sub:'Roosevelt estate + Val-Kill. ~$20/adult.' },
+  { lat:42.2170, lng:-73.7890, tier:2, cat:'scenic',   icon:'🎨', name:'Olana State Historic Site', area:'Hudson, NY',          sub:'Persian-style mansion, jaw-dropping valley panorama in foliage.' },
+  { lat:41.7530, lng:-74.0850, tier:3, cat:'activity', icon:'🏛', name:'Huguenot Street',         area:'New Paltz, NY',         sub:'America\'s oldest street (1692), six original stone houses.', url:'https://www.huguenotstreet.org/visit' },
+  { lat:41.7380, lng:-74.0850, tier:3, cat:'activity', icon:'🎨', name:'Dorsky Museum of Art',    area:'New Paltz, NY',         sub:'SUNY campus, free, strong rotating exhibitions.' },
+
+  // — Hudson Valley: food —
+  { lat:41.7470, lng:-74.0860, tier:3, cat:'food', icon:'🥞', name:'Main Street Bistro',  area:'New Paltz, NY', sub:'Beloved breakfast & brunch institution. Early on weekends.', url:'https://www.mainstreetbistro.com/menu/' },
+  { lat:41.7540, lng:-74.0840, tier:3, cat:'food', icon:'🍺', name:'Garvan\'s Gastropub', area:'New Paltz, NY', sub:'Irish food in an actual 1759 building.', url:'https://www.garvans.com/dinner.html' },
+  { lat:41.7475, lng:-74.0850, tier:3, cat:'food', icon:'🌶', name:'Lola\'s',             area:'New Paltz, NY', sub:'Southern comfort meets Thai & global flavors. Local favorite.', url:'https://www.lolascafeandcatering.com/menu/new-paltz-menu/' },
+  { lat:41.7460, lng:-74.0880, tier:3, cat:'food', icon:'🍷', name:'Jar\'d Wine Pub',     area:'New Paltz, NY', sub:'Natural wines, cozy porch over the rail trail.' },
+  { lat:41.7450, lng:-74.0830, tier:3, cat:'food', icon:'🍺', name:'Bacchus',             area:'New Paltz, NY', sub:'Hudson Valley craft beers + full pub menu.' },
+
+  // — NJ base —
+  { lat:40.7430, lng:-74.1720, tier:2, cat:'activity', icon:'🏛', name:'The Newark Museum of Art', area:'Newark, NJ',       sub:'Thu–Sun 12–5pm, $10/adult. Fully accessible.' },
+  { lat:40.7660, lng:-74.1730, tier:2, cat:'scenic',   icon:'🌳', name:'Branch Brook Park',        area:'Newark, NJ',       sub:'Free, dawn–10pm. Easy leg-stretch for all ages.' },
+  { lat:40.7040, lng:-74.0550, tier:2, cat:'activity', icon:'🗽', name:'Statue of Liberty ferry',  area:'Jersey City, NJ',  sub:'Liberty State Park terminal. Best as a half-day.', gq:'Liberty State Park ferry terminal, Jersey City NJ' },
 ];
 
 // ── REGIONS ────────────────────────────────────────────────
@@ -393,13 +463,22 @@ const DAYS = {
   },
 };
 
-// ── RESOURCES (trip operations center) ─────────────────────
+// ── QUICK LINKS ────────────────────────────────────────────
+// Compact links shown at the top of the checklist — replaces the
+// old Foliage Tracking and Live Weather sections.
+const FOLIAGE_LINKS = [
+  { label: 'I LOVE NY foliage report', url: 'https://www.iloveny.com/things-to-do/fall/foliage-report/' },
+  { label: 'Predictive foliage map', url: 'https://smokymountains.com/fall-foliage-map/' },
+];
+
+// ── RESOURCES (trip checklist) ─────────────────────────────
 // Each section has: id, icon, title, intro (optional), items[]
 // Each item has:
+//   key          — stable id for saved state (localStorage)
 //   label        — display text
-//   type         — booking | info | todo | live-map | live-weather | forecast
+//   type         — booking | info | todo
 //   priority     — critical | recommended | optional
-//   status       — pending | reserved | done
+//   status       — pending | done  (initial; user taps override it)
 //   url          — (optional) direct link
 //   dates        — (optional) e.g. "Sep 27 – Oct 2"
 //   notes        — (optional) sub-text hint
@@ -411,24 +490,19 @@ const RESOURCES = {
       icon: '✈️',
       title: 'Flights',
       items: [
-        { label: 'EL AL flight booking (EWR round-trip)', type: 'booking', priority: 'critical', status: 'done', refNote: 'Flight tickets (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/0afUqBB17d_tyn1tZTOaAH50g#New_flight_tickets' },
-        { label: 'ESTA — US visa waiver application', type: 'booking', priority: 'critical', status: 'pending', url: 'https://esta.cbp.dhs.gov/', notes: 'Apply at least 72 hrs before departure' },
-        { label: 'Newark Airport (EWR) terminal map', type: 'info', priority: 'recommended', status: 'pending', url: 'https://www.newarkairport.com/maps-and-guides' },
-        { label: 'EWR Rental Car Center — AirTrain directions', type: 'info', priority: 'recommended', status: 'pending', url: 'https://www.newarkairport.com/transportation/airport-car-rentals' },
+        { key: 'flight-elal', label: 'EL AL flight booking (EWR round-trip)', type: 'booking', priority: 'critical', status: 'done', refNote: 'Flight tickets (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/0afUqBB17d_tyn1tZTOaAH50g#New_flight_tickets' },
+        { key: 'flight-esta', label: 'ESTA — US visa waiver application', type: 'booking', priority: 'critical', status: 'pending', url: 'https://esta.cbp.dhs.gov/', notes: 'Apply at least 72 hrs before departure' },
       ]
     },
     {
       id: 'car',
       icon: '🚗',
       title: 'Car Rental — EWR',
-      intro: 'All major agencies at the <strong>EWR Rental Car Center</strong> — free AirTrain from any terminal (~10 min). <strong>Book in advance</strong>: walk-up rates run 3–4× higher. NY &amp; NJ tolls are fully cashless — accept an E-ZPass transponder from the agency or bring your own.',
+      intro: '<strong>Book in advance</strong> — walk-up rates run 3–4× higher. The EWR Rental Car Center is a free AirTrain ride from any terminal. NY &amp; NJ tolls are fully cashless — accept the agency E-ZPass transponder.',
       items: [
-        { label: 'Alamo — Newark Airport (SUV / minivan)', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.alamo.com/en/car-rental/locations/us/nj/ewr.html' },
-        { label: 'National — Newark Airport (alternative)', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.nationalcar.com/en/car-rental/locations/us/nj/newark-liberty-international-airport.html' },
-        { label: 'Hertz — Newark Airport', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.hertz.com/rentacar/location/unitedstates/newjersey/newark/EWRT11' },
-        { label: 'NJ EZPass — cashless tolls info', type: 'info', priority: 'critical', status: 'pending', url: 'https://www.ezpassnj.com/' },
-        { label: 'Verify child seat availability with rental company', type: 'todo', priority: 'critical', status: 'pending' },
-        { label: 'Photograph all 4 corners at pickup + dropoff', type: 'todo', priority: 'recommended', status: 'pending' },
+        { key: 'car-book', label: 'Book SUV / minivan — Alamo, Newark Airport', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.alamo.com/en/car-rental/locations/us/nj/ewr.html' },
+        { key: 'car-childseat', label: 'Verify child seat availability with rental company', type: 'todo', priority: 'critical', status: 'pending' },
+        { key: 'car-ezpass', label: 'Confirm E-ZPass transponder at pickup', type: 'info', priority: 'critical', status: 'pending', url: 'https://www.ezpassnj.com/' },
       ]
     },
     {
@@ -436,68 +510,30 @@ const RESOURCES = {
       icon: '🏨',
       title: 'Hotels & Stays',
       items: [
-        { label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', reservation_deadline: '2026-07-01', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
-        { label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (4 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 4', reservation_deadline: '2026-08-01' },
-        { label: 'Hudson Valley — New Paltz village hotel / B&B (3 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 4 – Oct 7', reservation_deadline: '2026-08-01' },
-        { label: 'NJ — family base (no booking needed)', type: 'info', priority: 'recommended', status: 'done', dates: 'Oct 7 – Oct 15' },
-        { label: 'NY State Campgrounds — Reserve America', type: 'booking', priority: 'optional', status: 'pending', url: 'https://newyorkstateparks.reserveamerica.com/' },
-        { label: 'Ausable Chasm Campground (optional base camp)', type: 'booking', priority: 'optional', status: 'pending', url: 'https://www.ausablechasm.com/ausable-chasm-campground' },
-      ]
-    },
-    {
-      id: 'foliage',
-      icon: '🍂',
-      title: 'Foliage Tracking',
-      items: [
-        { label: 'Official I LOVE NY Fall Foliage Report', type: 'live-map', priority: 'critical', status: 'pending', url: 'https://www.iloveny.com/things-to-do/fall/foliage-report/', notes: 'Statewide weekly report + interactive color map (Adirondacks, Catskills, Finger Lakes regions)' },
-        { label: 'ExploreFall — New York', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://www.explorefall.com/states/new-york', notes: 'County-by-county color predictions and reader reports' },
-        { label: 'SmokyMountains.com Predictive Foliage Map', type: 'forecast', priority: 'recommended', status: 'pending', url: 'https://smokymountains.com/fall-foliage-map/', notes: 'Nationwide week-by-week slider — drag to your travel dates' },
-        { label: 'Adirondack Foliage Report', type: 'live-map', priority: 'recommended', status: 'pending', url: 'https://visitadirondacks.com/things-to-do/foliage', notes: 'Best for the Lake Placid / High Peaks stretch (peaks late Sep — you arrive on time)' },
-        { label: 'Monitor foliage reports — 7 days before Sep 27 arrival', type: 'todo', priority: 'critical', status: 'pending' },
+        { key: 'hotel-lp', label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
+        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (4 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 4', reservation_deadline: '2026-08-01' },
+        { key: 'hotel-hv', label: 'Hudson Valley — New Paltz village hotel / B&B (3 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 4 – Oct 7', reservation_deadline: '2026-08-01' },
       ]
     },
     {
       id: 'activities',
       icon: '🎟',
-      title: 'Reservations & Attractions',
+      title: 'Reservations',
       items: [
-        { label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/', notes: 'Sun Sep 27 · Schroon Lake · expo & packet pickup Sat Sep 26' },
-        { label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
-        { label: 'Howe Caverns Tour', type: 'booking', priority: 'critical', status: 'pending', url: 'https://howecaverns.com/', notes: 'Oct 4 · cave tour + boat ride en route to New Paltz' },
-        { label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Fills fast on Oct weekends' },
-        { label: 'Ausable Chasm — hours & rates', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.ausablechasm.com/hours-rates' },
-        { label: 'Whiteface Mountain Gondola', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://whiteface.com/', notes: 'Gondola Fri–Sun only after Sep 11' },
-        { label: 'Watkins Glen State Park entry', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://parks.ny.gov/parks/watkinsglen' },
-        { label: 'Mohonk day hiker pass (optional splurge ~$30/pp)', type: 'booking', priority: 'optional', status: 'pending' },
-        { label: 'Wild Center — Tupper Lake visitor info', type: 'info', priority: 'recommended', status: 'pending', url: 'https://wildcenter.org/' },
-        { label: 'Adirondacks Visitor Guide — first-time visitors', type: 'info', priority: 'recommended', status: 'pending', url: 'https://visitadirondacks.com/first-time-visitors' },
-      ]
-    },
-    {
-      id: 'weather',
-      icon: '🌤',
-      title: 'Live Weather',
-      items: [
-        { label: 'Whiteface Mountain summit forecast (Adirondacks)', type: 'live-weather', priority: 'critical', status: 'pending', url: 'https://www.mountain-forecast.com/peaks/Whiteface-Mountain/forecasts/1483', notes: 'Summit often 10–20°F colder than the village — pack extra layers' },
-        { label: 'Adirondacks / North Country — NWS Burlington', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/btv/' },
-        { label: 'Capital Region & Hudson Valley — NWS Albany', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/aly/' },
-        { label: 'Finger Lakes / Southern Tier — NWS Binghamton', type: 'live-weather', priority: 'recommended', status: 'pending', url: 'https://www.weather.gov/bgm/' },
+        { key: 'act-marathon', label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/', notes: 'Sun Sep 27 · Schroon Lake · expo & packet pickup Sat Sep 26' },
+        { key: 'act-corning', label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
+        { key: 'act-howe', label: 'Howe Caverns Tour', type: 'booking', priority: 'critical', status: 'pending', url: 'https://howecaverns.com/', notes: 'Oct 4 · cave tour + boat ride en route to New Paltz' },
+        { key: 'act-minnewaska', label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Fills fast on Oct weekends' },
       ]
     },
     {
       id: 'ops',
       icon: '📋',
-      title: 'Ops & Gear',
+      title: 'Before You Fly',
       items: [
-        { label: 'Download offline Google Maps (all 5 regions)', type: 'todo', priority: 'critical', status: 'pending', url: 'https://support.google.com/maps/answer/6291838', notes: 'Needs Wi-Fi — do before departure' },
-        { label: 'Buy US eSIM — Airalo or Holafly', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.airalo.com/', notes: 'Activate 1 day before landing' },
-        { label: 'Install NY Tolls by Mail app (backup if no E-ZPass)', type: 'todo', priority: 'critical', status: 'pending' },
-        { label: 'Pack rain backup activity list per region', type: 'todo', priority: 'recommended', status: 'pending' },
-        { label: 'Waterproof layer for each family member', type: 'todo', priority: 'critical', status: 'pending' },
-        { label: 'Hiking shoes / waterproof boots', type: 'todo', priority: 'critical', status: 'pending' },
-        { label: 'Layers — Oct nights are cold (35–45°F)', type: 'todo', priority: 'critical', status: 'pending' },
-        { label: 'Snacks & reusable water bottles', type: 'todo', priority: 'recommended', status: 'pending' },
-        { label: 'Car phone mount', type: 'todo', priority: 'recommended', status: 'pending' },
+        { key: 'ops-offline-maps', label: 'Download offline Google Maps (all regions)', type: 'todo', priority: 'critical', status: 'pending', url: 'https://support.google.com/maps/answer/6291838', notes: 'Needs Wi-Fi — do before departure' },
+        { key: 'ops-esim', label: 'Buy US eSIM — Airalo or Holafly', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.airalo.com/', notes: 'Activate 1 day before landing' },
+        { key: 'ops-packing', label: 'Pack: rain layers, hiking shoes, warm layers, snacks & bottles', type: 'todo', priority: 'critical', status: 'pending', notes: 'Oct nights are cold (35–45°F) — waterproof layer per person' },
       ]
     }
   ]
