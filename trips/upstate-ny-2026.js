@@ -56,17 +56,12 @@ route: [
   [42.44,-76.60],     // Trumansburg
   [42.4476,-76.4869], // ★ ITHACA
   [42.30,-76.16],     // NY-13 south
-  [42.10,-75.91],     // Binghamton / I-86
-  [42.08,-75.38],     // I-86 east
-  [42.08,-74.91],     // Monticello
-  [41.80,-74.42],     // Liberty
-  [41.73,-74.19],     // Ellenville
-  [41.7476,-74.0868], // ★ NEW PALTZ
-  [41.50,-74.01],     // I-87 south / Newburgh
-  [41.22,-73.98],     // Harriman
-  [41.07,-73.87],     // Tarrytown
-  [40.85,-73.96],     // GWB
-  [40.77,-74.07],     // back into NJ
+  [42.10,-75.91],     // Binghamton / I-81 S
+  [41.41,-75.66],     // Scranton / I-380
+  [41.12,-75.36],     // Mt Pocono
+  [40.98,-75.19],     // Stroudsburg / I-80 E
+  [40.90,-74.70],     // Netcong, NJ
+  [40.86,-74.42],     // Parsippany / I-280
   [40.6895,-74.1745]  // ★ EWR / NJ end
 ],
 
@@ -107,13 +102,11 @@ routesAlt: [
 // Always visible at any zoom: the trip's anchor locations.
 // color falls back to the region's color when omitted.
 stops: [
-  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 7–15' },
+  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 5–15' },
   { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', regionId:'adirondacks',  title:'Lake Placid / Mirror Lake',        dates:'Sep 25 – 30' },
   { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', regionId:'finger-lakes', title:'Watkins Glen State Park',          dates:'Sep 30 – Oct 5' },
   { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',          dates:'Oct 1' },
   { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', regionId:'finger-lakes', title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 3' },
-  { lat:42.6958, lng:-74.3368, label:'HC', color:'#DC2626', regionId:'hudson',       title:'Howe Caverns',                     dates:'Oct 5' },
-  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', regionId:'hudson',       title:'New Paltz',                        dates:'Oct 5–7' },
   { lat:43.0830, lng:-79.0640, label:'NF', color:'#0EA5E9', regionId:'niagara',      title:'Niagara Falls (flex option)',      dates:'Oct 4–5 · if chosen' },
 ],
 
@@ -182,23 +175,6 @@ pois: [
   { lat:42.4500, lng:-76.5120, tier:3, cat:'food', icon:'🐟', name:'BoatYard Grill',          area:'Ithaca, NY',       sub:'Best seafood in Ithaca, Cayuga Lake dock views.', url:'https://boatyardgrill.com/hours.php' },
   { lat:42.4400, lng:-76.4960, tier:3, cat:'food', icon:'🍕', name:'Revelry Yards',           area:'Ithaca, NY',       sub:'Wood-fired pizza + craft micro-brewery upstairs.', url:'https://www.revelryyards.com/menus.html' },
 
-  // — Hudson Valley: activities —
-  { lat:41.7085, lng:-73.9610, tier:2, cat:'activity', icon:'🌉', name:'Walkway Over the Hudson', area:'Highland, NY',          sub:'Free, 212 ft above the river, fully fenced — great with kids.', url:'https://walkway.org/visit/' },
-  { lat:41.7350, lng:-74.2373, tier:2, cat:'hike',     icon:'🏞', name:'Minnewaska State Park',   area:'Kerhonkson, NY',        sub:'Sky Lakes & white cliffs. Reserve parking online ahead.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
-  { lat:41.7688, lng:-74.1567, tier:2, cat:'hike',     icon:'🏰', name:'Mohonk Preserve',         area:'New Paltz, NY',         sub:'Victorian castle resort, day hiker pass ~$30/pp. Optional splurge.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
-  { lat:41.2590, lng:-74.3290, tier:2, cat:'activity', icon:'🍎', name:'Masker Orchards',         area:'Warwick, NY',           sub:'Classic pick-your-own with hayrides. Peak October apple season.', url:'https://www.maskers.com/' },
-  { lat:41.5440, lng:-73.8020, tier:2, cat:'activity', icon:'🍏', name:'Fishkill Farms',          area:'Hopewell Junction, NY', sub:'Smaller curated pick-your-own, cider donuts. Backup to Masker.', url:'https://www.fishkillfarms.com/' },
-  { lat:42.0410, lng:-74.1180, tier:2, cat:'activity', icon:'🎸', name:'Woodstock Village',       area:'Woodstock, NY',         sub:'The iconic music town. Galleries, shops, live music. Half-day escape.' },
-  { lat:41.7690, lng:-73.9350, tier:2, cat:'activity', icon:'🏡', name:'FDR Home & Library',      area:'Hyde Park, NY',         sub:'Roosevelt estate + Val-Kill. ~$20/adult.' },
-  { lat:42.2170, lng:-73.7890, tier:2, cat:'scenic',   icon:'🎨', name:'Olana State Historic Site', area:'Hudson, NY',          sub:'Persian-style mansion, jaw-dropping valley panorama in foliage.' },
-
-  // — Hudson Valley: food —
-  { lat:41.7470, lng:-74.0860, tier:3, cat:'food', icon:'🥞', name:'Main Street Bistro',  area:'New Paltz, NY', sub:'Beloved breakfast & brunch institution. Early on weekends.', url:'https://www.mainstreetbistro.com/menu/' },
-  { lat:41.7540, lng:-74.0840, tier:3, cat:'food', icon:'🍺', name:'Garvan\'s Gastropub', area:'New Paltz, NY', sub:'Irish food in an actual 1759 building.', url:'https://www.garvans.com/dinner.html' },
-  { lat:41.7475, lng:-74.0850, tier:3, cat:'food', icon:'🌶', name:'Lola\'s',             area:'New Paltz, NY', sub:'Southern comfort meets Thai & global flavors. Local favorite.', url:'https://www.lolascafeandcatering.com/menu/new-paltz-menu/' },
-  { lat:41.7460, lng:-74.0880, tier:3, cat:'food', icon:'🍷', name:'Jar\'d Wine Pub',     area:'New Paltz, NY', sub:'Natural wines, cozy porch over the rail trail.' },
-  { lat:41.7450, lng:-74.0830, tier:3, cat:'food', icon:'🍺', name:'Bacchus',             area:'New Paltz, NY', sub:'Hudson Valley craft beers + full pub menu.' },
-
   // — NJ base —
   { lat:40.7430, lng:-74.1720, tier:2, cat:'activity', icon:'🏛', name:'The Newark Museum of Art', area:'Newark, NJ',       sub:'Thu–Sun 12–5pm, $10/adult. Fully accessible.' },
   { lat:40.7660, lng:-74.1730, tier:2, cat:'scenic',   icon:'🌳', name:'Branch Brook Park',        area:'Newark, NJ',       sub:'Free, dawn–10pm. Easy leg-stretch for all ages.' },
@@ -217,7 +193,7 @@ regions: [
     title: 'NJ Family Base',
     navLabel: 'NJ',
     color: '#D97706',
-    dates: 'Oct 7 – 15',
+    dates: 'Oct 5 – 15',
     weather: { name: 'Newark, NJ', lat: 40.7357, lon: -74.1724 },
     infoCard: {
       prefix: 'nj',
@@ -288,7 +264,7 @@ regions: [
         { icon:'🎭', name:'Hangar Theatre',                sub:'Ithaca · Professional regional theater in a converted 1940s airplane hangar. Check schedule for fall shows.' },
       ]
     },
-    days: ['d7', 'd8', 'd9', 'd10', 'd15']
+    days: ['d7', 'd8', 'd9', 'd10', 'd15', 'd11']
   },
   {
     id: 'niagara',
@@ -300,31 +276,6 @@ regions: [
     weather: { name: 'Niagara Falls, NY', lat: 43.0962, lon: -79.0377 },
     infoCard: null,
     days: ['d16', 'd17']
-  },
-  {
-    id: 'hudson',
-    emoji: '🍂',
-    title: 'Hudson Valley · Catskills',
-    navLabel: 'Hudson Valley',
-    color: '#DC2626',
-    dates: 'Oct 5 – Oct 7',
-    weather: { name: 'New Paltz, NY', lat: 41.7476, lon: -74.0868 },
-    infoCard: {
-      prefix: 'hv',
-      eat: [
-        { icon:'🥞', name:'Main Street Bistro',          badge:'rb-casual', badgeLabel:'Casual', sub:'59 Main St · New Paltz\'s beloved breakfast &amp; brunch institution for 30+ years. Arrive early on weekends — line forms outside.', url:'https://www.mainstreetbistro.com/menu/' },
-        { icon:'🍺', name:'Garvan\'s Gastropub',         badge:'rb-brew',   badgeLabel:'Brew',   sub:'215 Huguenot St · Traditional Irish food in an actual 1759 building. Full of character. Great for an evening out.', url:'https://www.garvans.com/dinner.html' },
-        { icon:'🌶', name:'Lola\'s',                     badge:'rb-casual', badgeLabel:'Casual', sub:'Main St · Eclectic menu mixing Southern comfort, Thai, and global flavors. Strong cocktails. Local favorite.', url:'https://www.lolascafeandcatering.com/menu/new-paltz-menu/' },
-        { icon:'🍷', name:'Jar\'d Wine Pub',             badge:'rb-wine',   badgeLabel:'Wine',   sub:'68 Main St · Natural &amp; biodynamic wines, cozy back porch overlooking the Wallkill rail trail. Low-key and great.', url:'https://www.tripadvisor.com/Restaurant_Review-g48245-d4041829-Reviews-Jar_d_Wine_Pub-New_Paltz_Catskill_Region_New_York.html' },
-        { icon:'🍺', name:'Bacchus Restaurant &amp; Bar',badge:'rb-brew',   badgeLabel:'Brew',   sub:'Long list of Hudson Valley craft beers + full pub menu. Lively on weekend evenings.' },
-      ],
-      nohike: [
-        { icon:'🌉', name:'Walkway Over the Hudson',           sub:'Highland, ~20 min · Free, 212 ft above the river, fully fenced. The best no-effort Hudson Valley view — slotted for the Oct 7 morning en route to NJ.', url:'https://walkway.org/visit/' },
-        { icon:'🎸', name:'Woodstock Village',                 sub:'~30 min west · The iconic music town. Great galleries, eclectic shops, live music &amp; coffee. Only if energy allows — this leg is now a short foliage base, not a sightseeing push.' },
-        { icon:'🍎', name:'Apple orchards',                    sub:'Masker Orchards (Warwick) or Fishkill Farms (Hopewell Junction) · Pick-your-own in peak October season. Easy optional stop on the drive toward NJ.' },
-      ]
-    },
-    days: ['d11', 'd12', 'd13']
   }
 ],
 
@@ -475,7 +426,7 @@ days: {
           stats:['3 mi','~500 ft','Moderate'],
           url:'https://www.alltrails.com/trail/us/new-york/watkins-glen-south-rim-trail' },
       ]},
-      { type:'activity', icon:'🌊', title:'Decision point tonight: Niagara flex option', tag:'optional', sub:'Over dinner tonight (or tomorrow evening at the latest), decide on the floating Niagara option. Ask: 1) Are we still excited? 2) Are the kids handling hotels well? 3) Is the weather favorable? 4) Have we already had enough waterfalls and nature? If YES to going — check out Oct 4 instead of Oct 5, drive ~2.5 hrs to Niagara Falls for 1 night (Maid of the Mist, Cave of the Winds, Goat Island, night illumination), then straight to NJ on Oct 5, skipping the New Paltz leg. If NO — keep the base plan: extra Finger Lakes lake day Oct 4, then New Paltz Oct 5–7.' },
+      { type:'activity', icon:'🌊', title:'Decision point tonight: Niagara flex option', tag:'optional', sub:'Over dinner tonight (or tomorrow evening at the latest), decide on the floating Niagara option. Ask: 1) Are we still excited? 2) Are the kids handling hotels well? 3) Is the weather favorable? 4) Have we already had enough waterfalls and nature? If YES to going — check out Oct 4 instead of Oct 5, drive ~2.5 hrs to Niagara Falls for 1 night (Maid of the Mist, Cave of the Winds, Goat Island, night illumination), then straight to NJ on Oct 5. If NO — keep the base plan: extra Finger Lakes lake day Oct 4, then the drive to NJ on Oct 5. Either way you sleep in NJ on the night of Oct 5.' },
     ]
   },
   d10: {
@@ -506,7 +457,7 @@ days: {
     date: '2026-10-04', title: 'FLEX Day 1: Watkins Glen → Niagara Falls',
     badge: 'drive', badgeLabel: 'Flex Option',
     content: [
-      { type:'activity', icon:'🌀', title:'Only if chosen on the Oct 2–3 decision point', sub:'This card activates only if the family said YES in the Finger Lakes: still excited, kids handling hotels well, weather favorable, not yet waterfalled-out. Otherwise ignore it — the base plan (Oct 4 lake day, Oct 5–7 New Paltz) stands. One night is the right dose; see Option B below for when two would make sense.' },
+      { type:'activity', icon:'🌀', title:'Only if chosen on the Oct 2–3 decision point', sub:'This card activates only if the family said YES in the Finger Lakes: still excited, kids handling hotels well, weather favorable, not yet waterfalled-out. Otherwise ignore it — the base plan (Oct 4 lake day, Oct 5 drive to NJ) stands. One night is the right dose; see Option B below for when two would make sense.' },
       { type:'drive', text:'~150 miles · ~2.5–3 hrs · NY-14 N → I-90 W → I-190 N · Leave Watkins Glen in the morning, arrive early afternoon',
         route:{ from:'Watkins Glen, NY', to:'Niagara Falls State Park, Niagara Falls, NY' } },
       { type:'activity', icon:'🌊', title:'Niagara Falls afternoon', sub:'Check in, then walk into the state park for the first look from Prospect Point. Park the car once — everything on the NY side is walkable from the falls-adjacent hotels.' },
@@ -522,52 +473,19 @@ days: {
       { type:'activity', icon:'⛴', title:'Maid of the Mist', sub:'First boats of the morning have the shortest lines. The classic ride to the base of Horseshoe Falls — ponchos provided, kids love it. Runs into early November, weather permitting. Timed tickets online.', url:'https://www.maidofthemist.com/' },
       { type:'activity', icon:'🏝', title:'Goat Island walk', sub:'Stroller-friendly paths between the American and Horseshoe Falls: Terrapin Point for the big panorama, Three Sisters Islands for rapids up close. Free.' },
       { type:'activity', icon:'🍽', title:'Lunch before the drive', sub:'Eat properly in Niagara Falls before setting out — it\'s the longest drive of the trip and a good meal buys quiet miles.' },
-      { type:'drive', text:'~400 miles · ~6–6.5 hrs · I-90 E → I-81 S → I-380/I-80 E · The New Paltz leg is skipped — cancel that hotel. Plan two proper breaks (Syracuse and Scranton areas split it in thirds).',
+      { type:'drive', text:'~400 miles · ~6–6.5 hrs · I-90 E → I-81 S → I-380/I-80 E · Plan two proper breaks (Syracuse and Scranton areas split it in thirds).',
         route:{ from:'Niagara Falls, NY', to:'Newark, NJ' } },
       { type:'activity', icon:'🇨🇦', title:'Option B: a 2nd Niagara night?', tag:'optional', sub:'Only makes sense if you add the Canadian side: Butterfly Conservatory, Whirlpool Aero Car, Journey Behind the Falls, Niagara-on-the-Lake (beautiful town) and winery visits. Needs passports + border crossing both ways with kids, and pushes NJ arrival to Oct 6. For this trip, 1 night is the recommended dose — treat Option B as a stretch goal, not the default.' },
     ]
   },
   d11: {
-    date: '2026-10-05', title: 'Howe Caverns → New Paltz (~4.5 hrs total)',
+    date: '2026-10-05', title: 'Drive Watkins Glen → NJ (~4 hrs)',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'Finger Lakes → Howe Caverns → New Paltz · ~2.5 hrs to the caverns, ~1.5 hrs on to New Paltz · I-86 E → I-88 E → I-87 S',
-        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Howe Caverns, Howes Cave, NY'] } },
-      { type:'activity', icon:'🕳', title:'Howe Caverns cave tour', sub:'156 feet underground, 52°F year-round — bring a layer. The classic 1.5-hr guided Traditional Tour walks paved, lit paths through the caverns. Fully rain-proof. Oct 5 is a Monday — quieter than the weekend, but still book ahead.', url:'https://howecaverns.com/' },
-      { type:'activity', icon:'🚣', title:'Underground boat ride', sub:'The tour ends with a quiet boat ride across the Lake of Venus on the underground river — a hit with kids.' },
-      { type:'activity', icon:'🏨', title:'Continue to New Paltz', sub:'~1.5 hrs on to New Paltz. The village is now mainly a beautiful foliage base and transition toward NJ — no sightseeing checklist. Check in and take an easy dinner on Main Street.' },
-    ]
-  },
-  d12: {
-    date: '2026-10-06', title: 'Minnewaska State Park · Shawangunk Ridge',
-    badge: 'hike', badgeLabel: 'Hike',
-    content: [
-      { type:'activity', icon:'🏔', title:'Minnewaska State Park Preserve', sub:'Sky Lakes, white conglomerate cliffs, incredible foliage. Reserve parking online in advance — fills up fast on weekends.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
-      { type:'hiketabs', prefix:'minn', tabs:[
-        { id:'base',    label:'Base',    active:true,
-          title:'Awosting Falls + Lake Minnewaska loop',
-          note:'Hits the best highlights. Family-friendly.',
-          stats:['3.5 mi','~350 ft','Easy-Mod'],
-          url:'https://www.alltrails.com/trail/us/new-york/lake-minnewaska-awosting-falls' },
-        { id:'upgrade', label:'Upgrade',
-          title:'Lake Awosting loop',
-          note:'Full ridge traverse. More solitude. Pack lunch.',
-          stats:['8 mi','~900 ft','Moderate'],
-          url:'https://www.alltrails.com/trail/us/new-york/lake-awosting-via-reserve-access-and-purple-loop' },
-      ]},
-      { type:'activity', icon:'🏰', title:'Mohonk Preserve / Mountain House', tag:'splurge', style:'margin-top:10px',
-        sub:'Spectacular Victorian castle resort. Day hiker fee ~$30/person. Worth it if budget allows.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
-    ]
-  },
-  d13: {
-    date: '2026-10-07', title: 'Walkway Over the Hudson → NJ (~2 hrs total)',
-    badge: 'drive', badgeLabel: 'Drive',
-    content: [
-      { type:'activity', icon:'🌉', title:'Walkway Over the Hudson', sub:'Highland, ~20 min from New Paltz and right on the way south · Free, open 7am–sunset. 1.28 miles gate-to-gate, 212 ft above the Hudson River. Fully fenced — excellent with small children. The best dramatic Hudson Valley view without any trail difficulty, then back to the car and onward.', url:'https://walkway.org/visit/' },
-      { type:'drive', text:'~95 miles · ~1.5–2 hrs · I-87 S → I-287 W',
-        route:{ from:'Walkway Over the Hudson, Highland, NY', to:'Newark, NJ' } },
-      { type:'activity', icon:'🍎', title:'Apple orchard stop en route', tag:'optional', sub:'Masker Orchards (Warwick, near the route south) — classic pick-your-own with hayrides, peak October season. Fishkill Farms is the smaller, curated alternative. Skip if everyone just wants to land in NJ.', url:'https://www.maskers.com/' },
-      { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 7–15 wind-down and family time. A Lake George reunion weekend (~Oct 10–12) makes an easy excursion from here before the EWR departure.' },
+      { type:'drive', text:'~230 miles · ~4 hrs · NY-13 S → I-81 S → I-380/I-80 E · Treat as a transfer day — sleep in NJ tonight',
+        route:{ from:'Watkins Glen, NY', to:'Newark, NJ', via:['Binghamton, NY','Scranton, PA'] } },
+      { type:'activity', icon:'🛑', title:'Plan one proper meal break', sub:'Binghamton or Scranton splits the drive roughly in half — schedule the stop by time, not by complaints.' },
+      { type:'activity', icon:'🏠', title:'Arrive at the NJ family base', sub:'Oct 5–15 wind-down and family time. A Lake George reunion weekend (~Oct 10–12) makes an easy excursion from here before the EWR departure.' },
     ]
   },
 },
@@ -620,8 +538,7 @@ resources: {
       title: 'Hotels & Stays',
       items: [
         { key: 'hotel-lp', label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
-        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (5 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 5', reservation_deadline: '2026-08-01', notes: 'Book the last night (Oct 4) free-cancellation — the Niagara flex option would check out Oct 4 instead' },
-        { key: 'hotel-hv', label: 'Hudson Valley — New Paltz village hotel / B&B (2 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 5 – Oct 7', reservation_deadline: '2026-08-01', notes: 'Book free-cancellation — this whole leg is replaced if the Niagara option is chosen on Oct 2–3' },
+        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (5 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 5', reservation_deadline: '2026-08-01', notes: 'Book the last night (Oct 4) free-cancellation — the Niagara flex option would check out Oct 4 instead. Night of Oct 5 is at the NJ base either way' },
         { key: 'hotel-niagara', label: 'Niagara Falls — flex option, 1 night (only if chosen)', type: 'booking', priority: 'optional', status: 'pending', dates: 'Oct 4 – Oct 5', notes: 'Do NOT commit now. Decide evening of Oct 2–3 in the Finger Lakes; book that night if going' },
       ]
     },
@@ -632,10 +549,8 @@ resources: {
       items: [
         { key: 'act-marathon', label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/', notes: 'Sun Sep 27 · Schroon Lake · expo & packet pickup Sat Sep 26' },
         { key: 'act-corning', label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
-        { key: 'act-howe', label: 'Howe Caverns Tour', type: 'booking', priority: 'critical', status: 'pending', url: 'https://howecaverns.com/', notes: 'Oct 5 · cave tour + boat ride en route to New Paltz' },
-        { key: 'act-minnewaska', label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Oct 6 · fills fast in October foliage season' },
         { key: 'act-boat', label: 'Cayuga Lake boat — pontoon rental or cruise', type: 'booking', priority: 'recommended', status: 'pending', notes: 'Oct 4 · book 1–2 days ahead from the Finger Lakes once weather is known' },
-        { key: 'act-niagara-decision', label: 'DECIDE: Niagara flex option', type: 'todo', priority: 'recommended', status: 'pending', notes: 'Evening of Oct 2–3 · still excited? kids OK with hotels? weather good? enough waterfalls already? If go: book Niagara night + Maid of the Mist, cancel New Paltz' },
+        { key: 'act-niagara-decision', label: 'DECIDE: Niagara flex option', type: 'todo', priority: 'recommended', status: 'pending', notes: 'Evening of Oct 2–3 · still excited? kids OK with hotels? weather good? enough waterfalls already? If go: book Niagara night + Maid of the Mist, cancel the last Watkins Glen night' },
       ]
     },
     {
