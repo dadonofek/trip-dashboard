@@ -211,6 +211,7 @@ way to send someone a snapshot.
 
 ## Credits
 
-Maps by [Leaflet](https://leafletjs.com/) + OSM/CARTO tiles. Weather by
+Maps by [Leaflet](https://leafletjs.com/) + OpenStreetMap tiles, with Esri
+tiles as a fallback. Weather by
 [Open-Meteo](https://open-meteo.com/) (no key needed, free for
 non-commercial use).

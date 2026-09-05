@@ -1063,12 +1063,25 @@ function initMap() {
   if (points.length) map.fitBounds(L.latLngBounds(points), { padding: [30, 30] });
   else map.setView([39, -98], 4);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors © <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
+  // CARTO's public basemaps now require an API key — without one every tile
+  // comes back stamped "API KEY REQUIRED", so we use OSM's own tiles, which
+  // need no key. If those ever fail to load, fall back to Esri's street tiles.
+  const baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors',
     maxZoom: 19,
     crossOrigin: true
   }).addTo(map);
+
+  let tileErrors = 0;
+  baseLayer.on('tileerror', () => {
+    if (++tileErrors !== 4) return;   // a couple of misses is normal; a run of them isn't
+    map.removeLayer(baseLayer);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles © <a href="https://www.esri.com/">Esri</a>',
+      maxZoom: 19,
+      crossOrigin: true
+    }).addTo(map);
+  });
 
   // Force a size recalculation in case the container dimensions weren't final at init time
   setTimeout(() => map.invalidateSize(), 200);
