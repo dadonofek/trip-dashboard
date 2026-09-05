@@ -25,96 +25,56 @@ meta: {
 // ── MAP ROUTE (lat/lng pairs) ──────────────────────────────
 // The map auto-fits to the route + stops, so no center/zoom needed.
 route: [
-  [40.6895,-74.1745], // EWR / NJ start
-  [40.77,-74.07],     // NJ Turnpike north
-  [40.85,-73.96],     // George Washington Bridge
-  [41.07,-73.87],     // Tarrytown / Tappan Zee
-  [41.22,-73.98],     // Harriman
-  [41.50,-74.01],     // Newburgh / I-84 junction
-  [41.93,-73.99],     // Kingston
-  [42.22,-73.86],     // Catskill
-  [42.65,-73.75],     // Albany / I-90 junction
-  [43.08,-73.79],     // Saratoga Springs area
-  [43.43,-73.71],     // Lake George area
-  [43.83,-73.77],     // Schroon Lake
-  [44.18,-73.78],     // Keene / Au Sable Forks
-  [44.2795,-73.9799], // ★ LAKE PLACID
-  [44.18,-73.78],     // back south via NY-73
-  [43.83,-73.77],     // Schroon Lake
-  [43.4262,-73.7123], // ★ LAKE GEORGE
+  [40.6885,-74.1769], // EWR / NJ start
+  [41.22,-74.01],     // I-87 N
+  [41.7106,-73.9544], // Walkway Over the Hudson transit stop
   [42.65,-73.75],     // Albany
-  [42.82,-73.94],     // Schenectady
-  [42.94,-74.19],     // Amsterdam
-  [43.05,-74.85],     // Little Falls
-  [43.10,-75.23],     // Utica
-  [43.05,-76.15],     // Syracuse
-  [42.84,-76.14],     // I-81 south approach
+  [43.3310,-73.6564], // Hannaford Queensbury
+  [43.83,-73.77],     // Schroon Lake
+  [44.18,-73.78],     // Keene / NY-73
+  [44.2795,-73.9799], // ★ LAKE PLACID
+  [44.3295,-74.1313], // Saranac Lake / NY-3 W
+  [44.2239,-74.4644], // Tupper Lake / NY-3 W
+  [44.16,-75.04],     // Star Lake / NY-3 W
+  [43.9730,-75.9537], // Hannaford Watertown
+  [43.05,-76.15],     // Syracuse / I-81 S
   [42.60,-76.18],     // Cortland
-  [42.51,-76.54],     // NY-13/414 junction
   [42.3806,-76.8733], // ★ WATKINS GLEN
-  [42.42,-76.76],     // north on NY-414
-  [42.44,-76.60],     // Trumansburg
-  [42.4476,-76.4869], // ★ ITHACA
-  [42.30,-76.16],     // NY-13 south
-  [42.10,-75.91],     // Binghamton / I-86
-  [42.08,-75.38],     // I-86 east
-  [42.08,-74.91],     // Monticello
-  [41.80,-74.42],     // Liberty
-  [41.73,-74.19],     // Ellenville
-  [41.7476,-74.0868], // ★ NEW PALTZ
-  [41.50,-74.01],     // I-87 south / Newburgh
-  [41.22,-73.98],     // Harriman
-  [41.07,-73.87],     // Tarrytown
-  [40.85,-73.96],     // GWB
-  [40.77,-74.07],     // back into NJ
-  [40.6895,-74.1745]  // ★ EWR / NJ end
+  [42.1460,-77.0547], // Corning day trip
+  [42.3806,-76.8733], // Watkins Glen base
+  [42.5460,-76.5993], // Taughannock Falls
+  [42.4476,-76.4869], // Ithaca lunch
+  [42.87,-76.98],     // Geneva
+  [43.02,-77.75],     // Rochester / I-90 W
+  [43.00,-78.19],     // Batavia
+  [42.98,-78.74],     // Buffalo
+  [43.0862,-79.0633], // ★ NIAGARA FALLS
+  [43.00,-78.19],     // I-90 E
+  [43.02,-77.75],     // Rochester
+  [43.1553,-76.1190], // Wegmans Cicero
+  [42.60,-76.18],     // I-81 S
+  [42.10,-75.91],     // Binghamton
+  [41.4001,-75.6447], // Nay Aug Park / Scranton
+  [40.98,-75.19],     // Stroudsburg / I-80 E
+  [40.86,-74.42],     // Parsippany
+  [40.6895,-74.1745]  // ★ NJ family base
 ],
 
-// ── FLEX ROUTES (dashed on the map) ────────────────────────
-// Optional branches that only happen if the Niagara option is
-// chosen at the Oct 2–3 decision point. Rendered as dashed lines
-// in the Niagara region color.
-routesAlt: [
-  { label: 'Flex Oct 4: Watkins Glen → Niagara Falls (~2.5–3 hrs)', color: '#0EA5E9', points: [
-    [42.3806,-76.8733], // Watkins Glen
-    [42.87,-76.98],     // Geneva / NY-14 N
-    [43.00,-77.42],     // Victor / I-90 W
-    [43.02,-77.75],     // Rochester south
-    [43.00,-78.19],     // Batavia
-    [42.98,-78.74],     // Buffalo north / I-290
-    [43.02,-78.96],     // Grand Island / I-190 N
-    [43.0830,-79.0640]  // ★ NIAGARA FALLS
-  ]},
-  { label: 'Flex Oct 5: Niagara Falls → NJ (~6–6.5 hrs)', color: '#0EA5E9', points: [
-    [43.0830,-79.0640], // Niagara Falls
-    [42.90,-78.85],     // Buffalo / I-90 E
-    [43.00,-78.19],     // Batavia
-    [43.02,-77.75],     // Rochester
-    [43.05,-77.05],     // I-90 E past Geneva
-    [43.05,-76.15],     // Syracuse / I-81 S
-    [42.60,-76.18],     // Cortland
-    [42.10,-75.91],     // Binghamton
-    [41.41,-75.66],     // Scranton / I-380
-    [41.12,-75.36],     // Mt Pocono
-    [40.98,-75.19],     // Stroudsburg / I-80 E
-    [40.90,-74.70],     // Netcong, NJ
-    [40.86,-74.42],     // Parsippany / I-280
-    [40.6895,-74.1745]  // ★ Newark / NJ base
-  ]},
-],
+// ── ALTERNATE ROUTES (dashed on the map) ───────────────────
+// None on this itinerary. Niagara Falls is now part of the fixed
+// route, so there are no dashed alternative branches to draw.
+routesAlt: [],
 
 // ── MAP MARKERS — MAIN STOPS ───────────────────────────────
 // Always visible at any zoom: the trip's anchor locations.
 // color falls back to the region's color when omitted.
 stops: [
-  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', regionId:'nj',           title:'NJ Family Base / EWR',            dates:'Oct 7–15' },
-  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', regionId:'adirondacks',  title:'Lake Placid / Mirror Lake',        dates:'Sep 25 – 30' },
-  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', regionId:'finger-lakes', title:'Watkins Glen State Park',          dates:'Sep 30 – Oct 5' },
-  { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',          dates:'Oct 1' },
-  { lat:42.4476, lng:-76.4869, label:'IT', color:'#7C3AED', regionId:'finger-lakes', title:'Ithaca / Cornell Botanic Gardens', dates:'Oct 3' },
-  { lat:42.6958, lng:-74.3368, label:'HC', color:'#DC2626', regionId:'hudson',       title:'Howe Caverns',                     dates:'Oct 5' },
-  { lat:41.7476, lng:-74.0868, label:'NP', color:'#DC2626', regionId:'hudson',       title:'New Paltz',                        dates:'Oct 5–7' },
-  { lat:43.0830, lng:-79.0640, label:'NF', color:'#0EA5E9', regionId:'niagara',      title:'Niagara Falls (flex option)',      dates:'Oct 4–5 · if chosen' },
+  { lat:40.6895, lng:-74.1745, label:'NJ', color:'#D97706', regionId:'nj',           title:'NJ Family Base / EWR',       dates:'Oct 5–15' },
+  { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', regionId:'adirondacks',  title:'Lake Placid / Mirror Lake',  dates:'Sep 25 – 30' },
+  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', regionId:'finger-lakes', title:'Watkins Glen State Park',    dates:'Sep 30 – Oct 3' },
+  { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',    dates:'Oct 1' },
+  { lat:42.5460, lng:-76.5993, label:'TF', color:'#7C3AED', regionId:'finger-lakes', title:'Taughannock Falls / Ithaca', dates:'Oct 3' },
+  { lat:43.0862, lng:-79.0633, label:'NF', color:'#0EA5E9', regionId:'niagara',      title:'Niagara Falls',              dates:'Oct 3–5' },
 ],
 
 // ── MAP POIs — EVERYTHING ELSE ─────────────────────────────
@@ -123,9 +83,18 @@ stops: [
 // cat drives the marker colour: activity | hike | scenic | food
 // gq (optional) overrides the Google-Maps search query.
 pois: [
-  // — Arrival-day & drive stops —
-  { lat:43.0790, lng:-73.7850, tier:2, cat:'activity', icon:'🎠', name:'Saratoga Springs stop',        area:'Saratoga Springs, NY', sub:'Arrival-day break: Congress Park, lunch on Broadway, Target for supplies.', gq:'Congress Park, Saratoga Springs, NY' },
-  { lat:43.0760, lng:-73.7900, tier:3, cat:'activity', icon:'🏛', name:'Children\'s Museum at Saratoga', area:'Saratoga Springs, NY', sub:'65 S Broadway · $14/person, ages 0–10. Arrival-day or rainy-day backup.' },
+  // — Sep 25 arrival-day transit stops —
+  { lat:41.7106, lng:-73.9544, tier:2, cat:'scenic',   icon:'🌉', name:'Walkway Over the Hudson — west entrance', area:'87 Haviland Rd, Highland, NY', sub:'Sep 25 transit stop only. Walk west gate → midpoint → west gate: ~1.28 mi total, flat, paved and stroller-friendly. Paid parking; weather permitting.', url:'https://walkway.org/visit/' },
+  { lat:43.3310, lng:-73.6564, tier:2, cat:'food',     icon:'🛒', name:'Hannaford Queensbury',                    area:'190 Quaker Rd, Queensbury, NY', sub:'Sep 25 primary grocery load after the Walkway. Open 7am–11pm daily; directly useful before the final Lake Placid leg.', url:'https://stores.hannaford.com/ny/queensbury/8360' },
+
+  // — Transfer-day stops (Sep 30 and Oct 5) —
+  { lat:43.9730, lng:-75.9537, tier:2, cat:'food',     icon:'🛒', name:'Hannaford Watertown', area:'21110 US Route 3, Watertown, NY', sub:'Sep 30 lunch + grocery restock about halfway from Lake Placid to Watkins Glen. Mon–Sat 7am–10pm; Sun 7am–9pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
+  { lat:43.1553, lng:-76.1190, tier:2, cat:'food',     icon:'🛒', name:'Wegmans Cicero',      area:'7952 Brewerton Rd, Cicero, NY',   sub:'Oct 5 first southbound break: prepared-food lunch, groceries and baby supplies. Open 6am–midnight daily.', url:'https://www.wegmans.com/stores/cicero-ny' },
+  { lat:41.4001, lng:-75.6447, tier:2, cat:'activity', icon:'🌳', name:'Nay Aug Park',        area:'500 Arthur Ave, Scranton, PA',    sub:'Oct 5 second southbound break: 30–40 min outdoor reset. Open dawn–8pm; skip in heavy rain or if running late.', url:'https://nayaugpark.org/' },
+
+  // — Adirondack drive stops —
+  { lat:43.0790, lng:-73.7850, tier:2, cat:'activity', icon:'🎠', name:'Saratoga Springs stop',        area:'Saratoga Springs, NY', sub:'Congress Park, lunch on Broadway, Target for supplies. Optional detour, not part of the Sep 25 plan.', gq:'Congress Park, Saratoga Springs, NY' },
+  { lat:43.0760, lng:-73.7900, tier:3, cat:'activity', icon:'🏛', name:'Children\'s Museum at Saratoga', area:'Saratoga Springs, NY', sub:'65 S Broadway · $14/person, ages 0–10. Rainy-day backup near the I-87 corridor.' },
   { lat:43.4250, lng:-73.7110, tier:2, cat:'scenic',   icon:'🌊', name:'Lake George village',           area:'Lake George, NY',      sub:'Shepard Park waterfront + Minne Ha-Ha cruise. Optional stop or weekend trip from NJ.' },
   { lat:44.2190, lng:-73.8800, tier:2, cat:'scenic',   icon:'🏞', name:'Cascade Lakes pull-off',        area:'NY-73, Keene, NY',     sub:'Best zero-effort foliage stop on the whole drive. Free lot, 10–20 min.', gq:'Cascade Lakes, NY-73, Keene NY' },
   { lat:44.1910, lng:-73.7900, tier:2, cat:'food',     icon:'🥧', name:'Noon Mark Diner',               area:'Keene Valley, NY',     sub:'Classic Adirondack diner on NY-73. Homemade pies, high chairs. Perfect drive break.' },
@@ -159,20 +128,9 @@ pois: [
   { lat:42.4520, lng:-76.5000, tier:2, cat:'activity', icon:'🔬', name:'Sciencenter',                area:'Ithaca, NY',      sub:'250+ interactive exhibits, Curiosity Corner for under-4s. Best indoor backup.', url:'https://sciencenter.org/visit/hours-pricing/' },
   { lat:42.4500, lng:-76.4690, tier:2, cat:'scenic',   icon:'🌿', name:'Cornell Botanic Gardens',    area:'Ithaca, NY',      sub:'Free, beautiful fall colour. Dry-weather option.', url:'https://cornellbotanicgardens.org/visit' },
   { lat:42.4550, lng:-76.5090, tier:3, cat:'activity', icon:'🎭', name:'Hangar Theatre',             area:'Ithaca, NY',      sub:'Regional theater in a converted 1940s hangar.' },
-  { lat:42.4396, lng:-76.4970, tier:3, cat:'activity', icon:'🛍', name:'Ithaca Commons',             area:'Ithaca, NY',      sub:'Collegetown energy, great food diversity for dinner.' },
-  { lat:42.4570, lng:-76.5110, tier:2, cat:'activity', icon:'🛥', name:'Cayuga Lake boat day',       area:'Ithaca, NY',      sub:'Pontoon rental or sightseeing cruise from the Ithaca waterfront. Relaxed on-the-water foliage day.', gq:'Cayuga Boat Rentals, Ithaca NY' },
+  { lat:42.4396, lng:-76.4970, tier:3, cat:'activity', icon:'🛍', name:'Ithaca Commons',             area:'Ithaca, NY',      sub:'Collegetown energy, great food diversity. Oct 3 early-lunch stop.' },
   { lat:42.4180, lng:-76.9170, tier:2, cat:'activity', icon:'🐄', name:'Farm Sanctuary',             area:'Watkins Glen, NY', sub:'Guided farm-animal tours at the famous rescue sanctuary. Optional — book tour slot ahead.', url:'https://www.farmsanctuary.org/visit/', gq:'Farm Sanctuary, Watkins Glen NY' },
   { lat:42.4003, lng:-76.5594, tier:2, cat:'hike',     icon:'🏞', name:'Robert H. Treman State Park', area:'Ithaca, NY',     sub:'Enfield Glen gorge walk to 115-ft Lucifer Falls. Optional quieter alternative to Watkins Glen.', url:'https://parks.ny.gov/visit/state-parks/robert-h-treman-state-park' },
-
-  // — Niagara flex option (Oct 4–5, only if chosen) —
-  { lat:43.0856, lng:-79.0664, tier:2, cat:'activity', icon:'⛴', name:'Maid of the Mist',          area:'Niagara Falls, NY', sub:'Flex Oct 5 morning · Boat to the base of Horseshoe Falls, ponchos provided. Timed tickets online.', url:'https://www.maidofthemist.com/' },
-  { lat:43.0793, lng:-79.0743, tier:2, cat:'activity', icon:'💨', name:'Cave of the Winds',         area:'Niagara Falls, NY', sub:'Flex Oct 4 afternoon · Elevator 175 ft down to the Hurricane Deck below Bridal Veil Falls. You will get soaked.', url:'https://www.niagarafallsstatepark.com/attractions-and-tours/cave-of-the-winds' },
-  { lat:43.0786, lng:-79.0760, tier:2, cat:'scenic',   icon:'🏝', name:'Goat Island',               area:'Niagara Falls, NY', sub:'Flex Oct 5 · Terrapin Point panorama + Three Sisters Islands rapids. Free, stroller-friendly.', gq:'Goat Island, Niagara Falls State Park NY' },
-  { lat:43.0870, lng:-79.0680, tier:3, cat:'scenic',   icon:'🌈', name:'Night illumination (Prospect Point)', area:'Niagara Falls, NY', sub:'Flex Oct 4 evening · Falls lit in color nightly from dusk; some nights add fireworks.', url:'https://www.niagarafallsusa.com/' },
-  { lat:43.1369, lng:-79.0772, tier:3, cat:'activity', icon:'🦋', name:'Butterfly Conservatory',    area:'Niagara Falls, ON 🇨🇦', sub:'Option B (2nd night) only · 2,000+ free-flying butterflies. Canadian side — passports required.', url:'https://www.niagaraparks.com/visit/attractions/butterfly-conservatory/' },
-  { lat:43.1176, lng:-79.0686, tier:3, cat:'activity', icon:'🚡', name:'Whirlpool Aero Car',        area:'Niagara Falls, ON 🇨🇦', sub:'Option B (2nd night) only · 1916 cable car over the whirlpool rapids. Canadian side.', url:'https://www.niagaraparks.com/visit/attractions/whirlpool-aero-car/' },
-  { lat:43.0791, lng:-79.0789, tier:3, cat:'activity', icon:'🚇', name:'Journey Behind the Falls',  area:'Niagara Falls, ON 🇨🇦', sub:'Option B (2nd night) only · Tunnels behind the Horseshoe Falls curtain. Canadian side.', url:'https://www.niagaraparks.com/visit/attractions/journey-behind-the-falls/' },
-  { lat:43.2557, lng:-79.0717, tier:3, cat:'scenic',   icon:'🍇', name:'Niagara-on-the-Lake',       area:'Niagara-on-the-Lake, ON 🇨🇦', sub:'Option B (2nd night) only · Beautiful historic town ~25 min north, surrounded by wineries (ice wine country).', gq:'Niagara-on-the-Lake, Ontario' },
 
   // — Finger Lakes: food —
   { lat:42.3838, lng:-76.8714, tier:3, cat:'food', icon:'🍷', name:'Graft Wine + Cider Bar',  area:'Watkins Glen, NY', sub:'Farm-to-table, all local. Best sit-down dinner in town.', url:'https://www.graftwineciderbar.com/' },
@@ -182,22 +140,15 @@ pois: [
   { lat:42.4500, lng:-76.5120, tier:3, cat:'food', icon:'🐟', name:'BoatYard Grill',          area:'Ithaca, NY',       sub:'Best seafood in Ithaca, Cayuga Lake dock views.', url:'https://boatyardgrill.com/hours.php' },
   { lat:42.4400, lng:-76.4960, tier:3, cat:'food', icon:'🍕', name:'Revelry Yards',           area:'Ithaca, NY',       sub:'Wood-fired pizza + craft micro-brewery upstairs.', url:'https://www.revelryyards.com/menus.html' },
 
-  // — Hudson Valley: activities —
-  { lat:41.7085, lng:-73.9610, tier:2, cat:'activity', icon:'🌉', name:'Walkway Over the Hudson', area:'Highland, NY',          sub:'Free, 212 ft above the river, fully fenced — great with kids.', url:'https://walkway.org/visit/' },
-  { lat:41.7350, lng:-74.2373, tier:2, cat:'hike',     icon:'🏞', name:'Minnewaska State Park',   area:'Kerhonkson, NY',        sub:'Sky Lakes & white cliffs. Reserve parking online ahead.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
-  { lat:41.7688, lng:-74.1567, tier:2, cat:'hike',     icon:'🏰', name:'Mohonk Preserve',         area:'New Paltz, NY',         sub:'Victorian castle resort, day hiker pass ~$30/pp. Optional splurge.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
-  { lat:41.2590, lng:-74.3290, tier:2, cat:'activity', icon:'🍎', name:'Masker Orchards',         area:'Warwick, NY',           sub:'Classic pick-your-own with hayrides. Peak October apple season.', url:'https://www.maskers.com/' },
-  { lat:41.5440, lng:-73.8020, tier:2, cat:'activity', icon:'🍏', name:'Fishkill Farms',          area:'Hopewell Junction, NY', sub:'Smaller curated pick-your-own, cider donuts. Backup to Masker.', url:'https://www.fishkillfarms.com/' },
-  { lat:42.0410, lng:-74.1180, tier:2, cat:'activity', icon:'🎸', name:'Woodstock Village',       area:'Woodstock, NY',         sub:'The iconic music town. Galleries, shops, live music. Half-day escape.' },
-  { lat:41.7690, lng:-73.9350, tier:2, cat:'activity', icon:'🏡', name:'FDR Home & Library',      area:'Hyde Park, NY',         sub:'Roosevelt estate + Val-Kill. ~$20/adult.' },
-  { lat:42.2170, lng:-73.7890, tier:2, cat:'scenic',   icon:'🎨', name:'Olana State Historic Site', area:'Hudson, NY',          sub:'Persian-style mansion, jaw-dropping valley panorama in foliage.' },
-
-  // — Hudson Valley: food —
-  { lat:41.7470, lng:-74.0860, tier:3, cat:'food', icon:'🥞', name:'Main Street Bistro',  area:'New Paltz, NY', sub:'Beloved breakfast & brunch institution. Early on weekends.', url:'https://www.mainstreetbistro.com/menu/' },
-  { lat:41.7540, lng:-74.0840, tier:3, cat:'food', icon:'🍺', name:'Garvan\'s Gastropub', area:'New Paltz, NY', sub:'Irish food in an actual 1759 building.', url:'https://www.garvans.com/dinner.html' },
-  { lat:41.7475, lng:-74.0850, tier:3, cat:'food', icon:'🌶', name:'Lola\'s',             area:'New Paltz, NY', sub:'Southern comfort meets Thai & global flavors. Local favorite.', url:'https://www.lolascafeandcatering.com/menu/new-paltz-menu/' },
-  { lat:41.7460, lng:-74.0880, tier:3, cat:'food', icon:'🍷', name:'Jar\'d Wine Pub',     area:'New Paltz, NY', sub:'Natural wines, cozy porch over the rail trail.' },
-  { lat:41.7450, lng:-74.0830, tier:3, cat:'food', icon:'🍺', name:'Bacchus',             area:'New Paltz, NY', sub:'Hudson Valley craft beers + full pub menu.' },
+  // — Niagara Falls (Oct 3–5, fixed) —
+  { lat:43.0862, lng:-79.0633, tier:2, cat:'activity', icon:'🏨', name:'Hyatt Place Niagara Falls',        area:'310 Rainbow Blvd S, Niagara Falls, NY', sub:'Recommended base for Oct 3–5: 0.23 mi from Maid of the Mist, indoor pool, self-parking and rooms with two queen beds plus sofa-sleeper. Book a refundable rate; breakfast and parking must be verified.', url:'https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls' },
+  { lat:43.0856, lng:-79.0664, tier:2, cat:'activity', icon:'⛴', name:'Maid of the Mist',                 area:'Niagara Falls, NY', sub:'Must-do Oct 4 at opening. 2026 October hours: daily 9am–5pm. No timed reservations; boarding is first-come, first-served. Online voucher must be exchanged at the booth. Stroller parking recommended.', url:'https://www.maidofthemist.com/schedule-pricing/' },
+  { lat:43.0793, lng:-79.0743, tier:2, cat:'activity', icon:'💨', name:'Cave of the Winds',                area:'Niagara Falls, NY', sub:'Strongly recommended Oct 4 after Maid. Timed, same-day ticket; buy first thing at the Welcome Center or Cave. Oct 4 hours 9am–6:15pm. Bring wet-safe shoes; sandals are no longer issued.', url:'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/' },
+  { lat:43.0786, lng:-79.0760, tier:2, cat:'scenic',   icon:'🏝', name:'Goat Island',                      area:'Niagara Falls, NY', sub:'Oct 5 quiet morning: Terrapin Point + Three Sisters Islands, 45–60 min. Free; most upper-park paths are stroller-friendly.', gq:'Goat Island, Niagara Falls State Park NY' },
+  { lat:43.0900, lng:-79.0677, tier:2, cat:'scenic',   icon:'🌉', name:'Rainbow Bridge pedestrian crossing', area:'Niagara Falls, NY / ON', sub:'Oct 4 Canadian-side visit on foot. Bring valid passports for every traveler. Return-to-US pedestrian toll: $1 USD in quarters, $1.25 CAD cash, or $1.25 CAD contactless per person.', url:'https://www.niagarafallsbridges.com/crossing-info/pedestrian-crossing-information' },
+  { lat:43.0816, lng:-79.0784, tier:2, cat:'scenic',   icon:'🇨🇦', name:'Queen Victoria Park + Table Rock', area:'Niagara Falls, ON 🇨🇦', sub:'Oct 4 late afternoon through illumination: the broad Canadian panorama of American + Horseshoe Falls. Use the stroller; allow time for customs in both directions.', gq:'Table Rock Centre, Niagara Falls Ontario' },
+  { lat:43.0870, lng:-79.0680, tier:3, cat:'scenic',   icon:'🌈', name:'Illumination + fireworks',         area:'Niagara Falls, NY / ON', sub:'Oct 4: illumination starts 6:15pm. Fireworks are scheduled at 10pm, weather permitting; treat them as optional for the children.', url:'https://www.niagaraparks.com/events/event/niagara-falls-fireworks-series' },
+  { lat:43.0791, lng:-79.0789, tier:3, cat:'activity', icon:'🚇', name:'Journey Behind the Falls',         area:'Niagara Falls, ON 🇨🇦', sub:'Optional only if Cave of the Winds is unavailable or the family has unusual energy. Do not stack a third wet attraction into the core day.', url:'https://www.niagaraparks.com/visit/attractions/journey-behind-the-falls/' },
 
   // — NJ base —
   { lat:40.7430, lng:-74.1720, tier:2, cat:'activity', icon:'🏛', name:'The Newark Museum of Art', area:'Newark, NJ',       sub:'Thu–Sun 12–5pm, $10/adult. Fully accessible.' },
@@ -217,7 +168,7 @@ regions: [
     title: 'NJ Family Base',
     navLabel: 'NJ',
     color: '#D97706',
-    dates: 'Oct 7 – 15',
+    dates: 'Oct 5 – 15',
     weather: { name: 'Newark, NJ', lat: 40.7357, lon: -74.1724 },
     infoCard: {
       prefix: 'nj',
@@ -258,7 +209,7 @@ regions: [
         { icon:'🛍', name:'Main Street Shopping',         sub:'Galleries, outdoor gear, fudge shops, Olympic memorabilia stores. An easy 2-hour wander with something for everyone.' },
       ]
     },
-    days: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6']
+    days: ['d1', 'd2', 'd3', 'd4', 'd5']
   },
   {
     id: 'finger-lakes',
@@ -266,7 +217,7 @@ regions: [
     title: 'Finger Lakes',
     navLabel: 'Finger Lakes',
     color: '#7C3AED',
-    dates: 'Sep 30 – Oct 5',
+    dates: 'Sep 30 – Oct 3',
     weather: { name: 'Watkins Glen, NY', lat: 42.3806, lon: -76.8733 },
     infoCard: {
       prefix: 'fl',
@@ -280,7 +231,6 @@ regions: [
       ],
       nohike: [
         { icon:'🔬', name:'Corning Museum of Glass',      badge:'rb-must', badgeLabel:'★ Must-do', sub:'Corning, ~45 min from Watkins Glen · $25/adult, kids under 17 free. Open 9am–5pm daily. You can make your own glass piece. One of the best museums in the US — easily fills 3 hours.', url:'https://visit.cmog.org/plan-your-visit' },
-        { icon:'🛥', name:'Cayuga Lake boat day',          sub:'Pontoon rental or sightseeing cruise from the Ithaca waterfront. The relaxed on-the-water day is now a core part of this leg — book a slot a day or two ahead.' },
         { icon:'🐄', name:'Farm Sanctuary',                sub:'Watkins Glen · Guided tours of the famous farm-animal rescue. Optional, very kid-friendly. Check tour schedule and book ahead.', url:'https://www.farmsanctuary.org/visit/' },
         { icon:'🍷', name:'Seneca Lake Wine Trail',        sub:'35+ wineries along both shores. Drive the loop, stop at 3–4. Highlights: Wagner Vineyards, Castel Grisch, Hazlitt\'s 1852. No reservation usually needed mid-week.' },
         { icon:'🦕', name:'Museum of the Earth',           sub:'1259 Trumansburg Rd, Ithaca · Fossils, dinosaurs, hands-on paleontology. Very kid-friendly. ~$10/adult.', url:'https://www.museumoftheearth.org/visit/plan-your-visit' },
@@ -288,43 +238,31 @@ regions: [
         { icon:'🎭', name:'Hangar Theatre',                sub:'Ithaca · Professional regional theater in a converted 1940s airplane hangar. Check schedule for fall shows.' },
       ]
     },
-    days: ['d7', 'd8', 'd9', 'd10', 'd15']
+    days: ['d6', 'd7', 'd8']
   },
   {
     id: 'niagara',
     emoji: '🌊',
-    title: 'Niagara Falls · Flex Option',
-    navLabel: 'Niagara (flex)',
+    title: 'Niagara Falls',
+    navLabel: 'Niagara',
     color: '#0EA5E9',
-    dates: 'Oct 4–5 · only if chosen',
+    dates: 'Oct 3–5',
     weather: { name: 'Niagara Falls, NY', lat: 43.0962, lon: -79.0377 },
-    infoCard: null,
-    days: ['d16', 'd17']
-  },
-  {
-    id: 'hudson',
-    emoji: '🍂',
-    title: 'Hudson Valley · Catskills',
-    navLabel: 'Hudson Valley',
-    color: '#DC2626',
-    dates: 'Oct 5 – Oct 7',
-    weather: { name: 'New Paltz, NY', lat: 41.7476, lon: -74.0868 },
     infoCard: {
-      prefix: 'hv',
+      prefix: 'nf',
       eat: [
-        { icon:'🥞', name:'Main Street Bistro',          badge:'rb-casual', badgeLabel:'Casual', sub:'59 Main St · New Paltz\'s beloved breakfast &amp; brunch institution for 30+ years. Arrive early on weekends — line forms outside.', url:'https://www.mainstreetbistro.com/menu/' },
-        { icon:'🍺', name:'Garvan\'s Gastropub',         badge:'rb-brew',   badgeLabel:'Brew',   sub:'215 Huguenot St · Traditional Irish food in an actual 1759 building. Full of character. Great for an evening out.', url:'https://www.garvans.com/dinner.html' },
-        { icon:'🌶', name:'Lola\'s',                     badge:'rb-casual', badgeLabel:'Casual', sub:'Main St · Eclectic menu mixing Southern comfort, Thai, and global flavors. Strong cocktails. Local favorite.', url:'https://www.lolascafeandcatering.com/menu/new-paltz-menu/' },
-        { icon:'🍷', name:'Jar\'d Wine Pub',             badge:'rb-wine',   badgeLabel:'Wine',   sub:'68 Main St · Natural &amp; biodynamic wines, cozy back porch overlooking the Wallkill rail trail. Low-key and great.', url:'https://www.tripadvisor.com/Restaurant_Review-g48245-d4041829-Reviews-Jar_d_Wine_Pub-New_Paltz_Catskill_Region_New_York.html' },
-        { icon:'🍺', name:'Bacchus Restaurant &amp; Bar',badge:'rb-brew',   badgeLabel:'Brew',   sub:'Long list of Hudson Valley craft beers + full pub menu. Lively on weekend evenings.' },
+        { icon:'🍔', name:'The Placery at Hyatt Place', badge:'rb-casual', badgeLabel:'Easy',   sub:'Lobby restaurant / grab-and-go fallback for the Oct 3 arrival night. Use it if the children are finished for the day.' },
+        { icon:'🌊', name:'Top of the Falls',           badge:'rb-casual', badgeLabel:'View',   sub:'Goat Island lunch option after Cave of the Winds. Check current hours before relying on it.' },
+        { icon:'🇨🇦', name:'Table Rock Market',          badge:'rb-casual', badgeLabel:'Canada', sub:'Simple early dinner beside Horseshoe Falls. Practical with children and keeps the Canadian-side walk compact.' },
       ],
       nohike: [
-        { icon:'🌉', name:'Walkway Over the Hudson',           sub:'Highland, ~20 min · Free, 212 ft above the river, fully fenced. The best no-effort Hudson Valley view — slotted for the Oct 7 morning en route to NJ.', url:'https://walkway.org/visit/' },
-        { icon:'🎸', name:'Woodstock Village',                 sub:'~30 min west · The iconic music town. Great galleries, eclectic shops, live music &amp; coffee. Only if energy allows — this leg is now a short foliage base, not a sightseeing push.' },
-        { icon:'🍎', name:'Apple orchards',                    sub:'Masker Orchards (Warwick) or Fishkill Farms (Hopewell Junction) · Pick-your-own in peak October season. Easy optional stop on the drive toward NJ.' },
+        { icon:'🏨', name:'Why stay on the US side', badge:'rb-must', badgeLabel:'Recommended', sub:'Both must-do attractions are in Niagara Falls State Park, and the Oct 5 car route leaves toward NJ. Hyatt Place lets the car remain parked; visit Canada on foot instead of adding car-border crossings.' },
+        { icon:'🛏', name:'Exact room request',      sub:'Queen Beds (plus sofa bed), standard-floor category: 373–448 sq ft, minifridge and more floor space than the listed high-floor queen category. Confirm exact family occupancy and choose free cancellation.' },
+        { icon:'🛂', name:'Canadian-side documents', sub:'Carry valid passports for every adult and child and use Canada’s official checker for each traveler’s documents. Bring a stroller for the promenade and allow for customs both ways.', url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html' },
+        { icon:'💦', name:'Wet-attraction kit',      sub:'Water-safe shoes, carrier for the younger child, dry socks/clothes in a waterproof bag, and a towel. Maid supplies ponchos; Cave no longer supplies sandals.' },
       ]
     },
-    days: ['d11', 'd12', 'd13']
+    days: ['d9', 'd10', 'd11']
   }
 ],
 
@@ -350,18 +288,15 @@ regions: [
 //     note  — rendered as a separate <p> below stats (no note → <br>)
 days: {
   d1: {
-    date: '2026-09-25', title: 'Arrive EWR → Lake Placid (~5 hrs)',
+    date: '2026-09-25', title: 'Arrive EWR → Walkway → Lake Placid',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'activity', icon:'✈️', title:'Land at EWR', sub:'Pick up rental car at the EWR Rental Car Center — AirTrain to Terminal A, then walk the covered corridor to the rental building.' },
-      { type:'drive', text:'~290 miles · ~4.5–5.5 hrs total · I-87 N → NY-73 W · Final stretch through Keene Valley is spectacular',
-        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Saratoga Springs, NY','Keene Valley, NY'] } },
-      { type:'activity', icon:'🎠', title:'Stop option A: Saratoga Springs (~3 hrs in)', sub:'Congress Park Carousel: $1/ride, kids under 5 free. Runs weekends in fall — 25 Sep is a Friday, so the indoor Children\'s Museum (below) is the better Saratoga stop on arrival day. Stroller-friendly park with duck pond. Lunch on Broadway Ave, Target nearby for supplies. Best family decompression stop before the mountains.' },
-      { type:'activity', icon:'🏛', title:'Saratoga indoor backup', tag:'optional', sub:'Children\'s Museum at Saratoga (65 S Broadway) — Tue–Sat 9am–4pm, Sun 1–4pm. $14/person, under 12 months free. Ages 0–10, dedicated infant/toddler zone. Good arrival-day option (Fri) or if weather is poor.' },
-      { type:'activity', icon:'🌊', title:'Stop option B: Lake George village (3.5 hrs in)', tag:'optional', sub:'More scenic than Saratoga. Shepard Park waterfront is free with a playground and foliage views. Minne Ha-Ha 1-hr paddlewheel cruise (~$17–26/adult, kids under 4 free) — book ahead, check October schedule. This is where the Adirondack feeling properly begins. You can also come back here as a weekend excursion from the NJ base.' },
-      { type:'activity', icon:'🍽', title:'Lunch stop: Noon Mark Diner, Keene Valley', tag:'optional', sub:'1770 NY-73, Keene Valley — daily 7am–4pm. Classic Adirondack diner since 1981. Homemade pies, locally sourced comfort food, high chairs. Perfect 30-min break right on the NY-73 mountain stretch into Lake Placid.' },
-      { type:'activity', icon:'🏞', title:'Photo stop: Cascade Lakes pull-off (on NY-73)', sub:'Best zero-effort foliage stop on the entire drive. Twin alpine lakes with sheer cliffs reflecting fall colour. Free parking lot, picnic tables, 10–20 min. Fills early on fall weekends — stop on the way in, not the way back.' },
-      { type:'activity', icon:'🏨', title:'Check in Lake Placid', sub:'Mirror Lake Inn or condo with kitchenette. Walk Mirror Lake in the evening — the Rt 73 stretch through Keene Valley is dramatic even at dusk.' },
+      { type:'drive', text:'305 miles · ~5 hr 4 min wheel time in usual traffic via I-87 N; with the two planned stops, budget ~6.5–7.5 hrs from rental-car departure to Lake Placid',
+        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Walkway Over the Hudson West Entrance, 87 Haviland Road, Highland, NY','Hannaford, 190 Quaker Road, Queensbury, NY'] } },
+      { type:'activity', icon:'🌉', title:'T+1:40 to T+2:25 · Walkway Over the Hudson', sub:'Use the west entrance, 87 Haviland Rd, Highland. Walk west gate → midpoint → west gate: ~1.28 mi total, flat, paved and stroller-friendly; restrooms at the entrance. Paid parking. Do this only if the rental car leaves EWR by 1:30pm and weather is safe; otherwise skip it without replacement. Sep 25 hours: 7am–7pm.', url:'https://walkway.org/visit/' },
+      { type:'activity', icon:'🛒', title:'T+4:05 to T+4:50 · Hannaford Queensbury', sub:'190 Quaker Rd · full first shop for breakfast, picnic food, fruit, snacks, diapers and road supplies. Open 7am–11pm daily. Eat a quick prepared-food meal here or nearby before the final mountain leg.', url:'https://stores.hannaford.com/ny/queensbury/8360' },
+      { type:'activity', icon:'🏨', title:'T+6:35 · Check in Lake Placid', sub:'The T+ schedule is relative to leaving the rental center and includes normal traffic, a 45-min Walkway stop and a 45-min grocery stop. If the Walkway is skipped, arrive roughly 45–60 min earlier.' },
     ]
   },
   d2: {
@@ -369,7 +304,7 @@ days: {
     badge: 'explore', badgeLabel: 'Explore',
     content: [
       { type:'activity', icon:'🌿', title:'Mirror Lake loop walk', sub:'Easy flat shoreline loop right from the village, stroller-friendly. Beautiful late-September foliage. Keep the day soft — the half marathon is tomorrow.' },
-      { type:'activity', icon:'🏆', title:'Olympic Village sites', sub:'Olympic Center and Museum (2634 Main St, 9:30am–5pm) plus the Olympic Jumping Complex. North America\'s 2nd-largest Winter Olympic collection and the 1980 "Miracle on Ice" rink. Great for all ages.', url:'https://lakeplacidolympicmuseum.org/visit/' },
+      { type:'activity', icon:'🏆', title:'Olympic Village sites', sub:'Olympic Center and Museum (2634 Main St, 9:30am–5pm) plus the Olympic Jumping Complex. North America’s 2nd-largest Winter Olympic collection and the 1980 "Miracle on Ice" rink. Great for all ages.', url:'https://lakeplacidolympicmuseum.org/visit/' },
       { type:'activity', icon:'🛍', title:'Main Street wander', sub:'Galleries, outdoor gear, fudge shops and Olympic memorabilia. Easy 1–2 hour stroll with something for everyone. Grab coffee at Origin Coffee Co. (2669 Main St).' },
       { type:'activity', icon:'🎽', title:'Adirondack Marathon Expo & Packet Pickup', sub:'Collect race bibs, timing chips and shirts at the official expo (Sat Sep 26). Confirm exact location and hours on the race site — pickup is also available race morning in Schroon Lake, but getting it done today keeps Sunday calm.', url:'https://www.adirondackmarathon.org/' },
     ]
@@ -387,187 +322,110 @@ days: {
     ]
   },
   d4: {
-    date: '2026-09-28', title: 'High Falls Gorge + Lake Placid village',
+    date: '2026-09-28', title: 'Whiteface Highway + High Falls Gorge',
     badge: 'explore', badgeLabel: 'Explore',
     content: [
-      { type:'activity', icon:'💧', title:'High Falls Gorge', sub:'Short paid walk along AuSable River gorge. Easy Path is stroller-suitable; suspended walkways better with backpack carrier. ~45 min. Free parking.', url:'https://highfallsgorge.com/tickets/', urlLabel:'🎟 Tickets &amp; hours' },
-      { type:'hiketabs', prefix:'sep28', tabs:[
-        { id:'base', label:'Afternoon Trail', active:true,
-          title:'Brewster Peninsula Loop',
-          note:'Short easy circuit near Lake Placid. Abandon early if kids flag — recovery is still the priority the day after the race.',
-          stats:['2.1 mi','~150 ft','Easy'],
-          url:'https://www.alltrails.com/trail/us/new-york/brewster-peninsula-boundary-and-ridge-trail-loop' },
-      ]},
-      { type:'activity', icon:'🍦', title:'Lake Placid village afternoon', sub:'Main Street shops, Olympic museum, Mirror Lake shoreline. If everyone is tired after the gorge, skip the trail entirely.' },
+      { type:'activity', icon:'🏔', title:'8:45am–11:30am · Whiteface Veterans’ Memorial Highway', sub:'Do the weather-sensitive summit first. Fall admission is sold in person at the Toll House; the highway is open daily 8:45am–5:30pm through Oct 12. Drive-up summit, elevator alternative to the final stairs, and minimal leg load the day after the race. Pack layers: the summit is at least 10°F colder.', url:'https://whiteface.com/todo/whiteface-veterans-memorial-highway/' },
+      { type:'activity', icon:'🍽', title:'11:45am–12:30pm · Wilmington lunch', sub:'Eat between the two attractions. Keep it quick and warm; this is a recovery day, not a hiking day.' },
+      { type:'activity', icon:'💧', title:'1:00pm–2:15pm · High Falls Gorge', sub:'The gorge is in the same Wilmington corridor. Use the Easy Path with stroller; use the carrier only if taking the suspended walkways. Turn back whenever legs feel heavy.', url:'https://highfallsgorge.com/tickets/', urlLabel:'🎟 Tickets &amp; hours' },
+      { type:'activity', icon:'🛋', title:'After 3pm · Lake Placid recovery', sub:'No added hike. Hotel rest, Mirror Lake shoreline or Main Street only. If Whiteface is clouded or closed, reverse the order and use the Olympic Museum as the weather backup.' },
     ]
   },
   d5: {
-    date: '2026-09-29', title: 'Whiteface Veterans\' Memorial Highway',
-    badge: 'hike', badgeLabel: 'Hike/Ride',
+    date: '2026-09-29', title: 'Wild Center + Saranac Lake',
+    badge: 'explore', badgeLabel: 'Explore',
     content: [
-      { type:'activity', icon:'🏔', title:'Whiteface Veterans\' Memorial Highway', sub:'Open through 12 Oct. Drive-up summit with the best foliage view in the Adirondacks. Summit is at least 10°F colder than the base — pack extra layers. Note: the gondola runs Fri–Sun only after 11 Sep; Sep 29 is a Tuesday, so the highway is the right call.', url:'https://lakeplacidlegacysites.com/todo/whiteface-veterans-memorial-highway/' },
-      { type:'activity', icon:'🏋', title:'Mt. Van Hoevenberg (backup)', tag:'rain plan', sub:'Indoor climbing wall or Legacy Tour if weather closes the summit. Good all-ages fallback.' },
-      { type:'hiketabs', prefix:'sep29', tabs:[
-        { id:'base',    label:'Base Hike', active:true,
-          title:'Mt. Baker Trail', desc:' — easy family loop near Lake Placid village.',
-          stats:['2.2 mi','~250 ft gain','Easy'],
-          url:'https://www.alltrails.com/trail/us/new-york/baker-mountain' },
-        { id:'upgrade', label:'Upgrade',
-          title:'Mt. Van Hoevenberg', desc:' — solid panorama, moderate switchbacks.',
-          stats:['5.2 mi','~1,200 ft gain','Moderate'],
-          url:'https://www.alltrails.com/trail/us/new-york/mt-van-hoevenberg' },
-      ]},
+      { type:'drive', text:'~45 min each way via NY-86 W / NY-3 W · leave Lake Placid about 9:00am',
+        route:{ from:'Lake Placid, NY', to:'The Wild Center, 45 Museum Drive, Tupper Lake, NY' } },
+      { type:'activity', icon:'🦦', title:'10:00am–2:30pm · The Wild Center', sub:'Wild Walk, Pines Play Area, animal encounters and indoor exhibits. September–October hours are 10am–5pm; reserve dated tickets for faster entry. Eat at the Waterside Café.', url:'https://www.wildcenter.org/visit/' },
+      { type:'activity', icon:'🎠', title:'3:00pm–3:45pm · Adirondack Carousel', tag:'optional', sub:'Saranac Lake stop on the return route. Skip if the children fall asleep in the car.' },
+      { type:'activity', icon:'🧳', title:'Evening · Pack for transfer', sub:'Refill the day bag, stage breakfast and load what can safely stay in the car. Sep 30 is now a true transfer day; there is no duplicated Wild Center day.' },
     ]
   },
   d6: {
-    date: '2026-09-30', title: 'Wild Center + Tupper Lake',
-    badge: 'explore', badgeLabel: 'Explore',
+    date: '2026-09-30', title: 'Lake Placid → Watertown → Watkins Glen',
+    badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'~45 min drive to Tupper Lake · day trip from Lake Placid base',
-        route:{ from:'Lake Placid, NY', to:'The Wild Center, Tupper Lake, NY' } },
-      { type:'activity', icon:'🦦', title:'The Wild Center', sub:'Wild Walk canopy trail, Pines Play Area, animal encounters, 115 acres. Best full family nature day near Lake Placid. Open daily.', url:'https://www.wildcenter.org/visit/' },
-      { type:'hiketabs', prefix:'sep30', tabs:[
-        { id:'base', label:'Trail Option', active:true,
-          title:'Wild Center Trail',
-          note:'Short easy loop near Tupper Lake. Good for free play between exhibits.',
-          stats:['1.2 mi','~50 ft','Easy'],
-          url:'https://www.alltrails.com/trail/us/new-york/the-wild-center-trail' },
-      ]},
-      { type:'activity', icon:'🎠', title:'Adirondack Carousel, Saranac Lake', tag:'optional', sub:'Year-round family stop on the drive back. Hand-carved Adirondack wildlife carousel.' },
+      { type:'drive', text:'280 miles · ~4 hr 56 min wheel time in usual traffic via NY-3 W and I-81 S; follow live navigation for the final Finger Lakes segment. With lunch/restock, budget ~6 hrs door to door',
+        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY'] } },
+      { type:'activity', icon:'🚗', title:'8:30am · Leave Lake Placid', sub:'Use NY-3 W through Saranac Lake and Tupper Lake. This is the scenic and fastest mapped route; do not route south through Albany.' },
+      { type:'activity', icon:'🛒', title:'~11:00am–12:00pm · Hannaford Watertown', sub:'21110 US Route 3 · the route reaches the I-81 area after roughly 2.5 hours. Use this as the one proper stop: restroom, prepared-food lunch and Finger Lakes grocery restock. Open Wednesday 7am–10pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
+      { type:'activity', icon:'🏨', title:'~2:30pm–3:00pm · Check in Watkins Glen', sub:'The arrival time includes a 60-min Watertown break and normal traffic. Keep the rest of the day empty except lakefront play and an early dinner.' },
     ]
   },
   d7: {
-    date: '2026-09-30', title: 'Drive Lake Placid → Watkins Glen (~4.5 hrs)',
-    badge: 'drive', badgeLabel: 'Drive',
-    content: [
-      { type:'drive', text:'~225 miles · ~4.5 hrs · I-87 S → I-90 W → I-86 W → NY-414 S · Treat as a full transfer day',
-        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Albany, NY','Syracuse, NY'] } },
-      { type:'activity', icon:'🛑', title:'Plan for one proper meal break', sub:'4.5+ hours with small children needs at least one structured rest stop — schedule by time, not by complaints.' },
-      { type:'activity', icon:'🏨', title:'Check in near Watkins Glen', sub:'Seneca Lodge (kitchenette cabins next to gorge entrance) or lakeside inn. If late arrival, skip the lakefront walk and take an early dinner.' },
-    ]
-  },
-  d8: {
     date: '2026-10-01', title: 'Corning Museum of Glass',
     badge: 'explore', badgeLabel: 'Must-do',
     content: [
-      { type:'drive', text:'~45 min south from Watkins Glen · easy day trip',
+      { type:'drive', text:'~45 min each way from Watkins Glen',
         route:{ from:'Watkins Glen, NY', to:'Corning Museum of Glass, Corning, NY' } },
-      { type:'activity', icon:'🔬', title:'Corning Museum of Glass', sub:'$25/adult, kids under 17 free. Open 9am–5pm daily. One of the best museums in the US — easily fills 3+ hours. Fully indoor, so it is the region\'s best rain-proof day.', url:'https://home.cmog.org/visit' },
-      { type:'activity', icon:'🔥', title:'Live glassblowing demos', sub:'Hot Shop demonstrations run throughout the day in the amphitheater. Watch molten glass shaped in real time — captivating for all ages.' },
-      { type:'activity', icon:'🎨', title:'Make-your-own glass', sub:'Make Your Own Glass experiences (ornament, flower, pendant) — small extra fee, often timed-entry. Book on arrival or online to lock a slot.' },
-      { type:'activity', icon:'🖼', title:'Museum galleries', sub:'35 centuries of glass art and a hands-on innovation center. Café on site for lunch. Rain-proof — keep this in your back pocket if a gorge day gets washed out.' },
+      { type:'activity', icon:'🔬', title:'9:30am–2:30pm · Corning Museum of Glass', sub:'Keep five hours including lunch. Start with a reserved Make Your Own Glass slot, then Hot Shop demos, hands-on innovation galleries and the café. Fully indoor, so swap with Oct 2 if that is the wet day.', url:'https://home.cmog.org/visit' },
+      { type:'activity', icon:'🎨', title:'Reserve Make Your Own Glass', sub:'Book the timed experience before the trip; the museum itself does not need the whole day. Choose a child-compatible project and confirm pickup/shipping timing.' },
+      { type:'activity', icon:'🌊', title:'Late afternoon · Watkins Glen lakefront', sub:'Return to the base for playground / Seneca Lake waterfront and an early dinner. Do not add another drive.' },
+    ]
+  },
+  d8: {
+    date: '2026-10-02', title: 'Watkins Glen Gorge + quiet lake afternoon',
+    badge: 'hike', badgeLabel: 'Hike',
+    content: [
+      { type:'activity', icon:'🏞', title:'8:30am–10:30am · Watkins Glen Gorge Trail', sub:'Enter at the Main Entrance. Family base plan: walk through Cavern Cascade, continue only while everyone is comfortable, then turn around the same way. Use the carrier, not the stroller: the gorge has many wet stone steps. Oct 2 is before the usual mid-to-late-October seasonal gorge closure, but verify conditions that morning.', url:'https://parks.ny.gov/visit/state-parks/watkins-glen-state-park' },
+      { type:'hiketabs', prefix:'wg', tabs:[
+        { id:'base',    label:'Family base', active:true,
+          title:'Main Entrance → Cavern Cascade → return',
+          note:'Captures the signature gorge without committing to all 800+ steps. Turn around after 45–60 minutes outbound at the latest.',
+          stats:['~1–1.5 mi rt','Many stairs','Easy-Moderate'],
+          url:'https://www.alltrails.com/trail/us/new-york/glen-creek-gorge-trail' },
+        { id:'upgrade', label:'Upgrade',
+          title:'Continue farther up Gorge Trail',
+          note:'Only if both children and the post-race legs are genuinely strong. No weekday shuttle; every step out must be walked back or linked to a rim trail.',
+          stats:['Up to ~3 mi','800+ steps','Moderate'],
+          url:'https://www.alltrails.com/trail/us/new-york/watkins-glen-south-rim-trail' },
+      ]},
+      { type:'activity', icon:'🛋', title:'After lunch · protected downtime', sub:'Nap / lodging reset first, then Seneca Lake waterfront only. Pack tonight for an 8:15am checkout and Niagara transfer.' },
     ]
   },
   d9: {
-    date: '2026-10-02', title: 'Watkins Glen Gorge Trail',
-    badge: 'hike', badgeLabel: 'Hike',
+    date: '2026-10-03', title: 'Taughannock + Ithaca → Niagara Falls',
+    badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'activity', icon:'🏞', title:'Watkins Glen Gorge Trail', sub:'800 stone steps, 19 waterfalls, dramatic gorge walls. The best gorge hike in NY. Arrive early — gets busy. Note: the park shuttle runs weekends only after Sep 8 — Oct 2 is a Friday so no shuttle. Plan an out-and-back, not a full loop.', url:'https://parks.ny.gov/visit/state-parks/watkins-glen-state-park' },
-      { type:'hiketabs', prefix:'wg', tabs:[
-        { id:'base',    label:'Base',    active:true,
-          title:'Gorge Trail out-and-back',
-          note:'Walk to the top of the gorge, return same way. 45–60 min. Best option on a weekday — no shuttle needed.',
-          stats:['1.6 mi rt','~420 ft','Easy-Mod'],
-          url:'https://www.alltrails.com/trail/us/new-york/glen-creek-gorge-trail' },
-        { id:'upgrade', label:'Upgrade',
-          title:'Gorge + South Rim loop',
-          note:'Full loop with elevated south rim views. 1.5–2 hrs. Requires walking back along road — manageable without the shuttle.',
-          stats:['3 mi','~500 ft','Moderate'],
-          url:'https://www.alltrails.com/trail/us/new-york/watkins-glen-south-rim-trail' },
-      ]},
-      { type:'activity', icon:'🌊', title:'Decision point tonight: Niagara flex option', tag:'optional', sub:'Over dinner tonight (or tomorrow evening at the latest), decide on the floating Niagara option. Ask: 1) Are we still excited? 2) Are the kids handling hotels well? 3) Is the weather favorable? 4) Have we already had enough waterfalls and nature? If YES to going — check out Oct 4 instead of Oct 5, drive ~2.5 hrs to Niagara Falls for 1 night (Maid of the Mist, Cave of the Winds, Goat Island, night illumination), then straight to NJ on Oct 5, skipping the New Paltz leg. If NO — keep the base plan: extra Finger Lakes lake day Oct 4, then New Paltz Oct 5–7.' },
+      { type:'activity', icon:'🧳', title:'7:30am checkout; 8:15am leave Watkins Glen', sub:'Load before breakfast. This protects the Niagara evening and avoids trying to sightsee in Ithaca late in the day.' },
+      { type:'activity', icon:'💧', title:'9:00am–10:30am · Taughannock Falls', sub:'Use the broad, flat Gorge Trail to the 215-ft falls, ~1.5 mi round trip. Stroller works in normal conditions; take the carrier if the trail is wet.', trailUrl:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
+      { type:'activity', icon:'🍕', title:'10:50am–11:50am · Early lunch in Ithaca', sub:'Ithaca Commons only. Skip Cornell Botanic Gardens and Sciencenter on this transfer day; Niagara is now the priority.' },
+      { type:'drive', text:'166 miles · ~3 hr from Ithaca Commons to Hyatt Place in usual traffic; add a short restroom stop and follow live navigation',
+        route:{ from:'Ithaca Commons, Ithaca, NY', to:'Hyatt Place Niagara Falls, 310 Rainbow Blvd S, Niagara Falls, NY' } },
+      { type:'activity', icon:'🏨', title:'~3:00pm · Hyatt Place arrival', sub:'Park once, leave bags if the room is not ready, then settle into a Queen Beds (plus sofa bed) room. Use the indoor pool / room until about 5:15pm.' },
+      { type:'activity', icon:'🌊', title:'5:30pm–7:00pm · First look + illumination', sub:'Walk to Prospect Point and the Observation Tower area. Illumination starts at 6:15pm. Eat at The Placery afterward; do not cross the border tonight.' },
+      { type:'activity', icon:'🎆', title:'10:00pm · Fireworks', tag:'optional', sub:'Scheduled nightly through Oct 12, weather permitting. View from Prospect Point or the hotel patio if open; skip without regret if the children are asleep.', url:'https://www.niagaraparks.com/events/event/niagara-falls-fireworks-series' },
     ]
   },
   d10: {
-    date: '2026-10-03', title: 'Taughannock Falls + Ithaca',
-    badge: 'hike', badgeLabel: 'Hike',
+    date: '2026-10-04', title: 'Maid + Cave + Canadian panorama',
+    badge: 'explore', badgeLabel: 'Must-do',
     content: [
-      { type:'activity', icon:'💧', title:'Taughannock Falls State Park',
-        sub:'Tallest waterfall in the Northeast (215 ft — taller than Niagara!). Wide, flat gorge trail — easy for all ages, ~1.5 mi rt.',
-        trailUrl:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
-      { type:'activity', icon:'🔬', title:'Sciencenter, Ithaca', tag:'rain plan', sub:'601 1st St, Ithaca · 250+ interactive exhibits, free parking. Curiosity Corner specifically designed for age 4 and under. Best indoor backup in the area — go here if weather shuts down the gorge.', url:'https://sciencenter.org/visit/hours-pricing/' },
-      { type:'activity', icon:'🌿', title:'Cornell Botanic Gardens, Ithaca', tag:'optional', sub:'Free. Beautiful fall colour. Only viable in dry weather — mostly outdoor.', url:'https://cornellbotanicgardens.org/visit' },
-      { type:'activity', icon:'🍕', title:'Ithaca Commons for dinner',       sub:'Collegetown energy, great food diversity.' },
-      { type:'activity', icon:'🌊', title:'Niagara decision — final call tonight', tag:'optional', sub:'If the Niagara option wasn\'t settled last night, lock it in this evening. Going means tomorrow (Oct 4) becomes the drive to Niagara Falls instead of the Cayuga Lake boat day.' },
-    ]
-  },
-  d15: {
-    date: '2026-10-04', title: 'Cayuga Lake boat day + relaxed lake time',
-    badge: 'explore', badgeLabel: 'Lake Day',
-    content: [
-      { type:'activity', icon:'🛥', title:'Cayuga Lake on the water', sub:'Rent a pontoon or take a sightseeing cruise from the Ithaca waterfront — foliage from the lake, zero hiking. Book a morning slot a day or two ahead.', gq:'Cayuga Boat Rentals, Ithaca NY' },
-      { type:'activity', icon:'🌊', title:'Relaxed lake time', sub:'No agenda after the boat. Taughannock Falls beach area or Myers Park in Lansing for shoreline lounging, playground and snacks. This day exists to NOT cram activities.' },
-      { type:'activity', icon:'🐄', title:'Farm Sanctuary', tag:'optional', sub:'Watkins Glen · Guided tours of the famous farm-animal rescue — very kid-friendly. Sunday tours run in October; check schedule and book ahead.', url:'https://www.farmsanctuary.org/visit/' },
-      { type:'activity', icon:'🏞', title:'Robert H. Treman State Park', tag:'optional', sub:'~15 min from Ithaca · Enfield Glen gorge walk to 115-ft Lucifer Falls. Only if everyone still wants one more gorge — skipping it is fine.', url:'https://parks.ny.gov/visit/state-parks/robert-h-treman-state-park' },
-      { type:'activity', icon:'🌊', title:'Niagara version of this day', tag:'optional', sub:'If the Niagara option was chosen on Oct 2–3, this whole day is replaced — see the dedicated "Niagara Falls · Flex Option" card below for the full plan (drive, Maid of the Mist, Cave of the Winds, Goat Island, illumination, overnight, and the Oct 5 drive to NJ).' },
-    ]
-  },
-  d16: {
-    date: '2026-10-04', title: 'FLEX Day 1: Watkins Glen → Niagara Falls',
-    badge: 'drive', badgeLabel: 'Flex Option',
-    content: [
-      { type:'activity', icon:'🌀', title:'Only if chosen on the Oct 2–3 decision point', sub:'This card activates only if the family said YES in the Finger Lakes: still excited, kids handling hotels well, weather favorable, not yet waterfalled-out. Otherwise ignore it — the base plan (Oct 4 lake day, Oct 5–7 New Paltz) stands. One night is the right dose; see Option B below for when two would make sense.' },
-      { type:'drive', text:'~150 miles · ~2.5–3 hrs · NY-14 N → I-90 W → I-190 N · Leave Watkins Glen in the morning, arrive early afternoon',
-        route:{ from:'Watkins Glen, NY', to:'Niagara Falls State Park, Niagara Falls, NY' } },
-      { type:'activity', icon:'🌊', title:'Niagara Falls afternoon', sub:'Check in, then walk into the state park for the first look from Prospect Point. Park the car once — everything on the NY side is walkable from the falls-adjacent hotels.' },
-      { type:'activity', icon:'💨', title:'Cave of the Winds', sub:'Elevator 175 ft down, then wooden walkways to the Hurricane Deck at the base of Bridal Veil Falls. You WILL get soaked — sandals and ponchos provided. Check fall operating status before counting on it.', url:'https://www.niagarafallsstatepark.com/attractions-and-tours/cave-of-the-winds' },
-      { type:'activity', icon:'🌈', title:'Illuminated falls at night', sub:'The falls are lit in color every night from dusk — visible from Prospect Point, a short walk from the NY-side hotels. Fireworks run some fall evenings; check the schedule.', url:'https://www.niagarafallsusa.com/' },
-      { type:'activity', icon:'🏨', title:'Sleep Niagara Falls (NY side)', sub:'One night. Book a hotel walkable to the state park so the illumination is a stroll, not a drive. Book only once the decision is made — keep it refundable.' },
-    ]
-  },
-  d17: {
-    date: '2026-10-05', title: 'FLEX Day 2: Maid of the Mist → NJ',
-    badge: 'drive', badgeLabel: 'Flex Option',
-    content: [
-      { type:'activity', icon:'⛴', title:'Maid of the Mist', sub:'First boats of the morning have the shortest lines. The classic ride to the base of Horseshoe Falls — ponchos provided, kids love it. Runs into early November, weather permitting. Timed tickets online.', url:'https://www.maidofthemist.com/' },
-      { type:'activity', icon:'🏝', title:'Goat Island walk', sub:'Stroller-friendly paths between the American and Horseshoe Falls: Terrapin Point for the big panorama, Three Sisters Islands for rapids up close. Free.' },
-      { type:'activity', icon:'🍽', title:'Lunch before the drive', sub:'Eat properly in Niagara Falls before setting out — it\'s the longest drive of the trip and a good meal buys quiet miles.' },
-      { type:'drive', text:'~400 miles · ~6–6.5 hrs · I-90 E → I-81 S → I-380/I-80 E · The New Paltz leg is skipped — cancel that hotel. Plan two proper breaks (Syracuse and Scranton areas split it in thirds).',
-        route:{ from:'Niagara Falls, NY', to:'Newark, NJ' } },
-      { type:'activity', icon:'🇨🇦', title:'Option B: a 2nd Niagara night?', tag:'optional', sub:'Only makes sense if you add the Canadian side: Butterfly Conservatory, Whirlpool Aero Car, Journey Behind the Falls, Niagara-on-the-Lake (beautiful town) and winery visits. Needs passports + border crossing both ways with kids, and pushes NJ arrival to Oct 6. For this trip, 1 night is the recommended dose — treat Option B as a stretch goal, not the default.' },
+      { type:'activity', icon:'🎒', title:'8:00am · Breakfast + wet-attraction kit', sub:'Water-safe shoes, carrier, dry socks/clothes and towel in a waterproof bag. Leave the stroller at the hotel for the wet-attraction block; collect it for Canada.' },
+      { type:'activity', icon:'🎟', title:'9:00am · Buy Cave of the Winds timed tickets first', sub:'At the Ralph C. Wilson Jr. Welcome Center or Cave ticket desk, buy the earliest slot at or after 10:45am. Tickets are same-day and not sold online. Oct 4 posted hours: 9am–6:15pm.', url:'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/' },
+      { type:'activity', icon:'⛴', title:'9:10am–10:20am · Maid of the Mist', sub:'Must-do. Exchange the online voucher, then join the first-come line; boats depart about every 15 min and the ride lasts 20 min. 2026 price: $30.25 adult, $19.75 ages 6–12, age 5 and under free. Runs 9am–5pm on Oct 4. Use stroller parking if you bring it.', url:'https://www.maidofthemist.com/schedule-pricing/' },
+      { type:'activity', icon:'💨', title:'10:45am–12:15pm · Cave of the Winds', sub:'Strongly recommended. Use the assigned time; the Hurricane Deck is optional, so an adult can remain on the less-wet lower platforms with a child. Bring wet-safe footwear because sandals are no longer distributed. Return to the hotel if anyone is chilled.', url:'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/' },
+      { type:'activity', icon:'🏝', title:'12:15pm–1:30pm · Terrapin Point + lunch', sub:'Take the Horseshoe Falls overlook immediately after Cave, then lunch at Top of the Falls if open. Otherwise use the hotel or a nearby quick option.' },
+      { type:'activity', icon:'🛋', title:'1:30pm–3:30pm · Dry clothes + nap / pool', sub:'Protected reset. Do not trade this away for another attraction.' },
+      { type:'activity', icon:'🇨🇦', title:'3:45pm–7:15pm · Canadian side on foot', sub:'Take every traveler’s valid passport and the stroller. Walk across Rainbow Bridge, continue through Queen Victoria Park to Table Rock, eat an early dinner, and see the 6:15pm illumination from the Canadian panorama. Allow flexible customs time both ways. The return-to-US pedestrian toll is $1 USD in quarters, $1.25 CAD cash, or $1.25 CAD contactless per person.', url:'https://www.niagarafallsbridges.com/crossing-info/pedestrian-crossing-information' },
+      { type:'activity', icon:'🚇', title:'Journey Behind the Falls', tag:'optional', sub:'Substitute this only if Cave of the Winds is unavailable or someone opts out of Cave. Do not make it a third wet attraction.', url:'https://www.niagaraparks.com/visit/attractions/journey-behind-the-falls/' },
+      { type:'activity', icon:'🎆', title:'10:00pm · Fireworks', tag:'optional', sub:'A second chance if everyone is awake; weather can cancel the display.' },
     ]
   },
   d11: {
-    date: '2026-10-05', title: 'Howe Caverns → New Paltz (~4.5 hrs total)',
+    date: '2026-10-05', title: 'Niagara morning → NJ family base',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'Finger Lakes → Howe Caverns → New Paltz · ~2.5 hrs to the caverns, ~1.5 hrs on to New Paltz · I-86 E → I-88 E → I-87 S',
-        route:{ from:'Watkins Glen, NY', to:'New Paltz, NY', via:['Howe Caverns, Howes Cave, NY'] } },
-      { type:'activity', icon:'🕳', title:'Howe Caverns cave tour', sub:'156 feet underground, 52°F year-round — bring a layer. The classic 1.5-hr guided Traditional Tour walks paved, lit paths through the caverns. Fully rain-proof. Oct 5 is a Monday — quieter than the weekend, but still book ahead.', url:'https://howecaverns.com/' },
-      { type:'activity', icon:'🚣', title:'Underground boat ride', sub:'The tour ends with a quiet boat ride across the Lake of Venus on the underground river — a hit with kids.' },
-      { type:'activity', icon:'🏨', title:'Continue to New Paltz', sub:'~1.5 hrs on to New Paltz. The village is now mainly a beautiful foliage base and transition toward NJ — no sightseeing checklist. Check in and take an easy dinner on Main Street.' },
-    ]
-  },
-  d12: {
-    date: '2026-10-06', title: 'Minnewaska State Park · Shawangunk Ridge',
-    badge: 'hike', badgeLabel: 'Hike',
-    content: [
-      { type:'activity', icon:'🏔', title:'Minnewaska State Park Preserve', sub:'Sky Lakes, white conglomerate cliffs, incredible foliage. Reserve parking online in advance — fills up fast on weekends.', url:'https://parks.ny.gov/visit/state-parks/minnewaska-state-park-preserve' },
-      { type:'hiketabs', prefix:'minn', tabs:[
-        { id:'base',    label:'Base',    active:true,
-          title:'Awosting Falls + Lake Minnewaska loop',
-          note:'Hits the best highlights. Family-friendly.',
-          stats:['3.5 mi','~350 ft','Easy-Mod'],
-          url:'https://www.alltrails.com/trail/us/new-york/lake-minnewaska-awosting-falls' },
-        { id:'upgrade', label:'Upgrade',
-          title:'Lake Awosting loop',
-          note:'Full ridge traverse. More solitude. Pack lunch.',
-          stats:['8 mi','~900 ft','Moderate'],
-          url:'https://www.alltrails.com/trail/us/new-york/lake-awosting-via-reserve-access-and-purple-loop' },
-      ]},
-      { type:'activity', icon:'🏰', title:'Mohonk Preserve / Mountain House', tag:'splurge', style:'margin-top:10px',
-        sub:'Spectacular Victorian castle resort. Day hiker fee ~$30/person. Worth it if budget allows.', url:'https://www.mohonk.com/experience-passes/hiking-trails-pass/' },
-    ]
-  },
-  d13: {
-    date: '2026-10-07', title: 'Walkway Over the Hudson → NJ (~2 hrs total)',
-    badge: 'drive', badgeLabel: 'Drive',
-    content: [
-      { type:'activity', icon:'🌉', title:'Walkway Over the Hudson', sub:'Highland, ~20 min from New Paltz and right on the way south · Free, open 7am–sunset. 1.28 miles gate-to-gate, 212 ft above the Hudson River. Fully fenced — excellent with small children. The best dramatic Hudson Valley view without any trail difficulty, then back to the car and onward.', url:'https://walkway.org/visit/' },
-      { type:'drive', text:'~95 miles · ~1.5–2 hrs · I-87 S → I-287 W',
-        route:{ from:'Walkway Over the Hudson, Highland, NY', to:'Newark, NJ' } },
-      { type:'activity', icon:'🍎', title:'Apple orchard stop en route', tag:'optional', sub:'Masker Orchards (Warwick, near the route south) — classic pick-your-own with hayrides, peak October season. Fishkill Farms is the smaller, curated alternative. Skip if everyone just wants to land in NJ.', url:'https://www.maskers.com/' },
-      { type:'activity', icon:'🏠', title:'Return to NJ family base', sub:'Oct 7–15 wind-down and family time. A Lake George reunion weekend (~Oct 10–12) makes an easy excursion from here before the EWR departure.' },
+      { type:'activity', icon:'🥞', title:'7:15am · Breakfast, check out and load car', sub:'Complete checkout before the final walk so the 9:15am departure is real.' },
+      { type:'activity', icon:'🏝', title:'8:00am–9:00am · Goat Island final look', sub:'Three Sisters Islands + any Terrapin Point view missed yesterday. Keep it to 60 min. Bad-weather / tired-child substitute: hotel pool, open from 6am.' },
+      { type:'drive', text:'418 miles · ~6 hr 39 min wheel time in usual traffic with the two planned stops; budget ~8 hr 15 min door to door via I-90 E → I-81 S → I-380 S → I-80 E',
+        route:{ from:'Hyatt Place Niagara Falls, Niagara Falls, NY', to:'Newark, NJ', via:['Wegmans, 7952 Brewerton Road, Cicero, NY','Nay Aug Park, 500 Arthur Avenue, Scranton, PA'] } },
+      { type:'activity', icon:'🚗', title:'9:15am · Leave Niagara Falls', sub:'Fuel the car before departure and protect the two planned break windows; this is the longest drive of the trip.' },
+      { type:'activity', icon:'🛒', title:'~11:50am–12:40pm · Wegmans Cicero', sub:'After 166 miles / ~2 hr 36 min. Prepared-food lunch, restroom, final groceries and baby supplies for the NJ stay. Open 6am–midnight.', url:'https://www.wegmans.com/stores/cicero-ny' },
+      { type:'activity', icon:'🌳', title:'~3:00pm–3:40pm · Nay Aug Park, Scranton', sub:'After another 144 miles / ~2 hr 19 min. Use it as a movement break, not a sightseeing stop: short paved wander / play, then back in the car. Open dawn–8pm.', url:'https://nayaugpark.org/' },
+      { type:'activity', icon:'🚻', title:'Rain / delay backup: Great Bend Welcome Center', tag:'optional', sub:'If Nay Aug is wet or the schedule is over 30 min late, replace it with a 15-min restroom stop at the I-81 South Welcome Center, 26273 Route 11, Great Bend. Staffed 9am–5:30pm.', url:'https://www.pa.gov/agencies/penndot/traveling-in-pa/welcome-centers' },
+      { type:'activity', icon:'🏠', title:'~5:30pm · Arrive NJ family base', sub:'The final leg from Nay Aug is 109 miles / ~1 hr 49 min in usual traffic. NJ family stay begins Oct 5; this ends the road-trip loop.' },
     ]
   },
 },
@@ -620,9 +478,8 @@ resources: {
       title: 'Hotels & Stays',
       items: [
         { key: 'hotel-lp', label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
-        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (5 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 5', reservation_deadline: '2026-08-01', notes: 'Book the last night (Oct 4) free-cancellation — the Niagara flex option would check out Oct 4 instead' },
-        { key: 'hotel-hv', label: 'Hudson Valley — New Paltz village hotel / B&B (2 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 5 – Oct 7', reservation_deadline: '2026-08-01', notes: 'Book free-cancellation — this whole leg is replaced if the Niagara option is chosen on Oct 2–3' },
-        { key: 'hotel-niagara', label: 'Niagara Falls — flex option, 1 night (only if chosen)', type: 'booking', priority: 'optional', status: 'pending', dates: 'Oct 4 – Oct 5', notes: 'Do NOT commit now. Decide evening of Oct 2–3 in the Finger Lakes; book that night if going' },
+        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (3 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 3', notes: 'Check out by 7:30am Oct 3. This replaces the prior 5-night hold.' },
+        { key: 'hotel-niagara', label: 'Hyatt Place Niagara Falls — Queen Beds + sofa (2 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 3 – Oct 5', url: 'https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls', notes: 'Recommended US-side base, 310 Rainbow Blvd S. Choose the standard “Queen Beds (plus sofa bed)” category, not the smaller high-floor queen category; confirm exact family occupancy. Live Sep 5 search showed $688.56 displayed total with a free-cancellation filter versus $585.96 without that filter; rates can change. Verify taxes, final cancellation cutoff, breakfast and parking before payment.' },
       ]
     },
     {
@@ -632,10 +489,9 @@ resources: {
       items: [
         { key: 'act-marathon', label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/', notes: 'Sun Sep 27 · Schroon Lake · expo & packet pickup Sat Sep 26' },
         { key: 'act-corning', label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
-        { key: 'act-howe', label: 'Howe Caverns Tour', type: 'booking', priority: 'critical', status: 'pending', url: 'https://howecaverns.com/', notes: 'Oct 5 · cave tour + boat ride en route to New Paltz' },
-        { key: 'act-minnewaska', label: 'Minnewaska State Park — parking reservation', type: 'booking', priority: 'critical', status: 'pending', url: 'https://parks.ny.gov/parks/minnewaska', notes: 'Oct 6 · fills fast in October foliage season' },
-        { key: 'act-boat', label: 'Cayuga Lake boat — pontoon rental or cruise', type: 'booking', priority: 'recommended', status: 'pending', notes: 'Oct 4 · book 1–2 days ahead from the Finger Lakes once weather is known' },
-        { key: 'act-niagara-decision', label: 'DECIDE: Niagara flex option', type: 'todo', priority: 'recommended', status: 'pending', notes: 'Evening of Oct 2–3 · still excited? kids OK with hotels? weather good? enough waterfalls already? If go: book Niagara night + Maid of the Mist, cancel New Paltz' },
+        { key: 'act-maid', label: 'Maid of the Mist — official online voucher', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.maidofthemist.com/schedule-pricing/', notes: 'Oct 4 at opening · no timed reservation; voucher is valid any 2026 operating day and must be exchanged at the booth. 2026 prices: $30.25 adult, $19.75 ages 6–12, age 5 and under free.' },
+        { key: 'act-cave', label: 'Cave of the Winds — same-day timed ticket', type: 'todo', priority: 'recommended', status: 'pending', url: 'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/', notes: 'Oct 4 · tickets are not sold online. Buy first thing at the Welcome Center / Cave desk for the earliest slot at or after 10:45am. Pack water-safe shoes.' },
+        { key: 'act-canada-docs', label: 'Verify Canadian entry documents for every traveler', type: 'todo', priority: 'critical', status: 'pending', url: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html', notes: 'Planned pedestrian crossing Oct 4. Carry every adult and child passport; use the official checker for each traveler and re-check shortly before travel.' },
       ]
     },
     {
@@ -645,7 +501,7 @@ resources: {
       items: [
         { key: 'ops-offline-maps', label: 'Download offline Google Maps (all regions)', type: 'todo', priority: 'critical', status: 'pending', url: 'https://support.google.com/maps/answer/6291838', notes: 'Needs Wi-Fi — do before departure' },
         { key: 'ops-esim', label: 'Buy US eSIM — Airalo or Holafly', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.airalo.com/', notes: 'Activate 1 day before landing' },
-        { key: 'ops-packing', label: 'Pack: rain layers, hiking shoes, warm layers, snacks & bottles', type: 'todo', priority: 'critical', status: 'pending', notes: 'Oct nights are cold (35–45°F) — waterproof layer per person' },
+        { key: 'ops-packing', label: 'Pack: layers, carrier, stroller, wet shoes, dry bag, snacks & bottles', type: 'todo', priority: 'critical', status: 'pending', notes: 'Niagara kit: water-safe shoes, dry socks/clothes and towel. For the Rainbow Bridge return toll, carry $1 in US quarters per traveler or use contactless payment.' },
       ]
     }
   ]
