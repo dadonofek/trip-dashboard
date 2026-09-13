@@ -630,17 +630,12 @@ function renderMonthGrid(year, month, idx, start, end) {
     const dayId = idx.dateToDay[iso];
     if (dayId) {
       const region = idx.dayToRegion[dayId];
+      const color = region ? region.color : 'var(--border)';
       const day = DAYS[dayId];
-      // day.calColor (optional) overrides the region colour for this one cell,
-      // so a day that needs extra attention can be flagged in the calendar.
-      const color = day.calColor || (region ? region.color : 'var(--border)');
       const booked = day.booked || [];
       // Tooltip carries the day title plus anything that must be booked ahead.
-      const tipLines = [day.title].concat(
-        day.calNote ? ['⚠ ' + day.calNote] : [],
-        booked.map(b => '🎟 ' + b.label)
-      );
-      const title = tipLines.join(' · ').replace(/"/g, '&quot;');
+      const title = [day.title].concat(booked.map(b => '🎟 ' + b.label))
+        .join(' · ').replace(/"/g, '&quot;');
       const tix = booked.length ? '<span class="cal-tix">🎟</span>' : '';
       cells += `<div class="cal-cell cal-trip" style="border-color:${color}"
           onclick="goToDay('${dayId}')" title="${title}">
@@ -704,8 +699,7 @@ function renderCalendar() {
     </div>
     <div class="cal-legend">Tap a highlighted day to jump to its plan below.
       🎟 marks a day with something that must be booked in advance — the full list is
-      under the grid. A cell outlined in a colour other than its region's is flagged
-      for extra attention.</div>
+      under the grid.</div>
     ${html}
     ${renderBookingBoard()}`;
 }

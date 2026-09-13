@@ -108,10 +108,6 @@ window.TRIP_DATA = {
       title: 'Arrive FLR → city',
       badge: 'drive',              // drive | explore | hike | flex
       badgeLabel: 'Drive',
-      calColor: '#EF4444',         // optional — overrides the region colour
-                                   // for this day's calendar cell only, to
-                                   // flag a day that needs extra attention
-      calNote: 'Tightest day',     // optional — added to the cell's tooltip
       booked: [                    // optional — things that must be reserved
                                    // or bought before the day itself. Puts a
                                    // 🎟 on the calendar cell and a row in the

@@ -474,10 +474,6 @@ days: {
   d9: {
     date: '2026-10-03', title: 'Taughannock + Ithaca → Niagara Falls',
     badge: 'drive', badgeLabel: 'Drive',
-    // calColor overrides the region colour for this cell only: Oct 3 is the
-    // tightest day on the trip, so it is flagged red in the calendar.
-    calColor: '#EF4444',
-    calNote: 'Tightest day of the trip — 7:30am checkout, two stops and a 3-hr drive before the Niagara evening',
     content: [
       { type:'activity', icon:'🧳', title:'7:30am checkout; 8:15am leave Watkins Glen', sub:'Load before breakfast. This protects the Niagara evening and avoids trying to sightsee in Ithaca late in the day.' },
       { type:'activity', icon:'💧', title:'9:00am–10:30am · Taughannock Falls', sub:'Use the broad, flat Gorge Trail to the 215-ft falls, ~1.5 mi round trip. Stroller works in normal conditions; take the carrier if the trail is wet.', trailUrl:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
