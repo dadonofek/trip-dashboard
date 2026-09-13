@@ -334,6 +334,26 @@
   .cal-trip:hover { filter: brightness(1.3); }
   .cal-trip .cal-num { color: #f1f5f9; font-weight: 700; }
   .cal-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: auto; align-self: flex-end; }
+  /* Top row of a calendar cell: day number + advance-booking ticket mark */
+  .cal-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2px; }
+  .cal-tix { font-size: 10px; line-height: 1.1; }
+  /* Advance-booking summary printed under the month grids */
+  .cal-book {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px; margin-bottom: 14px;
+  }
+  .cal-book h3 { font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+  .cal-book-intro { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .cal-book-row {
+    display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--border);
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  .cal-book-row:hover { background: rgba(148,163,184,0.06); }
+  .cal-book-date { flex: 0 0 68px; font-size: 12px; font-weight: 700; }
+  .cal-book-items { font-size: 12px; color: var(--muted); }
+  .cal-book-items div { margin-bottom: 3px; }
+  .cal-book-items div:last-child { margin-bottom: 0; }
+  .cal-book-must { color: #fca5a5; font-weight: 700; }
 
   /* ── FOOTER ── */
   footer { text-align: center; padding: 24px; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); }
@@ -491,14 +511,19 @@ function renderHikePanel(prefix, tab) {
   const titlePara = tab.desc
     ? `<p><strong>${tab.title}</strong>${tab.desc}</p>`
     : `<p><strong>${tab.title}</strong></p>`;
+  // linkLabel lets a tab point at something that is not an AllTrails page
+  // (an attraction's hours/tickets page, say) without lying about the link.
+  const linkHtml = tab.url
+    ? `<a class="trail-link" href="${tab.url}" target="_blank" rel="noopener">
+      ${AT_SVG}
+      ${tab.linkLabel || 'View on AllTrails'}
+    </a>`
+    : '';
   return `<div id="${prefix}-${tab.id}" class="hike-option${tab.active ? ' active' : ''}">
     ${titlePara}
     ${stats}
     ${separator}
-    <a class="trail-link" href="${tab.url}" target="_blank" rel="noopener">
-      ${AT_SVG}
-      View on AllTrails
-    </a>
+    ${linkHtml}
   </div>`;
 }
 
@@ -607,10 +632,14 @@ function renderMonthGrid(year, month, idx, start, end) {
       const region = idx.dayToRegion[dayId];
       const color = region ? region.color : 'var(--border)';
       const day = DAYS[dayId];
-      const title = day.title.replace(/"/g, '&quot;');
+      const booked = day.booked || [];
+      // Tooltip carries the day title plus anything that must be booked ahead.
+      const title = [day.title].concat(booked.map(b => '🎟 ' + b.label))
+        .join(' · ').replace(/"/g, '&quot;');
+      const tix = booked.length ? '<span class="cal-tix">🎟</span>' : '';
       cells += `<div class="cal-cell cal-trip" style="border-color:${color}"
           onclick="goToDay('${dayId}')" title="${title}">
-        <span class="cal-num">${d}</span>
+        <div class="cal-top"><span class="cal-num">${d}</span>${tix}</div>
         <span class="cal-dot" style="background:${color}"></span>
       </div>`;
     } else {
@@ -624,6 +653,32 @@ function renderMonthGrid(year, month, idx, start, end) {
   return `<div class="cal-month">
     <div class="cal-month-name">${MONTH_FULL[month]} ${year}</div>
     <div class="cal-grid">${dow}${cells}</div>
+  </div>`;
+}
+
+// Days carrying a `booked` list, printed under the grids so the
+// advance-booking picture is readable without hovering a cell.
+function renderBookingBoard() {
+  const rows = Object.keys(DAYS)
+    .filter(id => (DAYS[id].booked || []).length)
+    .sort((a, b) => DAYS[a].date.localeCompare(DAYS[b].date))
+    .map(id => {
+      const day = DAYS[id];
+      const items = day.booked.map(b =>
+        `<div${b.must ? ' class="cal-book-must"' : ''}>🎟 ${b.label}</div>`
+      ).join('');
+      return `<div class="cal-book-row" onclick="goToDay('${id}')">
+        <div class="cal-book-date">${formatDateFull(day.date)}</div>
+        <div class="cal-book-items">${items}</div>
+      </div>`;
+    }).join('');
+  if (!rows) return '';
+  return `<div class="cal-book">
+    <h3>🎟 Days that need advance booking</h3>
+    <div class="cal-book-intro">Everything on this list has to be reserved or bought
+      before the day itself. <span class="cal-book-must">Red</span> means the visit is
+      impossible without a booking made in advance — do those first. Tap a row to open the day.</div>
+    ${rows}
   </div>`;
 }
 
@@ -642,8 +697,11 @@ function renderCalendar() {
       <h2>Trip Calendar</h2>
       <span class="dates">${formatDate(TRIP.start)} – ${formatDate(TRIP.end)}</span>
     </div>
-    <div class="cal-legend">Tap a highlighted day to jump to its plan below.</div>
-    ${html}`;
+    <div class="cal-legend">Tap a highlighted day to jump to its plan below.
+      🎟 marks a day with something that must be booked in advance — the full list is
+      under the grid.</div>
+    ${html}
+    ${renderBookingBoard()}`;
 }
 
 // Open a day card and scroll it into view (used by calendar cells).
