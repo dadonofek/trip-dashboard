@@ -37,6 +37,7 @@ route: [
   [44.2239,-74.4644], // Tupper Lake / NY-3 W
   [44.16,-75.04],     // Star Lake / NY-3 W
   [43.9730,-75.9537], // Hannaford Watertown
+  [43.0553,-75.9672], // Green Lakes State Park (Sep 30 stop)
   [43.05,-76.15],     // Syracuse / I-81 S
   [42.60,-76.18],     // Cortland
   [42.3806,-76.8733], // ★ WATKINS GLEN
@@ -61,9 +62,14 @@ route: [
 ],
 
 // ── ALTERNATE ROUTES (dashed on the map) ───────────────────
-// None on this itinerary. Niagara Falls is now part of the fixed
-// route, so there are no dashed alternative branches to draw.
-routesAlt: [],
+// The Sep 27 afternoon is deliberately undecided: both spurs out of
+// Schroon Lake are drawn so the choice is visible on the map.
+routesAlt: [
+  { label: 'Sep 27 PM option A: Fort Ticonderoga + corn maze', color: '#F59E0B',
+    points: [ [43.8390,-73.7610], [43.8510,-73.5300], [43.8419,-73.3878], [43.9700,-73.4500], [44.1100,-73.5900], [44.2795,-73.9799] ] },
+  { label: 'Sep 27 PM option B: Natural Stone Bridge & Caves', color: '#0EA5E9',
+    points: [ [43.8390,-73.7610], [43.7454,-73.8090], [43.7397,-73.8375], [43.8390,-73.7610], [44.0500,-73.8100], [44.2795,-73.9799] ] },
+],
 
 // ── MAP MARKERS — MAIN STOPS ───────────────────────────────
 // Always visible at any zoom: the trip's anchor locations.
@@ -88,6 +94,7 @@ pois: [
   { lat:43.3310, lng:-73.6564, tier:2, cat:'food',     icon:'🛒', name:'Hannaford Queensbury',                    area:'190 Quaker Rd, Queensbury, NY', sub:'Sep 25 primary grocery load after the Walkway. Open 7am–11pm daily; directly useful before the final Lake Placid leg.', url:'https://stores.hannaford.com/ny/queensbury/8360' },
 
   // — Transfer-day stops (Sep 30 and Oct 5) —
+  { lat:43.0553, lng:-75.9672, tier:2, cat:'scenic',   icon:'💚', name:'Green Lakes State Park', area:'7900 Green Lakes Rd, Fayetteville, NY', sub:'Sep 30 mid-transfer stop, just east of Syracuse. Two blue-green meromictic lakes ringed by old-growth forest; the Green Lake shore loop is flat and stroller-friendly. Open year-round dawn–dusk, no booking. The $10 vehicle fee is charged daily only through Labor Day.', url:'https://parks.ny.gov/visit/state-parks/green-lakes-state-park' },
   { lat:43.9730, lng:-75.9537, tier:2, cat:'food',     icon:'🛒', name:'Hannaford Watertown', area:'21110 US Route 3, Watertown, NY', sub:'Sep 30 lunch + grocery restock about halfway from Lake Placid to Watkins Glen. Mon–Sat 7am–10pm; Sun 7am–9pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
   { lat:43.1553, lng:-76.1190, tier:2, cat:'food',     icon:'🛒', name:'Wegmans Cicero',      area:'7952 Brewerton Rd, Cicero, NY',   sub:'Oct 5 first southbound break: prepared-food lunch, groceries and baby supplies. Open 6am–midnight daily.', url:'https://www.wegmans.com/stores/cicero-ny' },
   { lat:41.4001, lng:-75.6447, tier:2, cat:'activity', icon:'🌳', name:'Nay Aug Park',        area:'500 Arthur Ave, Scranton, PA',    sub:'Oct 5 second southbound break: 30–40 min outdoor reset. Open dawn–8pm; skip in heavy rain or if running late.', url:'https://nayaugpark.org/' },
@@ -98,6 +105,8 @@ pois: [
   { lat:43.4250, lng:-73.7110, tier:2, cat:'scenic',   icon:'🌊', name:'Lake George village',           area:'Lake George, NY',      sub:'Shepard Park waterfront + Minne Ha-Ha cruise. Optional stop or weekend trip from NJ.' },
   { lat:44.2190, lng:-73.8800, tier:2, cat:'scenic',   icon:'🏞', name:'Cascade Lakes pull-off',        area:'NY-73, Keene, NY',     sub:'Best zero-effort foliage stop on the whole drive. Free lot, 10–20 min.', gq:'Cascade Lakes, NY-73, Keene NY' },
   { lat:44.1910, lng:-73.7900, tier:2, cat:'food',     icon:'🥧', name:'Noon Mark Diner',               area:'Keene Valley, NY',     sub:'Classic Adirondack diner on NY-73. Homemade pies, high chairs. Perfect drive break.' },
+  { lat:43.8419, lng:-73.3878, tier:2, cat:'activity', icon:'🏰', name:'Fort Ticonderoga + Heroic Corn Maze', area:'102 Fort Ti Rd, Ticonderoga, NY', sub:'Sep 27 afternoon option A, ~40–45 min east of Schroon Lake. Open Tue–Sun through Oct 25, 9:30am–5pm (last admission 4:30pm); the 6-acre Heroic Corn Maze is included with admission, 10am–4:30pm, last daytime entry 4pm. Buying online in advance is encouraged but not required. Flat grounds — the easier of the two post-race options.', url:'https://fortticonderoga.org/visit/buy-tickets/' },
+  { lat:43.7397, lng:-73.8375, tier:2, cat:'activity', icon:'🕳', name:'Natural Stone Bridge & Caves', area:'535 Stone Bridge Rd, Pottersville, NY', sub:'Sep 27 afternoon option B, roughly 20–30 min south of Schroon Lake. Off-peak hours Sep 8–Oct 18: 10am–5pm, last tour ticket sold 3:30pm. Waterfalls, surface caves, dinosaur dig and optional gem mining — but the ~1.2 km self-guided trail has 500+ uneven steps, which is a real consideration after the half marathon and with a carrier. Walk-up tickets.', url:'https://stonebridgeandcaves.com/plan-your-trip/' },
   { lat:43.8390, lng:-73.7610, tier:2, cat:'activity', icon:'🏁', name:'Schroon Lake — race finish / packet pickup area', area:'Schroon Lake, NY', sub:'Adirondack Half Marathon finish line · Sun Sep 27. Packet pickup 6:45–7:45am at the pavilion above the finish line. The race itself starts point-to-point in the town of Adirondack, 9am.', url:'https://www.adirondackmarathon.org/half-marathon' },
 
   // — Adirondacks: activities & hikes —
@@ -130,7 +139,7 @@ pois: [
   { lat:42.4500, lng:-76.4690, tier:2, cat:'scenic',   icon:'🌿', name:'Cornell Botanic Gardens',    area:'Ithaca, NY',      sub:'Free, beautiful fall colour. Dry-weather option.', url:'https://cornellbotanicgardens.org/visit' },
   { lat:42.4550, lng:-76.5090, tier:3, cat:'activity', icon:'🎭', name:'Hangar Theatre',             area:'Ithaca, NY',      sub:'Regional theater in a converted 1940s hangar.' },
   { lat:42.4396, lng:-76.4970, tier:3, cat:'activity', icon:'🛍', name:'Ithaca Commons',             area:'Ithaca, NY',      sub:'Collegetown energy, great food diversity. Oct 3 early-lunch stop.' },
-  { lat:42.4180, lng:-76.9170, tier:2, cat:'activity', icon:'🐄', name:'Farm Sanctuary',             area:'Watkins Glen, NY', sub:'Guided farm-animal tours at the famous rescue sanctuary. Optional — book tour slot ahead.', url:'https://www.farmsanctuary.org/visit/', gq:'Farm Sanctuary, Watkins Glen NY' },
+  { lat:42.4085, lng:-76.9297, tier:2, cat:'activity', icon:'🐄', name:'Farm Sanctuary',             area:'3150 Aikens Rd, Watkins Glen, NY', sub:'Oct 2 afternoon. Hour-long guided tours of the original farm-animal rescue, ~20 min west of town. Open Fri–Sun in October. Every visit requires advance registration — book the slot before the trip. Arrive 15 min early.', url:'https://www.farmsanctuary.org/the-sanctuaries/watkins-glen-ny/', gq:'Farm Sanctuary, Watkins Glen NY' },
   { lat:42.4003, lng:-76.5594, tier:2, cat:'hike',     icon:'🏞', name:'Robert H. Treman State Park', area:'Ithaca, NY',     sub:'Enfield Glen gorge walk to 115-ft Lucifer Falls. Optional quieter alternative to Watkins Glen.', url:'https://parks.ny.gov/visit/state-parks/robert-h-treman-state-park' },
 
   // — Finger Lakes: food —
@@ -208,6 +217,8 @@ regions: [
         { icon:'🎳', name:'Big Z\'s Bowling &amp; Entertainment', sub:'State-of-the-art lanes, full arcade, multi-sport simulator, shuffleboard. Solid rainy-day option.' },
         { icon:'🎬', name:'Palace Theatre',               sub:'Downtown Lake Placid · Historic single-screen theater showing current films. Affordable, cozy afternoon escape.' },
         { icon:'🛍', name:'Main Street Shopping',         sub:'Galleries, outdoor gear, fudge shops, Olympic memorabilia stores. An easy 2-hour wander with something for everyone.' },
+        { icon:'🏰', name:'Fort Ticonderoga + Heroic Corn Maze', badge:'rb-must', badgeLabel:'Sep 27 option A', sub:'102 Fort Ti Rd, ~40–45 min east of Schroon Lake · Open Tue–Sun through Oct 25, 9:30am–5pm, last admission 4:30pm. The 6-acre corn maze is included with admission: 10am–4:30pm, last daytime entry 4pm. Buying online in advance is encouraged, not required, and admission is valid two consecutive days. Flat grounds — the gentler of the two post-race choices.', url:'https://fortticonderoga.org/visit/buy-tickets/' },
+        { icon:'🕳', name:'Natural Stone Bridge &amp; Caves',    badge:'rb-must', badgeLabel:'Sep 27 option B', sub:'535 Stone Bridge Rd, Pottersville, roughly 20–30 min south of Schroon Lake · Off-peak hours Sep 8–Oct 18 are 10am–5pm with the last tour ticket sold at 3:30pm. Waterfalls, surface caves, dinosaur dig, optional gem mining. The ~1.2 km trail has 500+ uneven steps — choose it only if the legs and the carrier can take it. Walk-up tickets.', url:'https://stonebridgeandcaves.com/plan-your-trip/' },
       ]
     },
     days: ['d1', 'd2', 'd3', 'd4', 'd5']
@@ -232,14 +243,15 @@ regions: [
       ],
       nohike: [
         { icon:'🔬', name:'Corning Museum of Glass',      badge:'rb-must', badgeLabel:'★ Must-do', sub:'Corning, ~45 min from Watkins Glen · $25/adult, kids under 17 free. Open 9am–5pm daily. You can make your own glass piece. One of the best museums in the US — easily fills 3 hours.', url:'https://visit.cmog.org/plan-your-visit' },
-        { icon:'🐄', name:'Farm Sanctuary',                sub:'Watkins Glen · Guided tours of the famous farm-animal rescue. Optional, very kid-friendly. Check tour schedule and book ahead.', url:'https://www.farmsanctuary.org/visit/' },
+        { icon:'🐄', name:'Farm Sanctuary',                badge:'rb-must', badgeLabel:'Book ahead', sub:'3150 Aikens Rd, ~20 min west of Watkins Glen · Hour-long guided tours of the original farm-animal rescue. Open Fri–Sun in October. <strong>Every visit requires advance registration</strong> — this is the Oct 2 afternoon plan and it does not work as a walk-up.', url:'https://www.farmsanctuary.org/the-sanctuaries/watkins-glen-ny/' },
+        { icon:'💚', name:'Green Lakes State Park',        sub:'7900 Green Lakes Rd, Fayetteville · The Sep 30 transfer-day stop, just east of Syracuse. Two blue-green meromictic lakes, old-growth forest, and a flat stroller-friendly shore loop. Open year-round dawn–dusk, no booking. The $10 vehicle fee is charged daily only through Labor Day.', url:'https://parks.ny.gov/visit/state-parks/green-lakes-state-park' },
         { icon:'🍷', name:'Seneca Lake Wine Trail',        sub:'35+ wineries along both shores. Drive the loop, stop at 3–4. Highlights: Wagner Vineyards, Castel Grisch, Hazlitt\'s 1852. No reservation usually needed mid-week.' },
         { icon:'🦕', name:'Museum of the Earth',           sub:'1259 Trumansburg Rd, Ithaca · Fossils, dinosaurs, hands-on paleontology. Very kid-friendly. ~$10/adult.', url:'https://www.museumoftheearth.org/visit/plan-your-visit' },
         { icon:'🌾', name:'Windmill Farm &amp; Craft Market', sub:'Penn Yan, ~30 min · Saturdays only. Large open-air market: local food, crafts, produce, baked goods. Worth the drive.' },
         { icon:'🎭', name:'Hangar Theatre',                sub:'Ithaca · Professional regional theater in a converted 1940s airplane hangar. Check schedule for fall shows.' },
       ]
     },
-    days: ['d6', 'd7', 'd8']
+    days: ['d6', 'd7', 'd8', 'd9']
   },
   {
     id: 'niagara',
@@ -247,7 +259,7 @@ regions: [
     title: 'Niagara Falls',
     navLabel: 'Niagara',
     color: '#0EA5E9',
-    dates: 'Oct 3–5',
+    dates: 'Oct 3 (eve) – Oct 5',
     weather: { name: 'Niagara Falls, NY', lat: 43.0962, lon: -79.0377 },
     infoCard: {
       prefix: 'nf',
@@ -257,13 +269,14 @@ regions: [
         { icon:'🇨🇦', name:'Table Rock Market',          badge:'rb-casual', badgeLabel:'Canada', sub:'Simple early dinner beside Horseshoe Falls. Practical with children and keeps the Canadian-side walk compact.' },
       ],
       nohike: [
+        { icon:'📍', name:'Where Oct 3 lives',        sub:'The Oct 3 card — Taughannock, Ithaca and the drive over — sits on the Finger Lakes chapter above, because the whole day is spent leaving the Finger Lakes. Niagara picks up with the evening arrival at the bottom of that card.' },
         { icon:'🏨', name:'Why stay on the US side', badge:'rb-must', badgeLabel:'Recommended', sub:'Both must-do attractions are in Niagara Falls State Park, and the Oct 5 car route leaves toward NJ. Hyatt Place lets the car remain parked; visit Canada on foot instead of adding car-border crossings.' },
         { icon:'🛏', name:'Exact room request',      sub:'Queen Beds (plus sofa bed), standard-floor category: 373–448 sq ft, minifridge and more floor space than the listed high-floor queen category. Confirm exact family occupancy and choose free cancellation.' },
         { icon:'🛂', name:'Canadian-side documents', sub:'Carry valid passports for every adult and child and use Canada’s official checker for each traveler’s documents. Bring a stroller for the promenade and allow for customs both ways.', url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html' },
         { icon:'💦', name:'Wet-attraction kit',      sub:'Water-safe shoes, carrier for the younger child, dry socks/clothes in a waterproof bag, and a towel. Maid supplies ponchos; Cave no longer supplies sandals.' },
       ]
     },
-    days: ['d9', 'd10', 'd11']
+    days: ['d10', 'd11']
   }
 ],
 
@@ -333,6 +346,10 @@ days: {
   d3: {
     date: '2026-09-27', title: 'Half marathon + family morning in Schroon Lake',
     badge: 'hike', badgeLabel: 'Race',
+    booked: [
+      { label: 'Adirondack Half Marathon — already registered; collect the packet 6:45–7:45am', must: true },
+      { label: 'Fort Ticonderoga (afternoon option A) — buy admission online ahead; day-of sale at the booth also works', must: false },
+    ],
     content: [
       { type:'activity', icon:'🎒', title:'Before you go · Family morning prep', sub:'Pack breakfast, snacks, warm layers, a picnic blanket and small toys. Leave Shachar the car keys and dry clothes for after the race.' },
       { type:'drive', text:'Drive from Lake Placid to Schroon Lake · targeting arrival around 7:00am for packet pickup and the shuttle',
@@ -345,12 +362,32 @@ days: {
       { type:'activity', icon:'🏃', title:'Half marathon', sub:'13.1-mile point-to-point course from the town of Adirondack to Schroon Lake, with rolling foliage views. Part of the Adirondack Marathon Distance Festival.', url:'https://www.adirondackmarathon.org/' },
       { type:'activity', icon:'📍', title:'From 10:25am · Gather near the finish', sub:'Head to the public-beach finish area, following spectator signs.' },
       { type:'activity', icon:'⏱', title:'Around 10:45am · Ofek’s estimated finish', sub:'Estimated finish time if running a 1:45 half marathon; not a guaranteed time.' },
-      { type:'activity', icon:'📸', title:'11:00am–12:30pm · Dry clothes, photos and lunch', sub:'Dry clothes, family photos and lunch in Schroon Lake. Pitkin’s or a takeaway picnic are options.' },
-      { type:'activity', icon:'🍽', title:'Recovery lunch', sub:'Refuel in Schroon Lake or back in Lake Placid. Big Mountain Deli or Noon Mark Diner are easy, kid-friendly post-race options.' },
-      { type:'activity', icon:'🚗', title:'Early afternoon · Return to Lake Placid', sub:'Back to Lake Placid for showers, naps and rest.' },
-      { type:'activity', icon:'🛋', title:'Easy afternoon', sub:'No agenda. Mirror Lake, an ice cream on Main Street, legs up. Save the bigger outings for the next two days.' },
-      { type:'activity', icon:'🌆', title:'Late afternoon · Mirror Lake stroll + early dinner', tag:'optional', sub:'A short Mirror Lake stroll, then early dinner.' },
-      { type:'activity', icon:'🌧', title:'Rain plan · Family morning in Lake Placid', tag:'rain plan', sub:'If persistently cold and wet, consider a family morning in Lake Placid instead; Ofek takes the car to the race and rejoins the family afterward.' },
+      { type:'activity', icon:'📸', title:'11:00am–12:30pm · Dry clothes, photos and recovery lunch', sub:'Dry clothes, family photos and lunch in Schroon Lake — Pitkin’s or a takeaway picnic. Decide the afternoon here, once you can see how the legs and the girls are holding up.' },
+      { type:'activity', icon:'🗺', title:'12:30pm · Pick the afternoon — both options stay open', sub:'Deliberately undecided until race day. Fort Ticonderoga and Natural Stone Bridge &amp; Caves are both open on Sun Sep 27 and neither has to be committed to in advance, so choose on the day. Doing nothing is the third real option, not a failure.' },
+      { type:'hiketabs', prefix:'d3-pm', tabs:[
+        { id:'fort', label:'Fort Ticonderoga + corn maze', active:true,
+          title:'Fort Ticonderoga + Heroic Corn Maze',
+          note:'~40–45 min east of Schroon Lake via NY-74. Sun Sep 27 hours 9:30am–5pm, last admission 4:30pm; the 6-acre Heroic Corn Maze runs 10am–4:30pm with last daytime entry at 4pm and is included in general admission. Rough shape: 1:15pm arrive, fort and gardens plus a historical demonstration, then the maze, leave around 3:45pm. Return to Lake Placid is roughly 1 hr 20 – 1 hr 30, so back about 5:15–5:45pm. Lowest-effort option for post-race legs — the fort grounds are walkable and mostly flat. Admission is valid two consecutive days. Drive times here are planning estimates.',
+          stats:['~40–45 min drive','Flat grounds','Maze last entry 4pm'],
+          linkLabel:'🎟 Hours &amp; tickets',
+          url:'https://fortticonderoga.org/visit/buy-tickets/' },
+        { id:'caves', label:'Stone Bridge &amp; Caves',
+          title:'Natural Stone Bridge &amp; Caves, Pottersville',
+          note:'Roughly 20–30 min south of Schroon Lake (planning estimate). Off-peak hours Sep 8–Oct 18 are 10am–5pm with the last tour ticket sold at 3:30pm. Waterfalls, the largest cave entrance in the eastern US, a dinosaur dig and optional gem mining — the strongest option if caves appeal more than history. The real trade-off: the ~1.2 km self-guided trail has 500+ uneven steps, which is a lot to ask of post-half-marathon legs and of whoever is carrying the baby. Tickets are sold on site; no advance booking.',
+          stats:['~20–30 min drive','~1.2 km, 500+ steps','Last ticket 3:30pm'],
+          linkLabel:'🔗 Hours &amp; admission',
+          url:'https://stonebridgeandcaves.com/plan-your-trip/' },
+        { id:'rest', label:'Straight back — rest',
+          title:'Straight back to Lake Placid',
+          note:'The honest fallback, and the right call if the race went hard or the girls are done. Back in Lake Placid by early afternoon for showers and naps, then Mirror Lake, an ice cream on Main Street and legs up. Whiteface and the Wild Center are the next two days — protecting those is worth more than one extra outing.',
+          stats:['~1 hr drive','No agenda','Naps + Mirror Lake'] },
+      ]},
+      { type:'drive', text:'Option A · Schroon Lake → Fort Ticonderoga → Lake Placid · roughly 45 min out and 1 hr 20 – 1 hr 30 home',
+        route:{ from:'Schroon Lake, NY', to:'Lake Placid, NY', via:['Fort Ticonderoga, 102 Fort Ti Road, Ticonderoga, NY'] } },
+      { type:'drive', text:'Option B · Schroon Lake → Natural Stone Bridge &amp; Caves → Lake Placid · roughly 20–30 min out and 1 hr 15 home',
+        route:{ from:'Schroon Lake, NY', to:'Lake Placid, NY', via:['Natural Stone Bridge and Caves, 535 Stone Bridge Road, Pottersville, NY'] } },
+      { type:'activity', icon:'🌆', title:'Evening · Back in Lake Placid, early dinner', sub:'Whichever option wins, aim to be back by about 5:45pm. Short Mirror Lake stroll if anyone still has legs, then an early dinner and an early night — Whiteface is tomorrow morning.' },
+      { type:'activity', icon:'🌧', title:'Rain plan · Family morning in Lake Placid', tag:'rain plan', sub:'If persistently cold and wet, consider a family morning in Lake Placid instead; Ofek takes the car to the race and rejoins the family afterward. In steady rain skip both afternoon options — the corn maze and the cave trail are both bad in wet weather.' },
     ]
   },
   d4: {
@@ -366,6 +403,9 @@ days: {
   d5: {
     date: '2026-09-29', title: 'Wild Center + Saranac Lake',
     badge: 'explore', badgeLabel: 'Explore',
+    booked: [
+      { label: 'The Wild Center — reserve dated tickets with an arrival time slot', must: false },
+    ],
     content: [
       { type:'drive', text:'~45 min each way via NY-86 W / NY-3 W · leave Lake Placid about 9:00am',
         route:{ from:'Lake Placid, NY', to:'The Wild Center, 45 Museum Drive, Tupper Lake, NY' } },
@@ -375,19 +415,25 @@ days: {
     ]
   },
   d6: {
-    date: '2026-09-30', title: 'Lake Placid → Watertown → Watkins Glen',
+    date: '2026-09-30', title: 'Lake Placid → Watertown → Green Lakes → Watkins Glen',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'drive', text:'280 miles · ~4 hr 56 min wheel time in usual traffic via NY-3 W and I-81 S; follow live navigation for the final Finger Lakes segment. With lunch/restock, budget ~6 hrs door to door',
-        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY'] } },
-      { type:'activity', icon:'🚗', title:'8:30am · Leave Lake Placid', sub:'Use NY-3 W through Saranac Lake and Tupper Lake. This is the scenic and fastest mapped route; do not route south through Albany.' },
-      { type:'activity', icon:'🛒', title:'~11:00am–12:00pm · Hannaford Watertown', sub:'21110 US Route 3 · the route reaches the I-81 area after roughly 2.5 hours. Use this as the one proper stop: restroom, prepared-food lunch and Finger Lakes grocery restock. Open Wednesday 7am–10pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
-      { type:'activity', icon:'🏨', title:'~2:30pm–3:00pm · Check in Watkins Glen', sub:'The arrival time includes a 60-min Watertown break and normal traffic. Keep the rest of the day empty except lakefront play and an early dinner.' },
+      { type:'drive', text:'~320 miles with the Green Lakes detour · the detour adds roughly 40–60 min of driving to the 280-mile / ~4 hr 56 min base route via NY-3 W and I-81 S. With a 45-min Watertown break and a 90-min park stop, budget ~8–8.5 hrs door to door. Distances beyond the base route are planning estimates, not a checked live route',
+        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY','Green Lakes State Park, 7900 Green Lakes Road, Fayetteville, NY'] } },
+      { type:'activity', icon:'🚗', title:'8:30am · Leave Lake Placid', sub:'Use NY-3 W through Saranac Lake and Tupper Lake. This is the scenic and fastest mapped route; do not route south through Albany. Leaving on time is what makes the Green Lakes stop possible.' },
+      { type:'activity', icon:'🛒', title:'~11:00am–11:45am · Hannaford Watertown', sub:'21110 US Route 3 · the route reaches the I-81 area after roughly 2.5 hours. Restroom, prepared-food lunch and Finger Lakes grocery restock. Hold this to about 45 minutes so the park stop survives. Open Wednesday 7am–10pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
+      { type:'activity', icon:'💚', title:'~1:00pm–1:30pm · Arrive Green Lakes State Park', sub:'7900 Green Lakes Rd, Fayetteville, just east of Syracuse and a short hop off I-81. Two meromictic lakes with genuinely blue-green water ringed by old-growth forest — this is what turns the transfer into a sightseeing day rather than six hours of highway. Open year-round, dawn to dusk. No booking; the $10 vehicle fee is charged daily only through Labor Day, so late September is normally free — carry $10 anyway in case it is being collected.', url:'https://parks.ny.gov/visit/state-parks/green-lakes-state-park' },
+      { type:'activity', icon:'🚶', title:'~1:30pm–3:00pm · Walk beside Green Lake', sub:'Roughly 90 minutes. The lakeside loop around Green Lake is flat, wide and stroller-friendly — photos, a snack on the shore, and extend toward Round Lake only if everyone is still enjoying it. Turn back whenever you like; the whole point is that this stop shortens cleanly.' },
+      { type:'activity', icon:'🏨', title:'~5:00pm–5:30pm · Check in Watkins Glen', sub:'Green Lakes to Watkins Glen is roughly 1 hr 45. Keep the rest of the day empty except lakefront play and an early dinner. Tomorrow is Corning.' },
+      { type:'activity', icon:'⏭', title:'If you are running late · skip Green Lakes', tag:'optional', sub:'The park is the flexible part of the day, not a commitment. If you leave Lake Placid after ~9:30am, the weather is poor, or the girls are asleep and settled, drive straight through and reach Watkins Glen around 3pm instead. Nothing else on the trip depends on it.' },
     ]
   },
   d7: {
     date: '2026-10-01', title: 'Corning Museum of Glass',
     badge: 'explore', badgeLabel: 'Must-do',
+    booked: [
+      { label: 'Corning Make Your Own Glass — reserve the timed slot; these sell out', must: false },
+    ],
     content: [
       { type:'drive', text:'~45 min each way from Watkins Glen',
         route:{ from:'Watkins Glen, NY', to:'Corning Museum of Glass, Corning, NY' } },
@@ -397,8 +443,11 @@ days: {
     ]
   },
   d8: {
-    date: '2026-10-02', title: 'Watkins Glen Gorge + quiet lake afternoon',
+    date: '2026-10-02', title: 'Watkins Glen Gorge + Farm Sanctuary',
     badge: 'hike', badgeLabel: 'Hike',
+    booked: [
+      { label: 'Farm Sanctuary guided tour — ALL visits require advance registration; book the afternoon slot now', must: true },
+    ],
     content: [
       { type:'activity', icon:'🏞', title:'8:30am–10:30am · Watkins Glen Gorge Trail', sub:'Enter at the Main Entrance. Family base plan: walk through Cavern Cascade, continue only while everyone is comfortable, then turn around the same way. Use the carrier, not the stroller: the gorge has many wet stone steps. Oct 2 is before the usual mid-to-late-October seasonal gorge closure, but verify conditions that morning.', url:'https://parks.ny.gov/visit/state-parks/watkins-glen-state-park' },
       { type:'hiketabs', prefix:'wg', tabs:[
@@ -413,12 +462,22 @@ days: {
           stats:['Up to ~3 mi','800+ steps','Moderate'],
           url:'https://www.alltrails.com/trail/us/new-york/watkins-glen-south-rim-trail' },
       ]},
-      { type:'activity', icon:'🛋', title:'After lunch · protected downtime', sub:'Nap / lodging reset first, then Seneca Lake waterfront only. Pack tonight for an 8:15am checkout and Niagara transfer.' },
+      { type:'activity', icon:'🍽', title:'12:00pm–1:00pm · Lunch after the gorge', sub:'Back in Watkins Glen. Dry off, change anyone who got wet on the stone steps, and eat properly before driving out.' },
+      { type:'drive', text:'~20 min west of Watkins Glen · the younger one can nap in the car on the way out',
+        route:{ from:'Watkins Glen, NY', to:'Farm Sanctuary, 3150 Aikens Road, Watkins Glen, NY' } },
+      { type:'activity', icon:'🐄', title:'~2:00pm · Farm Sanctuary guided tour', sub:'Meeting rescued cows, pigs, sheep and turkeys at the original farm-animal sanctuary — a completely different register from the morning waterfalls, and the kind of thing the girls will actually remember. Tours are guided, run about an hour, and <strong>every visit requires advance registration</strong>. October hours are Friday, Saturday and Sunday, so Fri Oct 2 fits the published schedule, but the specific afternoon slot has not been confirmed — book it before the trip and set the day around whatever time you get. Arrive 15 minutes early.', url:'https://www.farmsanctuary.org/the-sanctuaries/watkins-glen-ny/', urlLabel:'🎟 Book a visit' },
+      { type:'activity', icon:'🛍', title:'Until ~4:00pm · Shop and grounds', sub:'The tour is only an hour; the grounds and gift shop absorb the rest comfortably. Head back whenever the girls are finished.' },
+      { type:'activity', icon:'🛋', title:'Evening · Dinner and pack for Niagara', sub:'Seneca Lake waterfront if there is anything left in the tank, then an early dinner. Pack tonight — checkout is 7:30am tomorrow and the car leaves at 8:15am.' },
+      { type:'activity', icon:'😴', title:'Fallback · protected downtime instead', tag:'optional', sub:'If no suitable tour slot is available, or the gorge has emptied everyone out, drop the sanctuary: nap and lodging reset first, then Seneca Lake waterfront only. This is the one new outing that needs a booking, so it is also the one that can simply not happen.' },
     ]
   },
   d9: {
     date: '2026-10-03', title: 'Taughannock + Ithaca → Niagara Falls',
     badge: 'drive', badgeLabel: 'Drive',
+    // calColor overrides the region colour for this cell only: Oct 3 is the
+    // tightest day on the trip, so it is flagged red in the calendar.
+    calColor: '#EF4444',
+    calNote: 'Tightest day of the trip — 7:30am checkout, two stops and a 3-hr drive before the Niagara evening',
     content: [
       { type:'activity', icon:'🧳', title:'7:30am checkout; 8:15am leave Watkins Glen', sub:'Load before breakfast. This protects the Niagara evening and avoids trying to sightsee in Ithaca late in the day.' },
       { type:'activity', icon:'💧', title:'9:00am–10:30am · Taughannock Falls', sub:'Use the broad, flat Gorge Trail to the 215-ft falls, ~1.5 mi round trip. Stroller works in normal conditions; take the carrier if the trail is wet.', trailUrl:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
@@ -433,6 +492,10 @@ days: {
   d10: {
     date: '2026-10-04', title: 'Maid + Cave + Canadian panorama',
     badge: 'explore', badgeLabel: 'Must-do',
+    booked: [
+      { label: 'Maid of the Mist — buy the online voucher ahead (skips the ticket-window line; boarding is still first-come)', must: false },
+      { label: 'Cave of the Winds — same-day only, cannot be pre-booked: buy at 9am on the day', must: false },
+    ],
     content: [
       { type:'activity', icon:'🎒', title:'8:00am · Breakfast + wet-attraction kit', sub:'Water-safe shoes, carrier, dry socks/clothes and towel in a waterproof bag. Leave the stroller at the hotel for the wet-attraction block; collect it for Canada.' },
       { type:'activity', icon:'🎟', title:'9:00am · Buy Cave of the Winds timed tickets first', sub:'At the Ralph C. Wilson Jr. Welcome Center or Cave ticket desk, buy the earliest slot at or after 10:45am. Tickets are same-day and not sold online. Oct 4 posted hours: 9am–6:15pm.', url:'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/' },
@@ -518,12 +581,20 @@ resources: {
       id: 'activities',
       icon: '🎟',
       title: 'Reservations',
+      intro: '<strong>Book these before you fly.</strong> Three things on this trip genuinely cannot be done as a walk-up: the race (already registered), the <strong>Farm Sanctuary tour on Oct 2</strong>, and the Corning Make-Your-Own-Glass slot if you want a specific time. Everything marked <em>Recommended</em> can be bought at the door but is cheaper in queue time booked ahead. Two things must <em>not</em> be pre-booked — Cave of the Winds is same-day only, and the Whiteface toll is sold in person at the Toll House. The calendar above marks every day that needs a booking with 🎟.',
       items: [
         { key: 'act-marathon', label: 'Adirondack Half Marathon', type: 'booking', priority: 'critical', status: 'done', url: 'https://www.adirondackmarathon.org/half-marathon', notes: 'Sun Sep 27 · point-to-point, town of Adirondack → Schroon Lake · packet pickup 6:45–7:45am at the pavilion above the finish line · runner shuttle from Route 9 beside the Adirondack Inn, departs 7:40–8:05am' },
         { key: 'act-packet-pickup', label: 'Collect race packet — Sep 27, target 7am', type: 'todo', priority: 'critical', status: 'pending', url: 'https://www.adirondackmarathon.org/half-marathon', dates: 'Sep 27', notes: 'Packet pickup 6:45–7:45am at the pavilion above the finish line in Schroon Lake. Bring photo ID. Arrive by ~7:00am to leave buffer before the 7:40–8:05am shuttle.' },
-        { key: 'act-corning', label: 'Corning Museum of Glass', type: 'booking', priority: 'critical', status: 'pending', url: 'https://home.cmog.org/visit', notes: 'Oct 1 · book Make-Your-Own-Glass slot ahead · rain-proof' },
-        { key: 'act-maid', label: 'Maid of the Mist — official online voucher', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.maidofthemist.com/schedule-pricing/', notes: 'Oct 4 at opening · no timed reservation; voucher is valid any 2026 operating day and must be exchanged at the booth. 2026 prices: $30.25 adult, $19.75 ages 6–12, age 5 and under free.' },
-        { key: 'act-cave', label: 'Cave of the Winds — same-day timed ticket', type: 'todo', priority: 'recommended', status: 'pending', url: 'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/', notes: 'Oct 4 · tickets are not sold online. Buy first thing at the Welcome Center / Cave desk for the earliest slot at or after 10:45am. Pack water-safe shoes.' },
+        { key: 'act-fortti', label: 'Fort Ticonderoga admission (Sep 27 afternoon option A)', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://fortticonderoga.org/visit/buy-tickets/', dates: 'Sep 27', reservation_deadline: '2026-09-26', notes: 'Open Tue–Sun through Oct 25, 9:30am–5pm (last admission 4:30pm); Heroic Corn Maze included, 10am–4:30pm, last daytime entry 4pm. Online purchase is encouraged but the booth also sells same-day, so this is refundable-by-doing-nothing: buy ahead only once you are reasonably sure. Both race-day options stay open — do not book anything that forces the choice.' },
+        { key: 'act-stonebridge', label: 'Natural Stone Bridge & Caves (Sep 27 afternoon option B)', type: 'info', priority: 'optional', status: 'pending', url: 'https://stonebridgeandcaves.com/plan-your-trip/', dates: 'Sep 27', notes: 'No booking needed — tickets are sold on site. Off-peak hours Sep 8–Oct 18: 10am–5pm, last tour ticket 3:30pm. Confirm hours by phone that morning if the weather is marginal. The ~1.2 km trail has 500+ uneven steps.' },
+        { key: 'act-wildcenter', label: 'The Wild Center — dated tickets with arrival time slot', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://wildcenter.ticketapp.org/portal/pages/tickets', dates: 'Sep 29', reservation_deadline: '2026-09-27', notes: 'Sep 29 · pick a slot and stay until closing — the slot is arrival time only. The Wild Center reports record visitation, so a reserved slot is worth having even on a Tuesday. The TROLLS exhibition runs through Oct 31.' },
+        { key: 'act-greenlakes', label: 'Green Lakes State Park (Sep 30 transfer stop)', type: 'info', priority: 'optional', status: 'pending', url: 'https://parks.ny.gov/visit/state-parks/green-lakes-state-park', dates: 'Sep 30', notes: 'No booking of any kind. Open year-round dawn–dusk. The $10 vehicle fee is charged daily only Memorial Day through Labor Day, so Sep 30 is normally free — carry $10 in case it is still being collected.' },
+        { key: 'act-corning', label: 'Corning Museum of Glass — Make Your Own Glass slot', type: 'booking', priority: 'critical', status: 'pending', url: 'https://visit.cmog.org/onsite-visitor-guide/make-your-own-glass', dates: 'Oct 1', reservation_deadline: '2026-09-25', notes: 'Oct 1 · museum admission itself is walk-up, but Make Your Own Glass sells out and should be reserved. The Studio is across the parking lot; arrive 10 min early. Important: everything except sandblasted pieces goes through overnight annealing and can only be collected the next day after 12pm — so either choose a sandblasted project, plan a 45-min Corning round trip on Oct 2, or arrange shipping at the counter. You leave Watkins Glen at 8:15am on Oct 3.' },
+        { key: 'act-farmsanctuary', label: 'Farm Sanctuary guided tour — ADVANCE REGISTRATION REQUIRED', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.farmsanctuary.org/the-sanctuaries/watkins-glen-ny/', dates: 'Oct 2', reservation_deadline: '2026-09-25', notes: 'Oct 2 afternoon · every visit requires advance registration; there is no walk-up. Tours run about an hour; arrive 15 min early. October hours are Fri/Sat/Sun, so Fri Oct 2 fits the published schedule, but a specific afternoon slot has not been confirmed — book first, then set the afternoon around the time you are given. Questions: 607-583-2225 x278.' },
+        { key: 'act-highfalls', label: 'High Falls Gorge tickets', type: 'booking', priority: 'optional', status: 'pending', url: 'https://highfallsgorge.com/tickets/', dates: 'Sep 28', notes: 'Sep 28 afternoon · sold online or at the main lodge admission counter, so advance purchase is convenience only. 2026 season runs May 2 – Oct 25.' },
+        { key: 'act-whiteface', label: 'Whiteface Veterans’ Memorial Highway — do NOT pre-book', type: 'info', priority: 'recommended', status: 'pending', url: 'https://whiteface.com/todo/whiteface-veterans-memorial-highway/', dates: 'Sep 28', notes: 'Fall admission is sold in person at the Toll House only. Open daily 8:45am–5:30pm through Oct 12. Weather-dependent — check the morning of, and reverse the day with High Falls Gorge if the summit is clouded in.' },
+        { key: 'act-maid', label: 'Maid of the Mist — official online voucher', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.maidofthemist.com/schedule-pricing/', dates: 'Oct 4', notes: 'Buy the voucher ahead — it skips the ticket-window queue but is <strong>not</strong> a timed reservation: boarding is first-come, first-served and boats leave about every 15 min. Valid any 2026 operating day, exchanged at the booth. 2026 prices: $30.25 adult, $19.75 ages 6–12, age 5 and under free. Season runs Apr 24 – Nov 8, first boat 9am daily.' },
+        { key: 'act-cave', label: 'Cave of the Winds — same-day only, do NOT pre-book', type: 'todo', priority: 'recommended', status: 'pending', url: 'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/', notes: 'Oct 4 · tickets are not sold online. Buy first thing at the Welcome Center / Cave desk for the earliest slot at or after 10:45am. Pack water-safe shoes.' },
         { key: 'act-canada-docs', label: 'Verify Canadian entry documents for every traveler', type: 'todo', priority: 'critical', status: 'pending', url: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html', notes: 'Planned pedestrian crossing Oct 4. Carry every adult and child passport; use the official checker for each traveler and re-check shortly before travel.' },
       ]
     },

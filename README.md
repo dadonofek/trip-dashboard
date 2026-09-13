@@ -108,6 +108,18 @@ window.TRIP_DATA = {
       title: 'Arrive FLR → city',
       badge: 'drive',              // drive | explore | hike | flex
       badgeLabel: 'Drive',
+      calColor: '#EF4444',         // optional — overrides the region colour
+                                   // for this day's calendar cell only, to
+                                   // flag a day that needs extra attention
+      calNote: 'Tightest day',     // optional — added to the cell's tooltip
+      booked: [                    // optional — things that must be reserved
+                                   // or bought before the day itself. Puts a
+                                   // 🎟 on the calendar cell and a row in the
+                                   // "Days that need advance booking" board
+                                   // printed under the month grids.
+        { label: 'Museum timed entry', must: true },  // must:true → shown in
+        { label: 'Ferry ticket' },                    // red = impossible
+      ],                                              // without booking ahead
       content: [
         { type: 'activity', icon: '✈️', title: '...', sub: '...',
           tag: 'optional',         // optional badge: optional|rain plan|splurge
@@ -118,8 +130,10 @@ window.TRIP_DATA = {
                                    // route → one-tap Google Maps directions
         { type: 'hiketabs', prefix: 'd1h', tabs: [
           { id: 'base', label: 'Base', active: true, title: '...',
-            note: '...', stats: ['5 km', '200 m', 'Easy'], url: '...' },
-        ]},
+            note: '...', stats: ['5 km', '200 m', 'Easy'], url: '...',
+            linkLabel: '🎟 Hours & tickets' }, // optional — defaults to
+        ]},                                    // "View on AllTrails"; omit
+                                               // url entirely for no link
       ],
     },
   },
