@@ -308,11 +308,11 @@ days: {
     content: [
       { type:'activity', icon:'✈️', title:'Land at EWR', sub:'Pick up rental car at the EWR Rental Car Center — AirTrain to Terminal A, then walk the covered corridor to the rental building.' },
       { type:'drive', text:'305 miles · ~5 hr 4 min wheel time in usual traffic via I-87 N; with the planned stops, budget ~7.5–9 hrs from rental-car departure to Lake Placid',
-        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid, NY', via:['Walkway Over the Hudson West Entrance, 87 Haviland Road, Highland, NY','Hannaford, 190 Quaker Road, Queensbury, NY','Aviation Mall, 578 Aviation Road, Queensbury, NY'] } },
+        route:{ from:'Newark Liberty International Airport (EWR)', to:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', via:['Walkway Over the Hudson West Entrance, 87 Haviland Road, Highland, NY','Hannaford, 190 Quaker Road, Queensbury, NY','Aviation Mall, 578 Aviation Road, Queensbury, NY'] } },
       { type:'activity', icon:'🌉', title:'T+1:40 to T+2:25 · Walkway Over the Hudson', sub:'Use the west entrance, 87 Haviland Rd, Highland. Walk west gate → midpoint → west gate: ~1.28 mi total, flat, paved and stroller-friendly; restrooms at the entrance. Paid parking. Do this only if the rental car leaves EWR by 1:30pm and weather is safe; otherwise skip it without replacement. Sep 25 hours: 7am–7pm.', url:'https://walkway.org/visit/' },
       { type:'activity', icon:'🛒', title:'T+4:05 to T+4:50 · Hannaford Queensbury', sub:'190 Quaker Rd · full first shop for breakfast, picnic food, fruit, snacks, diapers and road supplies. Open 7am–11pm daily. Eat a quick prepared-food meal here or nearby before the final mountain leg.', url:'https://stores.hannaford.com/ny/queensbury/8360' },
       { type:'activity', icon:'🛍', title:'T+4:50 to T+6:20 · Aviation Mall shopping — Target &amp; DICK\'S Sporting Goods', sub:'578 Aviation Rd, Queensbury, off I-87 Exit 19 near Lake George. Target: affordable warm basics for the girls and you — sweatshirts, leggings, long sleeves, socks, seasonal jackets — plus basic backpacks. DICK\'S Sporting Goods, same mall: better pick for a hiking daypack, outdoor layers and branded jackets. Allow 60–90 minutes for both; specific sizes and backpack models will depend on stock.', url:'https://www.google.com/maps/search/?api=1&query=Aviation+Mall%2C+578+Aviation+Road%2C+Queensbury%2C+NY', urlLabel:'📍 Open in Google Maps' },
-      { type:'activity', icon:'🏨', title:'T+8:05 · Check in Lake Placid', sub:'The T+ schedule is relative to leaving the rental center and includes normal traffic, a 45-min Walkway stop, a 45-min grocery stop and a 60–90 min Aviation Mall shopping stop. If the Walkway or the mall stop is skipped, arrive roughly 45–90 min earlier.' },
+      { type:'activity', icon:'🏨', title:'T+8:05 · Check in at Lake Placid Inn: Residences', sub:'2050 Saranac Ave, Lake Placid, NY 12946 · check-in from 4:00pm. The T+ schedule is relative to leaving the rental center and includes normal traffic, a 45-min Walkway stop, a 45-min grocery stop and a 60–90 min Aviation Mall shopping stop. If the Walkway or the mall stop is skipped, arrive roughly 45–90 min earlier.', url:'https://www.google.com/maps/search/?api=1&query=Lake+Placid+Inn+Residences%2C+2050+Saranac+Ave%2C+Lake+Placid%2C+NY+12946', urlLabel:'📍 Open in Google Maps' },
     ]
   },
   d2: {
@@ -355,7 +355,7 @@ days: {
     content: [
       { type:'activity', icon:'🎒', title:'Before you go · Family morning prep', sub:'Pack breakfast, snacks, warm layers, a picnic blanket and small toys. Leave Shachar the car keys and dry clothes for after the race.' },
       { type:'drive', text:'Drive from Lake Placid to Schroon Lake · targeting arrival around 7:00am for packet pickup and the shuttle',
-        route:{ from:'Lake Placid, NY', to:'Schroon Lake, NY' } },
+        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'Schroon Lake, NY' } },
       { type:'activity', icon:'🎽', title:'6:45am–7:45am · Packet pickup', sub:'At the pavilion above the finish line in Schroon Lake. Bring photo ID.', url:'https://www.adirondackmarathon.org/half-marathon' },
       { type:'activity', icon:'🚌', title:'7:40am–8:05am · Runner shuttle departures', sub:'Board from Route 9, beside the Adirondack Inn, for transport to the start in the town of Adirondack.' },
       { type:'activity', icon:'👀', title:'Around 8:00am · Watch the full marathon start', tag:'optional', sub:'Watch the full marathon start on Main Street.' },
@@ -385,9 +385,9 @@ days: {
           stats:['~1 hr drive','No agenda','Naps + Mirror Lake'] },
       ]},
       { type:'drive', text:'Option A · Schroon Lake → Fort Ticonderoga → Lake Placid · roughly 45 min out and 1 hr 20 – 1 hr 30 home',
-        route:{ from:'Schroon Lake, NY', to:'Lake Placid, NY', via:['Fort Ticonderoga, 102 Fort Ti Road, Ticonderoga, NY'] } },
+        route:{ from:'Schroon Lake, NY', to:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', via:['Fort Ticonderoga, 102 Fort Ti Road, Ticonderoga, NY'] } },
       { type:'drive', text:'Option B · Schroon Lake → Natural Stone Bridge &amp; Caves → Lake Placid · roughly 20–30 min out and 1 hr 15 home',
-        route:{ from:'Schroon Lake, NY', to:'Lake Placid, NY', via:['Natural Stone Bridge and Caves, 535 Stone Bridge Road, Pottersville, NY'] } },
+        route:{ from:'Schroon Lake, NY', to:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', via:['Natural Stone Bridge and Caves, 535 Stone Bridge Road, Pottersville, NY'] } },
       { type:'activity', icon:'🌆', title:'Evening · Back in Lake Placid, early dinner', sub:'Whichever option wins, aim to be back by about 5:45pm. Short Mirror Lake stroll if anyone still has legs, then an early dinner and an early night — Whiteface is tomorrow morning.' },
       { type:'activity', icon:'🌧', title:'Rain plan · Family morning in Lake Placid', tag:'rain plan', sub:'If persistently cold and wet, consider a family morning in Lake Placid instead; Ofek takes the car to the race and rejoins the family afterward. In steady rain skip both afternoon options — the corn maze and the cave trail are both bad in wet weather.' },
     ]
@@ -410,7 +410,7 @@ days: {
     ],
     content: [
       { type:'drive', text:'~45 min each way via NY-86 W / NY-3 W · leave Lake Placid about 9:00am',
-        route:{ from:'Lake Placid, NY', to:'The Wild Center, 45 Museum Drive, Tupper Lake, NY' } },
+        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'The Wild Center, 45 Museum Drive, Tupper Lake, NY' } },
       { type:'activity', icon:'🦦', title:'10:00am–2:30pm · The Wild Center', sub:'Wild Walk, Pines Play Area, animal encounters and indoor exhibits. September–October hours are 10am–5pm; reserve dated tickets for faster entry. Eat at the Waterside Café.', url:'https://www.wildcenter.org/visit/' },
       { type:'activity', icon:'🎠', title:'3:00pm–3:45pm · Adirondack Carousel', tag:'optional', sub:'Saranac Lake stop on the return route. Skip if the children fall asleep in the car.' },
       { type:'activity', icon:'🧳', title:'Evening · Pack for transfer', sub:'Refill the day bag, stage breakfast and load what can safely stay in the car. Sep 30 is now a true transfer day; there is no duplicated Wild Center day.' },
@@ -421,7 +421,7 @@ days: {
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'drive', text:'~320 miles with the Green Lakes detour · the detour adds roughly 40–60 min of driving to the 280-mile / ~4 hr 56 min base route via NY-3 W and I-81 S. With a 45-min Watertown break and a 90-min park stop, budget ~8–8.5 hrs door to door. Distances beyond the base route are planning estimates, not a checked live route',
-        route:{ from:'Lake Placid, NY', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY','Green Lakes State Park, 7900 Green Lakes Road, Fayetteville, NY'] } },
+        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY','Green Lakes State Park, 7900 Green Lakes Road, Fayetteville, NY'] } },
       { type:'activity', icon:'🚗', title:'8:30am · Leave Lake Placid', sub:'Use NY-3 W through Saranac Lake and Tupper Lake. This is the scenic and fastest mapped route; do not route south through Albany. Leaving on time is what makes the Green Lakes stop possible.' },
       { type:'activity', icon:'🛒', title:'~11:00am–11:45am · Hannaford Watertown', sub:'21110 US Route 3 · the route reaches the I-81 area after roughly 2.5 hours. Restroom, prepared-food lunch and Finger Lakes grocery restock. Hold this to about 45 minutes so the park stop survives. Open Wednesday 7am–10pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
       { type:'activity', icon:'💚', title:'~1:00pm–1:30pm · Arrive Green Lakes State Park', sub:'7900 Green Lakes Rd, Fayetteville, just east of Syracuse and a short hop off I-81. Two meromictic lakes with genuinely blue-green water ringed by old-growth forest — this is what turns the transfer into a sightseeing day rather than six hours of highway. Open year-round, dawn to dusk. No booking; the $10 vehicle fee is charged daily only through Labor Day, so late September is normally free — carry $10 anyway in case it is being collected.', url:'https://parks.ny.gov/visit/state-parks/green-lakes-state-park' },
@@ -570,7 +570,7 @@ resources: {
       icon: '🏨',
       title: 'Hotels & Stays',
       items: [
-        { key: 'hotel-lp', label: 'Lake Placid — Mirror Lake Inn or Main St motel (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
+        { key: 'hotel-lp', label: 'Lake Placid Inn: Residences, 2050 Saranac Ave (5 nights)', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', notes: 'Check-in 4:00pm Sep 25, check-out 10:00am Sep 30.', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
         { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodge / lakeside inn (3 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 3', notes: 'Check out by 7:30am Oct 3. This replaces the prior 5-night hold.' },
         { key: 'hotel-niagara', label: 'Hyatt Place Niagara Falls — Queen Beds + sofa (2 nights)', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 3 – Oct 5', url: 'https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls', notes: 'Recommended US-side base, 310 Rainbow Blvd S. Choose the standard “Queen Beds (plus sofa bed)” category, not the smaller high-floor queen category; confirm exact family occupancy. Live Sep 5 search showed $688.56 displayed total with a free-cancellation filter versus $585.96 without that filter; rates can change. Verify taxes, final cancellation cutoff, breakfast and parking before payment.' },
       ]
