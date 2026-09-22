@@ -42,7 +42,7 @@ route: [
   [42.60,-76.18],     // Cortland
   [42.3806,-76.8733], // ★ WATKINS GLEN
   [42.1460,-77.0547], // Corning day trip
-  [42.3806,-76.8733], // Watkins Glen base
+  [42.4683,-76.9057], // Fir Tree Point base (Seneca Lake, Rock Stream)
   [42.5460,-76.5993], // Taughannock Falls
   [42.4476,-76.4869], // Ithaca lunch
   [42.87,-76.98],     // Geneva
@@ -79,7 +79,7 @@ stops: [
   { lat:40.7355, lng:-74.0660, label:'JC', color:'#D97706', regionId:'nj',           title:'272 Hoboken Ave Apt 8, Jersey City (Airbnb)', dates:'Oct 5–9' },
   { lat:40.7368, lng:-74.0355, label:'HB', color:'#D97706', regionId:'nj',           title:'452 1st St Apt 3, Hoboken (Airbnb)',          dates:'Oct 12–15' },
   { lat:44.2795, lng:-73.9799, label:'LP', color:'#059669', regionId:'adirondacks',  title:'Lake Placid / Mirror Lake',  dates:'Sep 25 – 30' },
-  { lat:42.3806, lng:-76.8733, label:'WG', color:'#7C3AED', regionId:'finger-lakes', title:'Watkins Glen State Park',    dates:'Sep 30 – Oct 3' },
+  { lat:42.4683, lng:-76.9057, label:'FT', color:'#7C3AED', regionId:'finger-lakes', title:'Fir Tree Point, Rock Stream (Airbnb, Seneca Lake)', dates:'Sep 30 – Oct 3' },
   { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',    dates:'Oct 1' },
   { lat:42.5460, lng:-76.5993, label:'TF', color:'#7C3AED', regionId:'finger-lakes', title:'Taughannock Falls / Ithaca', dates:'Oct 3' },
   { lat:43.0862, lng:-79.0633, label:'NF', color:'#0EA5E9', regionId:'niagara',      title:'Niagara Falls',              dates:'Oct 3–5' },
@@ -135,6 +135,7 @@ pois: [
   { lat:44.2842, lng:-73.9821, tier:3, cat:'food', icon:'🌊', name:'The Cottage at Mirror Lake',   area:'Lake Placid, NY', sub:'Lakeside patio, relaxed American dinner.' },
   { lat:44.2810, lng:-73.9840, tier:3, cat:'food', icon:'🍔', name:'Noon Mark Burgers & Pie',      area:'Lake Placid, NY', sub:'Diner energy, great burgers & homemade pies.' },
 
+  { lat:42.4683, lng:-76.9057, tier:2, cat:'activity', icon:'🏠', name:'Airbnb — Fir Tree Point', area:'21 Fir Tree Point Road, Rock Stream, NY 14878', sub:'Booked and paid: check-in Wed Sep 30 from 3:00pm, checkout Sat Oct 3 at 10:00am. On Seneca Lake, ~20 min north of Watkins Glen. Confirmation HMWAHEAX5X, hosted by David, $991.27 total.', gq:'21 Fir Tree Point Road, Rock Stream, NY 14878' },
   // — Finger Lakes: activities —
   { lat:42.5386, lng:-76.6073, tier:2, cat:'hike',     icon:'💦', name:'Taughannock Falls',          area:'Trumansburg, NY', sub:'215 ft — taller than Niagara. Flat gorge trail, ~1.5 mi rt.', url:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
   { lat:42.6126, lng:-76.8550, tier:2, cat:'activity', icon:'🍷', name:'Seneca Lake Wine Trail',     area:'Lodi, NY',        sub:'35+ wineries. Highlights: Wagner Vineyards, Hazlitt\'s 1852.', gq:'Wagner Vineyards, Lodi NY' },
@@ -430,13 +431,13 @@ days: {
     badge: 'drive', badgeLabel: 'Drive',
     content: [
       { type:'drive', text:'~320 miles with the Green Lakes detour · the detour adds roughly 40–60 min of driving to the 280-mile / ~4 hr 56 min base route via NY-3 W and I-81 S. With a 45-min Watertown break and a 90-min park stop, budget ~8–8.5 hrs door to door. Distances beyond the base route are planning estimates, not a checked live route',
-        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'Watkins Glen, NY', via:['Hannaford, 21110 US Route 3, Watertown, NY','Green Lakes State Park, 7900 Green Lakes Road, Fayetteville, NY'] } },
+        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'21 Fir Tree Point Road, Rock Stream, NY 14878', via:['Hannaford, 21110 US Route 3, Watertown, NY','Green Lakes State Park, 7900 Green Lakes Road, Fayetteville, NY'] } },
       { type:'activity', icon:'🧳', title:'By 10:00am · Check out of Lake Placid Inn: Residences', sub:'2050 Saranac Ave · checkout is until 10:00am on the confirmation, so the 8:30am departure below already clears it comfortably. Strip the apartment, load the car and leave the key as instructed at check-in.', url:'https://www.google.com/maps/search/?api=1&query=Lake+Placid+Inn+Residences%2C+2050+Saranac+Ave%2C+Lake+Placid%2C+NY+12946', urlLabel:'📍 Open in Google Maps' },
       { type:'activity', icon:'🚗', title:'8:30am · Leave Lake Placid', sub:'Use NY-3 W through Saranac Lake and Tupper Lake. This is the scenic and fastest mapped route; do not route south through Albany. Leaving on time is what makes the Green Lakes stop possible.' },
       { type:'activity', icon:'🛒', title:'~11:00am–11:45am · Hannaford Watertown', sub:'21110 US Route 3 · the route reaches the I-81 area after roughly 2.5 hours. Restroom, prepared-food lunch and Finger Lakes grocery restock. Hold this to about 45 minutes so the park stop survives. Open Wednesday 7am–10pm.', url:'https://stores.hannaford.com/ny/watertown/8175' },
       { type:'activity', icon:'💚', title:'~1:00pm–1:30pm · Arrive Green Lakes State Park', sub:'7900 Green Lakes Rd, Fayetteville, just east of Syracuse and a short hop off I-81. Two meromictic lakes with genuinely blue-green water ringed by old-growth forest — this is what turns the transfer into a sightseeing day rather than six hours of highway. Open year-round, dawn to dusk. No booking; the $10 vehicle fee is charged daily only through Labor Day, so late September is normally free — carry $10 anyway in case it is being collected.', url:'https://parks.ny.gov/visit/state-parks/green-lakes-state-park' },
       { type:'activity', icon:'🚶', title:'~1:30pm–3:00pm · Walk beside Green Lake', sub:'Roughly 90 minutes. The lakeside loop around Green Lake is flat, wide and stroller-friendly — photos, a snack on the shore, and extend toward Round Lake only if everyone is still enjoying it. Turn back whenever you like; the whole point is that this stop shortens cleanly.' },
-      { type:'activity', icon:'🏨', title:'~5:00pm–5:30pm · Check in Watkins Glen', sub:'Green Lakes to Watkins Glen is roughly 1 hr 45. Keep the rest of the day empty except lakefront play and an early dinner. Tomorrow is Corning. <strong>No Watkins Glen lodging is booked yet</strong> — there is no reservation document for Sep 30 – Oct 3, so the address and the real check-in time are still unknown. See the checklist.' },
+      { type:'activity', icon:'🏨', title:'~5:00pm–5:30pm · Check in at Fir Tree Point', sub:'21 Fir Tree Point Road, Rock Stream, NY 14878, on Seneca Lake ~20 min north of Watkins Glen. Green Lakes to here is roughly 1 hr 55. Check-in from 3:00pm, confirmation HMWAHEAX5X, hosted by David, +1 919-605-2977, $991.27 total, already paid. Keep the rest of the day empty except lakefront play and an early dinner. Tomorrow is Corning.', url:'https://www.google.com/maps/search/?api=1&query=21+Fir+Tree+Point+Road%2C+Rock+Stream%2C+NY+14878', urlLabel:'📍 Open in Google Maps' },
       { type:'activity', icon:'⏭', title:'If you are running late · skip Green Lakes', tag:'optional', sub:'The park is the flexible part of the day, not a commitment. If you leave Lake Placid after ~9:30am, the weather is poor, or the girls are asleep and settled, drive straight through and reach Watkins Glen around 3pm instead. Nothing else on the trip depends on it.' },
     ]
   },
@@ -447,8 +448,8 @@ days: {
       { label: 'Corning Make Your Own Glass — reserve the timed slot; these sell out', must: false },
     ],
     content: [
-      { type:'drive', text:'~45 min each way from Watkins Glen',
-        route:{ from:'Watkins Glen, NY', to:'Corning Museum of Glass, Corning, NY' } },
+      { type:'drive', text:'~50 min each way from Fir Tree Point',
+        route:{ from:'21 Fir Tree Point Road, Rock Stream, NY 14878', to:'Corning Museum of Glass, Corning, NY' } },
       { type:'activity', icon:'🔬', title:'9:30am–2:30pm · Corning Museum of Glass', sub:'Keep five hours including lunch. Start with a reserved Make Your Own Glass slot, then Hot Shop demos, hands-on innovation galleries and the café. Fully indoor, so swap with Oct 2 if that is the wet day.', url:'https://home.cmog.org/visit' },
       { type:'activity', icon:'🎨', title:'Reserve Make Your Own Glass', sub:'Book the timed experience before the trip; the museum itself does not need the whole day. Choose a child-compatible project and confirm pickup/shipping timing.' },
       { type:'activity', icon:'🌊', title:'Late afternoon · Watkins Glen lakefront', sub:'Return to the base for playground / Seneca Lake waterfront and an early dinner. Do not add another drive.' },
@@ -475,11 +476,11 @@ days: {
           url:'https://www.alltrails.com/trail/us/new-york/watkins-glen-south-rim-trail' },
       ]},
       { type:'activity', icon:'🍽', title:'12:00pm–1:00pm · Lunch after the gorge', sub:'Back in Watkins Glen. Dry off, change anyone who got wet on the stone steps, and eat properly before driving out.' },
-      { type:'drive', text:'~20 min west of Watkins Glen · the younger one can nap in the car on the way out',
-        route:{ from:'Watkins Glen, NY', to:'Farm Sanctuary, 3150 Aikens Road, Watkins Glen, NY' } },
+      { type:'drive', text:'~25 min west of Fir Tree Point via Watkins Glen · the younger one can nap in the car on the way out',
+        route:{ from:'21 Fir Tree Point Road, Rock Stream, NY 14878', to:'Farm Sanctuary, 3150 Aikens Road, Watkins Glen, NY' } },
       { type:'activity', icon:'🐄', title:'~2:00pm · Farm Sanctuary guided tour', sub:'Meeting rescued cows, pigs, sheep and turkeys at the original farm-animal sanctuary — a completely different register from the morning waterfalls, and the kind of thing the girls will actually remember. Tours are guided, run about an hour, and <strong>every visit requires advance registration</strong>. October hours are Friday, Saturday and Sunday, so Fri Oct 2 fits the published schedule, but the specific afternoon slot has not been confirmed — book it before the trip and set the day around whatever time you get. Arrive 15 minutes early.', url:'https://www.farmsanctuary.org/the-sanctuaries/watkins-glen-ny/', urlLabel:'🎟 Book a visit' },
       { type:'activity', icon:'🛍', title:'Until ~4:00pm · Shop and grounds', sub:'The tour is only an hour; the grounds and gift shop absorb the rest comfortably. Head back whenever the girls are finished.' },
-      { type:'activity', icon:'🛋', title:'Evening · Dinner and pack for Niagara', sub:'Seneca Lake waterfront if there is anything left in the tank, then an early dinner. Pack tonight — checkout is 7:30am tomorrow and the car leaves at 8:15am.' },
+      { type:'activity', icon:'🛋', title:'Evening · Dinner and pack for Niagara', sub:'Seneca Lake waterfront if there is anything left in the tank, then an early dinner. Pack tonight — checkout at Fir Tree Point is 10:00am tomorrow and the plan is to leave by 8:15am.' },
       { type:'activity', icon:'😴', title:'Fallback · protected downtime instead', tag:'optional', sub:'If no suitable tour slot is available, or the gorge has emptied everyone out, drop the sanctuary: nap and lodging reset first, then Seneca Lake waterfront only. This is the one new outing that needs a booking, so it is also the one that can simply not happen.' },
     ]
   },
@@ -487,7 +488,7 @@ days: {
     date: '2026-10-03', title: 'Taughannock + Ithaca → Niagara Falls',
     badge: 'drive', badgeLabel: 'Drive',
     content: [
-      { type:'activity', icon:'🧳', title:'7:30am checkout; 8:15am leave Watkins Glen', sub:'Load before breakfast. This protects the Niagara evening and avoids trying to sightsee in Ithaca late in the day.' },
+      { type:'activity', icon:'🧳', title:'By 10:00am checkout; 8:15am leave for Taughannock', sub:'Check out of Fir Tree Point, 21 Fir Tree Point Road, Rock Stream, by 10:00am (confirmation HMWAHEAX5X) — load the car before breakfast and leave by 8:15am so the checkout deadline is not tight. This protects the Niagara evening and avoids trying to sightsee in Ithaca late in the day.', url:'https://www.google.com/maps/search/?api=1&query=21+Fir+Tree+Point+Road%2C+Rock+Stream%2C+NY+14878', urlLabel:'📍 Open in Google Maps' },
       { type:'activity', icon:'💧', title:'9:00am–10:30am · Taughannock Falls', sub:'Use the broad, flat Gorge Trail to the 215-ft falls, ~1.5 mi round trip. Stroller works in normal conditions; take the carrier if the trail is wet.', trailUrl:'https://www.alltrails.com/trail/us/new-york/taughannock-falls-via-gorge-trail' },
       { type:'activity', icon:'🍕', title:'10:50am–11:50am · Early lunch in Ithaca', sub:'Ithaca Commons only. Skip Cornell Botanic Gardens and Sciencenter on this transfer day; Niagara is now the priority.' },
       { type:'drive', text:'166 miles · ~3 hr from Ithaca Commons to Hyatt Place in usual traffic; add a short restroom stop and follow live navigation',
@@ -621,10 +622,10 @@ resources: {
       id: 'hotels',
       icon: '🏨',
       title: 'Hotels & Stays',
-      intro: 'Four stays are confirmed and paid or guaranteed: Lake Placid, Niagara Falls, Jersey City and Hoboken. <strong>Two holes remain</strong> — Watkins Glen (Sep 30 – Oct 3) and the three nights of <strong>Oct 9–12 between the two NJ Airbnbs</strong>.',
+      intro: 'Five stays are confirmed and paid or guaranteed: Lake Placid, Fir Tree Point (Finger Lakes), Niagara Falls, Jersey City and Hoboken. <strong>One hole remains</strong> — the three nights of <strong>Oct 9–12 between the two NJ Airbnbs</strong>.',
       items: [
         { key: 'hotel-lp', label: 'Lake Placid Inn: Residences, 2050 Saranac Ave (5 nights) — CONFIRMED', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', notes: '2050 Saranac Ave, Lake Placid, NY 12946 · check-in Fri Sep 25 from 4:00pm, check-out Wed Sep 30 until 10:00am. Booking.com confirmation 5967.307.623, PIN 9097. Superior apartment, 2 adults + 2 children (ages 1 and 4), US$1,171.47 total including the $80 cleaning fee and 5% city tax. First night charged as a deposit; free private parking, free Wi-Fi; an extra bed/crib was requested. Phone +1 518 523 6162.', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
-        { key: 'hotel-fl', label: 'Finger Lakes — Watkins Glen lodging (3 nights) — STILL NOT BOOKED', type: 'booking', priority: 'critical', status: 'pending', dates: 'Sep 30 – Oct 3', notes: 'No reservation document exists for these three nights. Nothing is held. Book it, then fill in the real address and check-in/check-out times here and on the Sep 30 and Oct 3 day cards — the itinerary currently assumes a ~5:00pm arrival and a 7:30am departure, neither of which is confirmed by anything.' },
+        { key: 'hotel-fl', label: 'Finger Lakes — Fir Tree Point, 21 Fir Tree Point Rd, Rock Stream (3 nights) — CONFIRMED & PAID', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 30 – Oct 3', notes: '21 Fir Tree Point Road, Rock Stream, NY 14878 (Seneca Lake, ~20 min north of Watkins Glen) · check-in Wed Sep 30 from 3:00pm, checkout Sat Oct 3 at 10:00am. Confirmation HMWAHEAX5X, hosted by David, total $991.27. Host phone +1 919-605-2977. There is no public share link for this reservation — see Lodging/Finger lakes.pdf.', refNote: 'Confirmed booking, see Lodging/Finger lakes.pdf' },
         { key: 'hotel-niagara', label: 'Hyatt Place Niagara Falls — Queen Room with Sofa Bed (2 nights) — CONFIRMED', type: 'booking', priority: 'critical', status: 'done', dates: 'Oct 3 – Oct 5', url: 'https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls', notes: '310 Rainbow Blvd South, Niagara Falls, NY 14303 · check-in Sat Oct 3 from 3:00pm, check-out Mon Oct 5 until 11:00am. Booking.com confirmation 6319943337, PIN 6208. Queen Room with Sofa Bed, 2 adults + 2 children (2 and 4), total US$719.34, guaranteed by Mastercard with no prepayment. Free cancellation until Oct 2 11:59pm EDT; after that the first night (US$340.20) is charged. Breakfast US$11 per person per night and parking at a seasonal daily rate are both extra. Photo ID + credit card at check-in. Phone +1 716-285-5000.', refNote: 'Booking.com confirmation (Lodging/Hyatt Place Niagara Falls reservation.pdf)' },
         { key: 'hotel-jc-airbnb', label: 'Airbnb — 272 Hoboken Avenue Apt 8, Jersey City (4 nights) — CONFIRMED & PAID', type: 'booking', priority: 'critical', status: 'done', dates: 'Oct 5 – Oct 9', notes: '272 Hoboken Avenue Apt 8, Jersey City, NJ 07306 · check-in Mon Oct 5 from 4:00pm, checkout Fri Oct 9 at 11:00am. “Luxury 2BR Escape | PATH to NYC &amp; MetLife Stadium”, confirmation code HMMTENAE2T, 4 guests, hosted by Luxury Rentals USA, $1,229.52 already paid. Host phone +1 786-566-0309. There is no public share link for this reservation — see Lodging/Airbnb272 Hoboken .pdf.', refNote: 'Confirmed booking, see Lodging/Airbnb272 Hoboken .pdf' },
         { key: 'hotel-nj-gap', label: 'Oct 9 – Oct 12 — THREE NIGHTS WITH NO LODGING BOOKED', type: 'booking', priority: 'critical', status: 'pending', dates: 'Oct 9 – Oct 12', notes: 'Checkout from 272 Hoboken Ave is 11:00am Fri Oct 9 and check-in at 452 1st Street is not until 4:00pm Mon Oct 12. <strong>Oct 9, 10 and 11 are uncovered</strong> and no reservation document exists for them. Nothing has been assumed or invented on the day cards. Options: extend either Airbnb, book a separate three-night stay, or confirm the family is hosting. Remember the rental car is returned on Oct 5, so whatever is chosen has to be reachable on transit with four people and luggage.' },
