@@ -119,7 +119,11 @@ window.TRIP_DATA = {
       content: [
         { type: 'activity', icon: '✈️', title: '...', sub: '...',
           tag: 'optional',         // optional badge: optional|rain plan|splurge
-          url: '...',              // optional info link
+          url: '...',              // optional info link — a Google Maps
+                                   // search URL is the usual way to pin an
+                                   // exact address on a check-in/out entry
+          urlLabel: '📍 Open in Google Maps', // optional link text; defaults
+                                   // to "🔗 Hours & info"
           trailUrl: '...' },       // optional AllTrails link
         { type: 'drive', text: '~120 km · ~2 hrs · A1',
           route: { from: 'Florence', to: 'Siena', via: ['...'] } }, // optional
@@ -150,7 +154,13 @@ window.TRIP_DATA = {
             status: 'pending',     // pending | done (initial; taps override)
             url: 'https://...',    // optional action link
             dates: 'Apr 2',        // optional
-            notes: 'Aisle seats',  // optional
+            notes: 'Aisle seats',  // optional — may contain inline HTML
+            refNote: 'Confirmed booking, see Lodging/foo.pdf', // optional
+                                   // booking reference shown with a 📎; use it
+                                   // to cite a local file when there is no URL
+            refUrl: 'https://...', // optional link paired with refNote. Omit
+                                   // it rather than inventing a URL — visitors
+                                   // can add their own from the checklist UI
             reservation_deadline: '2027-02-01' }, // optional "book by" warning
         ] },
     ],
