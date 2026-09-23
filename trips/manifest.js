@@ -20,7 +20,7 @@ window.TRIPS_MANIFEST = [
     title: 'Upstate NY Family Foliage 2026',
     dates: 'Sep 25 – Oct 15, 2026',
     file: 'trips/upstate-ny-2026.js',
-    v: '20260922c',
+    v: '20260923a',
   },
   {
     id: 'segovia-madrid-summer-2026',
