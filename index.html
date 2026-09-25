@@ -516,7 +516,15 @@ function renderHikePanel(prefix, tab) {
   const linkHtml = tab.url
     ? `<a class="trail-link" href="${tab.url}" target="_blank" rel="noopener">
       ${AT_SVG}
-      ${tab.linkLabel || 'View on AllTrails'}
+      ${tab.linkLabel || 'Trailhead info &amp; directions'}
+    </a>`
+    : '';
+  // navUrl is the actual on-trail navigation reference (AllTrails GPS map, etc.),
+  // kept separate from url so we never mislabel a plain info page as AllTrails.
+  const navHtml = tab.navUrl
+    ? `<a class="trail-link" href="${tab.navUrl}" target="_blank" rel="noopener">
+      ${AT_SVG}
+      ${tab.navLabel || 'View on AllTrails (navigate the hike)'}
     </a>`
     : '';
   return `<div id="${prefix}-${tab.id}" class="hike-option${tab.active ? ' active' : ''}">
@@ -524,6 +532,7 @@ function renderHikePanel(prefix, tab) {
     ${stats}
     ${separator}
     ${linkHtml}
+    ${navHtml}
   </div>`;
 }
 
