@@ -206,6 +206,7 @@
   .rb-brew   { background: rgba(245,158,11,0.15);  color: #fcd34d; }
   .rb-wine   { background: rgba(220,38,38,0.15);   color: #fca5a5; }
   .rb-must   { background: rgba(6,182,212,0.15);   color: #67e8f9; }
+  .rb-fav    { background: rgba(251,191,36,0.18);  color: #fcd34d; }
   /* "Hours / menu / info" link on a region-info item */
   .ri-link {
     display: inline-flex; align-items: center; gap: 4px;
@@ -391,6 +392,7 @@
   .marker-poi.hike     { background: #4d7c0f; }
   .marker-poi.scenic   { background: #047857; }
   .marker-poi.food     { background: #b45309; }
+  .marker-poi.is-fav   { border-color: #fbbf24; box-shadow: 0 0 0 2px #fbbf24, 0 2px 6px rgba(0,0,0,0.45); }
   /* popup "Open in Google Maps" button */
   .popup-gmaps {
     display: inline-block; margin-top: 8px; padding: 5px 10px; border-radius: 6px;
@@ -1193,12 +1195,12 @@ function initMap() {
   function poiMarker(p) {
     const size = p.tier === 2 ? 26 : 22;
     const icon = L.divIcon({
-      html: `<div class="marker-poi ${p.cat}" style="width:${size}px;height:${size}px;font-size:${size - 13}px">${p.icon}</div>`,
+      html: `<div class="marker-poi ${p.cat}${p.fav ? ' is-fav' : ''}" style="width:${size}px;height:${size}px;font-size:${size - 13}px">${p.icon}</div>`,
       className: '', iconSize: [size,size], iconAnchor: [size/2,size/2], popupAnchor: [0,-size/2-3]
     });
     return L.marker([p.lat, p.lng], { icon }).bindPopup(`
       <div style="font-family:-apple-system,sans-serif;min-width:170px;max-width:230px">
-        <div style="font-weight:700;font-size:14px;color:#1e293b;margin-bottom:2px">${p.icon} ${p.name}</div>
+        <div style="font-weight:700;font-size:14px;color:#1e293b;margin-bottom:2px">${p.icon} ${p.name}${p.fav ? ' ⭐' : ''}</div>
         <div style="font-size:11px;color:#94a3b8;margin-bottom:4px">${p.area}</div>
         ${p.sub ? `<div style="font-size:12px;color:#475569;line-height:1.4">${p.sub}</div>` : ''}
         ${gmapsSearchBtn(p.gq || (p.name + ', ' + p.area))}
