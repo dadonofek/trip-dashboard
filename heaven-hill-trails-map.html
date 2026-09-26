@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heaven Hill Trails — Lake Placid, NY</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  html, body { margin:0; padding:0; height:100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  #map { position:absolute; top:56px; bottom:0; left:0; right:0; }
+  header {
+    height:56px; display:flex; align-items:center; gap:12px; padding:0 14px;
+    background:#1b3a2b; color:#fff; box-shadow:0 2px 6px rgba(0,0,0,.25); position:relative; z-index:1000;
+  }
+  header h1 { font-size:15px; margin:0; font-weight:600; }
+  header .sub { font-size:11px; color:#c9e0cf; }
+  .legend {
+    position:absolute; bottom:16px; right:16px; background:#fff; padding:10px 14px;
+    border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,.2); font-size:13px; z-index:900; max-width:230px;
+  }
+  .legend div { display:flex; align-items:center; gap:8px; margin:4px 0; }
+  .legend .swatch { width:18px; height:4px; border-radius:2px; display:inline-block; }
+  .legend a.dirlink {
+    display:block; margin-top:8px; font-size:12px; color:#1b6b3a; text-decoration:none; font-weight:600;
+  }
+  .popup-stats { font-size:12px; color:#555; margin-top:4px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🥾 Heaven Hill Trails — Lake Placid, NY</h1>
+    <div class="sub">Big Field Loop · Old Orchard Loop · Bear Cub Loop — trailhead on Bear Cub Road</div>
+  </div>
+</header>
+<div id="map"></div>
+<div class="legend">
+  <div><span class="swatch" style="background:#2f7d32"></span> Big Field Loop — 0.9 mi, shortest, flattest</div>
+  <div><span class="swatch" style="background:#e07b00"></span> Old Orchard Loop — 1.4 mi, gentle grade, views</div>
+  <div><span class="swatch" style="background:#1565c0"></span> Bear Cub Loop — 1.5 mi main loop + cross trails</div>
+  <a class="dirlink" href="https://www.google.com/maps/dir/?api=1&destination=44.242151,-73.996493&travelmode=driving" target="_blank" rel="noopener">🧭 Drive to trailhead (Google Maps)</a>
+  <a class="dirlink" href="https://www.alltrails.com/trail/us/new-york/heaven-hills-trail" target="_blank" rel="noopener">🔗 View on AllTrails</a>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const TRAILHEAD = [44.242151, -73.996493];
+
+const TRAILS = {"Big Field Loop": [[44.2427809, -73.9965233], [44.2432805, -73.9966732], [44.2438047, -73.9965269], [44.2439731, -73.9965406], [44.2445265, -73.996723], [44.244588, -73.9976622], [44.244636, -73.9983955], [44.2446648, -73.9988366], [44.2446725, -73.9993837], [44.2441653, -73.9998558], [44.2438732, -74.0000489], [44.2437835, -74.0003474], [44.2436734, -74.0007141], [44.2431507, -74.000521], [44.2428125, -73.9998773], [44.2427178, -73.9997452], [44.2426665, -73.9995602], [44.2425622, -73.9995109], [44.2424022, -73.9994843], [44.2422251, -73.9991953], [44.2420954, -73.9990619], [44.2419591, -73.9990006], [44.2419553, -73.9989105], [44.2421146, -73.9986495], [44.2422386, -73.9982248], [44.2424129, -73.9976457], [44.2426024, -73.9971404]], "Old Orchard Loop (Orchard Field Loop)": [[44.2442926, -74.0080484], [44.2441918, -74.0079604], [44.2440408, -74.007671], [44.2439546, -74.0076176], [44.2438803, -74.0076022], [44.2437854, -74.0074656], [44.2435263, -74.0065683], [44.2435402, -74.0063571], [44.2435971, -74.0061811], [44.2435689, -74.0059832], [44.2434023, -74.0055451], [44.243357, -74.0053234], [44.2433011, -74.0051838], [44.2432627, -74.0047961], [44.2432737, -74.0041473], [44.2432281, -74.0041067], [44.2427436, -74.0042537], [44.2423821, -74.0042275], [44.2422882, -74.0042673], [44.2421816, -74.004445], [44.2420967, -74.0044813], [44.241969, -74.0043711], [44.2417919, -74.0040446], [44.2417479, -74.003791], [44.241735, -74.0035858], [44.2416938, -74.0033814], [44.2416824, -74.0031724], [44.2415995, -74.0029401], [44.2416341, -74.0028306], [44.2420052, -74.0025146], [44.2421475, -74.0024256], [44.242394, -74.0024567], [44.2429535, -74.002579], [44.2433245, -74.0026406], [44.2435369, -74.0027485], [44.2437195, -74.0031174], [44.2438432, -74.0035234], [44.2438252, -74.0039861], [44.2438528, -74.0042137], [44.2438219, -74.0044309], [44.2438129, -74.0047634], [44.243772, -74.0050162], [44.243769, -74.0053407], [44.243893, -74.0062698], [44.2439912, -74.0066233], [44.244096, -74.0070571], [44.2443463, -74.0079236], [44.2443385, -74.0080144], [44.2442926, -74.0080484]], "Bear Cub Loop": [[44.2426024, -73.9971404], [44.2427809, -73.9965233], [44.2429193, -73.9958439], [44.2429835, -73.9955419], [44.2431168, -73.9945718], [44.2431174, -73.9943641], [44.2432831, -73.9934178], [44.2433737, -73.9929005], [44.243362, -73.9923476], [44.2434775, -73.9919602], [44.2434973, -73.9914219], [44.243489, -73.9906199], [44.2433568, -73.9904701], [44.2431174, -73.9903311], [44.2428791, -73.9899896], [44.2433154, -73.989453], [44.2434552, -73.9890168], [44.243573, -73.9887583], [44.243595, -73.9883472], [44.2435354, -73.9881142], [44.2433472, -73.9877484], [44.2436734, -73.9873848], [44.2437242, -73.9870254], [44.2439647, -73.9868688], [44.2441877, -73.9867683], [44.2443662, -73.9866225], [44.2444126, -73.9864608], [44.2443761, -73.9863655], [44.2442744, -73.9862007], [44.2442281, -73.9861891], [44.2441913, -73.9861799], [44.2437231, -73.9861563], [44.243292, -73.9860633], [44.243129, -73.986103], [44.2429416, -73.9861888], [44.2428811, -73.9863336], [44.2425984, -73.9862716], [44.2425679, -73.9863569], [44.2426297, -73.9866092], [44.2426408, -73.9867905], [44.2426405, -73.986909], [44.242657, -73.9873566], [44.2426185, -73.9875045], [44.2424243, -73.9876829], [44.2422923, -73.987942], [44.2423506, -73.988254], [44.2422745, -73.9884732], [44.2421779, -73.9890212], [44.2422299, -73.989623], [44.2420763, -73.9898655], [44.2420488, -73.9902271], [44.2420401, -73.9903758], [44.2420694, -73.9904831], [44.2421197, -73.9905558], [44.2421417, -73.9906918], [44.2421852, -73.9907612], [44.2423097, -73.9908106], [44.2425031, -73.9910496], [44.2425416, -73.9913455], [44.2424678, -73.9915644], [44.2424866, -73.991674], [44.2424914, -73.9918286], [44.2423758, -73.9919362], [44.2423167, -73.9922071], [44.2423303, -73.9923293], [44.2423008, -73.9926936], [44.2421388, -73.9929065], [44.2420833, -73.9932585], [44.242072, -73.9935199], [44.2419624, -73.99363], [44.2419167, -73.9938095], [44.2420168, -73.9939371], [44.2424653, -73.9942536], [44.2427291, -73.994297], [44.243032, -73.9942258], [44.2431174, -73.9943641]]};
+
+const COLORS = {
+  "Big Field Loop": "#2f7d32",
+  "Old Orchard Loop (Orchard Field Loop)": "#e07b00",
+  "Bear Cub Loop": "#1565c0",
+};
+
+const STATS = {
+  "Big Field Loop": "~0.9 mi · flat · shortest loop, through woods to a field",
+  "Old Orchard Loop (Orchard Field Loop)": "~1.4 mi · gentle grade · orange-tagged, big meadow with mountain views",
+  "Bear Cub Loop": "~1.5 mi main loop (green-tagged) · plus 5 shorter cross trails to shorten/lengthen",
+};
+
+const map = L.map('map');
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 19,
+  crossOrigin: true
+}).addTo(map);
+
+const allBounds = [];
+
+Object.entries(TRAILS).forEach(([name, coords]) => {
+  const color = COLORS[name] || '#888';
+  const line = L.polyline(coords, { color, weight: 5, opacity: 0.85 }).addTo(map);
+  line.bindPopup(`<strong>${name}</strong><div class="popup-stats">${STATS[name] || ''}</div>`);
+  coords.forEach(c => allBounds.push(c));
+});
+
+L.marker(TRAILHEAD, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="background:#c62828;color:#fff;border-radius:50%;width:16px;height:16px;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  })
+}).addTo(map).bindPopup(
+  '<strong>Heaven Hill Trails — trailhead & parking</strong>' +
+  '<div class="popup-stats">Bear Cub Rd, Lake Placid, NY 12946</div>' +
+  '<a href="https://www.google.com/maps/dir/?api=1&destination=44.242151,-73.996493&travelmode=driving" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-weight:600;color:#1b6b3a;">🧭 Drive here (Google Maps)</a>'
+).openPopup();
+
+map.fitBounds(allBounds, { padding: [40, 40] });
+</script>
+</body>
+</html>
