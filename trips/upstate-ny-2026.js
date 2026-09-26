@@ -357,6 +357,8 @@ days: {
     content: [
       { type:'activity', icon:'🍳', title:'Morning · Unhurried breakfast', sub:'No fixed start time — let everyone sleep in and adjust for jet lag. Ease into the day before heading out around 10am.' },
       { type:'activity', icon:'🌲', title:'10:00am–11:15am · Choose one nature walk', sub:'Pick a single option below and keep it easy — tomorrow is race day. Heaven Hill\'s Old Orchard Loop is the default plan.' },
+      { type:'drive', text:'Lake Placid Inn → Heaven Hill Trails trailhead (Bear Cub Rd) · ~10 min drive; skip if choosing Brewster Peninsula instead',
+        route:{ from:'Lake Placid Inn: Residences, 2050 Saranac Ave, Lake Placid, NY 12946', to:'Heaven Hill Trails, Bear Cub Rd, Lake Placid, NY 12946' } },
       { type:'hiketabs', prefix:'d2-nature', tabs:[
         { id:'heaven-orchard', label:'Heaven Hill — Old Orchard', active:true,
           title:'Heaven Hill — Old Orchard Loop',
@@ -383,6 +385,7 @@ days: {
           navUrl:'https://www.alltrails.com/trail/us/new-york/peninsula-loop',
           navLabel:'🥾 View on AllTrails (navigate the hike)' },
       ]},
+      { type:'activity', icon:'🗺', title:'All 3 Heaven Hill loops on one map', tag:'reference', sub:'Big Field, Old Orchard and Bear Cub loops plotted together with the trailhead, for picking a route on the fly once you see how everyone is feeling.', url:'heaven-hill-trails-map.html', urlLabel:'🗺 Open Heaven Hill trails map' },
       { type:'activity', icon:'🍽', title:'11:30am–12:30pm · Lunch in Lake Placid village', sub:'Casual lunch back in the village — Big Mountain Deli or Origin Coffee Co. are easy, quick options.' },
       { type:'activity', icon:'🛋', title:'1:00pm–3:00pm · Return to accommodation', sub:'Naps and rest for everyone. Keep the afternoon fully unscheduled ahead of tomorrow\'s 9am half marathon start.' },
       { type:'activity', icon:'🌊', title:'3:30pm–4:30pm · Mirror Lake waterfront + Main Street stroll', tag:'optional', sub:'Shops and ice cream along the waterfront and Main Street. No need to complete the full lake loop — keep it short and low-key.' },
