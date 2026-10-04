@@ -69,6 +69,10 @@ routesAlt: [
     points: [ [43.8390,-73.7610], [43.8510,-73.5300], [43.8419,-73.3878], [43.9700,-73.4500], [44.1100,-73.5900], [44.2795,-73.9799] ] },
   { label: 'Sep 27 PM option B: Natural Stone Bridge & Caves', color: '#0EA5E9',
     points: [ [43.8390,-73.7610], [43.7454,-73.8090], [43.7397,-73.8375], [43.8390,-73.7610], [44.0500,-73.8100], [44.2795,-73.9799] ] },
+  { label: 'Oct 9–11: Poconos weekend (out of NJ base)', color: '#DC2626',
+    points: [ [40.7355,-74.0660], [40.98,-75.19], [40.9576,-75.2507], [41.0524,-75.3289], [40.7355,-74.0660] ] },
+  { label: 'Oct 9 train option: Jim Thorpe instead of Bushkill', color: '#EA580C',
+    points: [ [40.7355,-74.0660], [40.8631,-75.7376], [41.0524,-75.3289] ] },
 ],
 
 // ── MAP MARKERS — MAIN STOPS ───────────────────────────────
@@ -86,6 +90,7 @@ stops: [
   { lat:42.1460, lng:-77.0547, label:'CG', color:'#7C3AED', regionId:'finger-lakes', title:'Corning Museum of Glass',    dates:'Oct 1' },
   { lat:42.5460, lng:-76.5993, label:'TF', color:'#7C3AED', regionId:'finger-lakes', title:'Taughannock Falls / Ithaca', dates:'Oct 3' },
   { lat:43.0862, lng:-79.0633, label:'NF', color:'#0EA5E9', regionId:'niagara',      title:'Niagara Falls',              dates:'Oct 3–5' },
+  { lat:40.9576, lng:-75.2507, label:'PC', color:'#DC2626', regionId:'poconos',     title:'Poconos weekend — Quiet Valley / Camelback / Bushkill area', dates:'Oct 9–11' },
 ],
 
 // ── MAP POIs — EVERYTHING ELSE ─────────────────────────────
@@ -200,6 +205,18 @@ pois: [
   { lat:40.6963, lng:-73.9967, tier:3, cat:'scenic',   icon:'🚶', name:'Brooklyn Heights Promenade', area:'Columbia Heights, Brooklyn, NY 11201', sub:'Oct 14 adults-only option: a third of a mile of bench-lined balcony over the BQE facing Lower Manhattan. Free, a ten-minute climb up from Brooklyn Bridge Park.', gq:'Brooklyn Heights Promenade, Brooklyn NY' },
   { lat:40.7479, lng:-74.0048, tier:3, cat:'scenic',   icon:'🌿', name:'The High Line', area:'Gansevoort St to Hudson Yards, New York, NY', sub:'Oct 13 adults-only option: walk north along Hudson River Park from Pier 26 to Gansevoort St and continue on the elevated park. Free, open daily, no booking.', url:'https://www.thehighline.org/visit/' },
   { lat:40.7376, lng:-74.0285, tier:3, cat:'scenic',   icon:'🌇', name:'Pier A Park + Hoboken waterfront walkway', area:'Hoboken, NJ 07030', sub:'Oct 12 afternoon family block and the best free evening walk of the NJ stay — a flat continuous path from Pier A north past Pier C with the full Manhattan skyline opposite. Ten minutes from the 1st Street apartment.', gq:'Pier A Park, Hoboken NJ' },
+
+  // — Poconos weekend (Oct 9–11) —
+  { lat:40.9576, lng:-75.2507, tier:2, cat:'activity', icon:'🌾', name:'Quiet Valley Living Historical Farm — Harvest Festival', area:'347 Quiet Valley Rd, Stroudsburg, PA 18360', sub:'Saturday Oct 10 and Sunday Oct 11 only, published hours 10:00am–5:00pm. The plan protects Saturday 10:00–13:30 (including lunch on-site) — Sunday is tight before the noon departure toward NJ. BBQ chicken, chicken-corn chowder, sausage sandwiches, apple dumplings, corn fritters and cider per the FAQ, though the day\'s selection can vary.', url:'https://quietvalley.org/harvest-festival/', gq:'Quiet Valley Living Historical Farm, 347 Quiet Valley Rd, Stroudsburg, PA 18360' },
+  { lat:41.0524, lng:-75.3289, tier:2, cat:'activity', icon:'🎢', name:'Camelback Mountain Adventures', area:'243 Resort Dr, Tannersville, PA 18372', sub:'Opens Fri 12:00; Sat/Sun from 10:00. Individual ride slots (mountain coaster, mini golf, etc.) must be booked online in advance — arrive 30 min before the slot. Plan: Friday ~14:30–16:00, coaster and maybe mini golf. One adult + one child per cart; riders must be at least 91 cm tall; closed-toe shoes required.', url:'https://camelbackmountainadventures.com/', gq:'Camelback Mountain Adventures, 243 Resort Dr, Tannersville, PA 18372' },
+  { lat:40.8631, lng:-75.7376, tier:2, cat:'activity', icon:'🚂', name:'Jim Thorpe — Lehigh Gorge Scenic Railway', area:'1 Susquehanna Street, Jim Thorpe, PA 18229', sub:'TRAIN OPTION (replaces Bushkill Friday AM if chosen). Friday departures 11:00, 12:00, 13:00, 15:00, 16:00; Sat/Sun hourly 10:00–18:00. Ride is 45 min. Advance booking available for departures through 15:00; physical tickets must still be collected at the station. Standard coach $68 for the family, open-air $76. Plan: arrive ~11:00, take the 12:00 train, lunch ~13:00, then Camelback ~15:30–16:00.', url:'https://www.lgsry.com/', gq:'Lehigh Gorge Scenic Railway, 1 Susquehanna Street, Jim Thorpe, PA 18229' },
+  { lat:41.1172, lng:-75.0101, tier:2, cat:'scenic',   icon:'💧', name:'Bushkill Falls', area:'Bushkill, PA 18324', sub:'DEFAULT FRIDAY-MORNING OPTION (unless the train is chosen instead). Fri 09:00–18:00; Sat/Sun 09:00–19:00. Last trail entry 17:00 all three days. Plan: Friday 10:30–12:00, allowing time for the shorter trails with the children.', url:'https://visitbushkillfalls.com/', gq:'Bushkill Falls, Bushkill, PA 18324' },
+  { lat:40.8740, lng:-75.3167, tier:2, cat:'activity', icon:'🌽', name:'Mazezilla (Klingel\'s Farm)', area:'415 Route 115, Saylorsburg, PA 18353', sub:'Optional, weather dependent. Opens 11:00 all three days; calendar lists last maze entry 21:00, but the plan visits in daylight. Suggested: Saturday 14:30–16:30, if everyone still has energy after the Harvest Festival.', url:'https://mazezilla.com/', gq:'Mazezilla, 415 Route 115, Saylorsburg, PA 18353' },
+  { lat:41.0292, lng:-75.0533, tier:2, cat:'scenic',   icon:'🏖', name:'Smithfield Beach / McDade Trail', area:'River Rd, Smithfield Township, PA 18302', sub:'Flexible riverside outing along the McDade Trail, part of Delaware Water Gap NRA. Plan: a short Sunday-morning walk after breakfast and checkout.', url:'https://www.nps.gov/dewa/planyourvisit/swim.htm', gq:'Smithfield Beach, Delaware Water Gap National Recreation Area, PA' },
+  { lat:40.9979, lng:-75.1895, tier:2, cat:'scenic',   icon:'🏃', name:'Brodhead Creek', area:'East Stroudsburg, PA', sub:'Sunday-morning run option near the Poconos base before breakfast and checkout.', gq:'Brodhead Creek, East Stroudsburg, PA' },
+  { lat:40.9819, lng:-75.1909, tier:3, cat:'food', icon:'🥞', name:'Compton\'s Pancake House', area:'110 Park Ave, Stroudsburg, PA 18360', sub:'Breakfast pick for the weekend. Open 06:00–14:00 throughout Oct 9–11. Banana-nut or blueberry pancakes, fruit French toast, or eggs with pancakes.', gq:'Compton\'s Pancake House, 110 Park Ave, Stroudsburg, PA 18360' },
+  { lat:41.0524, lng:-75.3289, tier:3, cat:'food', icon:'🍔', name:'Barley Creek Brewing Company', area:'1774 Sullivan Trail, Tannersville, PA 18372', sub:'Main lunch/dinner pick near Camelback. French Onion Burger, a jumbo pretzel to share, or BBQ ribs; kids have pizza and burger options.', url:'https://barleycreek.com/', gq:'Barley Creek Brewing Company, 1774 Sullivan Trail, Tannersville, PA 18372' },
+  { lat:40.9860, lng:-75.1445, tier:3, cat:'food', icon:'🥧', name:'Village Farmer & Bakery', area:'23 Main St, Delaware Water Gap, PA 18327', sub:'Sweet stop for the Sunday Water Gap outing. Apple pie, or chicken pot pie if you want something savoury.', gq:'Village Farmer &amp; Bakery, 23 Main St, Delaware Water Gap, PA 18327' },
 ],
 
 // ── REGIONS ────────────────────────────────────────────────
@@ -226,7 +243,7 @@ regions: [
         { icon:'🏛', name:'The Newark Museum of Art',           sub:'49 Washington St · Thu–Sun 12–5pm. $10 adult / $8 child. Fully ADA-accessible. Groups 10+ need advance reservation.' },
         { icon:'🌳', name:'Branch Brook Park',                  sub:'Park Ave &amp; Lake St · Open dawn–10pm, free. Light-rail accessible. Easy leg-stretch for all ages before the drive north.' },
         { icon:'🗽', name:'Statue of Liberty (Liberty State Park ferry)', sub:'~25–30 min drive to ferry terminal. Ferries year-round, last ~3:30pm. Best for a half-day — don\'t attempt on a compressed airport day.' },
-        { icon:'🧭', name:'Oct 9–11 · family away on its own trip', badge:'rb-must', badgeLabel:'No NYC plans', sub:'The Jersey City Airbnb runs Oct 5–9 and the Hoboken Airbnb runs Oct 12–15. The three nights in between — <strong>Oct 9, 10 and 11</strong> — are the family\'s own out-of-town trip, so no NYC sightseeing and no NJ lodging are planned for them here. The dashboard resumes with the Hoboken check-in at 4:00pm on Mon Oct 12. Note the rental car goes back on Oct 5, so Oct 5–15 is a transit-only stretch.' },
+        { icon:'🧭', name:'Oct 9–11 · Poconos weekend', badge:'rb-must', badgeLabel:'See Poconos chapter', sub:'The Jersey City Airbnb runs Oct 5–9 and the Hoboken Airbnb runs Oct 12–15. The three nights in between — <strong>Oct 9, 10 and 11</strong> — are a separate Poconos weekend (Bushkill/Jim Thorpe, Camelback, Quiet Valley Harvest Festival, optional Mazezilla, Water Gap) detailed in its own chapter below, so no NYC sightseeing and no NJ lodging are planned for them here. The dashboard resumes with the Hoboken check-in at 4:00pm on Mon Oct 12. Note the rental car goes back on Oct 5, so getting to and from the Poconos runs on transit or rideshare.' },
         { icon:'🦕', name:'American Museum of Natural History', sub:'200 Central Park West at 79th St · daily 10am–5:30pm, $37 adult out-of-state, timed entry — the Oct 6 anchor. The 81st St subway station exits straight into the museum.', url:'https://www.amnh.org/plan-your-visit' },
         { icon:'🎨', name:'Children\'s Museum of Manhattan', sub:'212 W 83rd St · Tue–Sun 10am–5pm, closed Mondays. Five floors aimed squarely at under-6s; the Oct 7 morning. Pairs with Hippo Playground at W 91st &amp; Riverside Dr.', url:'https://cmom.org/visit/' },
         { icon:'🐠', name:'New York Aquarium', sub:'602 Surf Ave, Coney Island · Sep 8–Oct 31 hours 10am–5pm, last entry 4pm. $29.95 adult / $25.95 child off-peak. The Oct 8 day; ~90 min each way from Jersey City.', url:'https://nyaquarium.com/plan-your-visit/hours-and-rates' },
@@ -236,7 +253,7 @@ regions: [
         { icon:'🚶', name:'Grown-up walks, no tickets needed', sub:'One per NYC day, all free: the Ramble → Bethesda Terrace in Central Park (Oct 6), the Riverside Park promenade (Oct 7), the boardwalk to Brighton Beach (Oct 8), the Hoboken waterfront walkway (Oct 12), Hudson River Park north to the High Line (Oct 13), and the Brooklyn Heights Promenade (Oct 14).' },
       ]
     },
-    days: ['d12', 'd12b', 'd12c', 'd13', 'd14', 'd14b', 'd14c', 'd15']
+    days: ['d12', 'd12b', 'd12c', 'd14', 'd14b', 'd14c', 'd15']
   },
   {
     id: 'adirondacks',
@@ -323,6 +340,33 @@ regions: [
       ]
     },
     days: ['d10', 'd11']
+  },
+  {
+    id: 'poconos',
+    emoji: '🍂',
+    title: 'Poconos Weekend',
+    navLabel: 'Poconos',
+    color: '#DC2626',
+    dates: 'Oct 9 – 11',
+    weather: { name: 'Stroudsburg, PA', lat: 40.9815, lon: -75.1949 },
+    infoCard: {
+      prefix: 'pc',
+      eat: [
+        { icon:'🥞', name:'Compton\'s Pancake House',      badge:'rb-casual', badgeLabel:'Breakfast', sub:'110 Park Ave, Stroudsburg · Open 6:00am–2:00pm throughout the weekend. Banana-nut or blueberry pancakes, fruit French toast, or eggs with pancakes.', gq:'Compton\'s Pancake House, 110 Park Ave, Stroudsburg, PA 18360' },
+        { icon:'🍔', name:'Barley Creek Brewing Company', badge:'rb-casual', badgeLabel:'Near Camelback', sub:'1774 Sullivan Trail, Tannersville · Main lunch/dinner pick near Camelback. French Onion Burger, jumbo pretzel to share, or BBQ ribs; kids\' pizza and burger options.', url:'https://barleycreek.com/' },
+        { icon:'🍗', name:'Harvest Festival food stalls', badge:'rb-casual', badgeLabel:'On-site Sat', sub:'BBQ chicken, chicken-corn chowder or sausage sandwiches, then apple dumplings, corn fritters and cider — per Quiet Valley\'s FAQ, though the day\'s selection can vary.' },
+        { icon:'🥧', name:'Village Farmer &amp; Bakery',   badge:'rb-casual', badgeLabel:'Sweet stop', sub:'23 Main St, Delaware Water Gap · Apple pie, or chicken pot pie if you want something savoury. The Sunday Water Gap sweet stop.', gq:'Village Farmer &amp; Bakery, 23 Main St, Delaware Water Gap, PA 18327' },
+      ],
+      nohike: [
+        { icon:'🌾', name:'Quiet Valley Harvest Festival', badge:'rb-must', badgeLabel:'Sat & Sun only', sub:'347 Quiet Valley Rd, Stroudsburg · Published hours 10:00am–5:00pm, Saturday and Sunday only. Admission for the four of you is $56, plus food and some activities. Plan protects Saturday 10:00–13:30 including lunch; Sunday would be tight before the noon departure.', url:'https://quietvalley.org/harvest-festival/' },
+        { icon:'🎢', name:'Camelback Mountain Adventures', badge:'rb-must', badgeLabel:'Book slots online', sub:'243 Resort Dr, Tannersville · Opens Friday at 12:00, Saturday/Sunday at 10:00. Individual ride slots (coaster, mini golf) must be booked online — arrive 30 min early. Plan: Friday ~14:30–16:00. One adult + one child per cart; riders need to be at least 91 cm tall; closed-toe shoes required.', url:'https://camelbackmountainadventures.com/' },
+        { icon:'🚂', name:'Jim Thorpe scenic train',       badge:'rb-casual', badgeLabel:'Optional swap', sub:'1 Susquehanna St, Jim Thorpe · Friday departures 11:00, 12:00, 13:00, 15:00, 16:00; Sat/Sun hourly 10:00–18:00, 45-min ride. Advance booking available for departures through 15:00, but tickets must still be collected at the station. Standard coach $68 for the family, open-air $76. If chosen, replaces Friday\'s Bushkill visit: arrive ~11:00, ride the 12:00 train, lunch ~13:00, then Camelback ~15:30–16:00.', url:'https://www.lgsry.com/' },
+        { icon:'💧', name:'Bushkill Falls',                sub:'Bushkill, PA · Fri 9:00am–6:00pm; Sat/Sun 9:00am–7:00pm. Last trail entry 17:00 all three dates. Default Friday-morning plan unless the train is chosen: 10:30–12:00, allowing time for the shorter trails with the children.', url:'https://visitbushkillfalls.com/' },
+        { icon:'🌽', name:'Mazezilla',                     badge:'rb-casual', badgeLabel:'Optional', sub:'415 Route 115, Saylorsburg · Opens 11:00 all three days; calendar lists last entry 21:00, but best visited in daylight — weather dependent. Suggested Saturday 14:30–16:30, if everyone still has energy after the Harvest Festival.', url:'https://mazezilla.com/' },
+        { icon:'🏖', name:'Smithfield Beach / McDade Trail', sub:'A flexible riverside outing along the McDade Trail in Delaware Water Gap NRA. Plan: a short Sunday-morning walk after breakfast and checkout.', url:'https://www.nps.gov/dewa/planyourvisit/swim.htm' },
+      ]
+    },
+    days: ['d13', 'd13b', 'd13c']
   }
 ],
 
@@ -624,12 +668,44 @@ days: {
     ]
   },
   d13: {
-    date: '2026-10-09', title: 'Checkout Jersey City → family away Oct 9–11',
-    badge: 'flex', badgeLabel: 'Away',
+    date: '2026-10-09', title: 'Checkout Jersey City → Poconos (Bushkill + Camelback)',
+    badge: 'flex', badgeLabel: 'Poconos',
+    booked: [
+      { label: 'Camelback Mountain Adventures — book ride slots online (coaster, mini golf)', must: true },
+      { label: 'Quiet Valley Harvest Festival — no booking needed, but confirm $56 family admission', must: false },
+      { label: 'If riding the train instead: Jim Thorpe — book online for departures through 15:00', must: false },
+    ],
     content: [
       { type:'activity', icon:'🧳', title:'By 11:00am · Check out of 272 Hoboken Avenue Apt 8', sub:'272 Hoboken Avenue Apt 8, Jersey City, NJ 07306 · checkout is 11:00am on Fri Oct 9, confirmation HMMTENAE2T. Take everything — the Hoboken apartment is not available until 4:00pm on Mon Oct 12.', url:'https://www.google.com/maps/search/?api=1&query=272+Hoboken+Avenue%2C+Jersey+City%2C+NJ+07306', urlLabel:'📍 Open in Google Maps' },
-      { type:'activity', icon:'🧭', title:'Oct 9, 10 and 11 · own out-of-town trip', sub:'These three days are the family\'s own separate trip away from the New York area, so nothing is planned here and no NYC sightseeing is scheduled. Lodging for these three nights sits with that trip, not with the two NJ Airbnbs. The dashboard picks up again on Mon Oct 12 with the Hoboken check-in.' },
-      { type:'activity', icon:'🚆', title:'No car for the transfer', sub:'The rental went back on Oct 5, so getting out of Jersey City on the 9th and back to Hoboken on the 12th has to work on PATH, NJ Transit or a rideshare with four people, luggage and a stroller.' },
+      { type:'activity', icon:'🧭', title:'Oct 9–11 · Poconos weekend', sub:'Three nights away from the NYC area. No car on this leg of the main trip — the rental went back on Oct 5, so getting out to the Poconos and back to Hoboken on the 12th has to work on transit or a rideshare with four people, luggage and a stroller. Lodging for these three nights sits with this trip, not with the two NJ Airbnbs.' },
+      { type:'drive', text: '~1 hr 15 min from Jersey City to Bushkill, PA', route: { from: 'Jersey City, NJ', to: 'Bushkill Falls, Bushkill, PA 18324' } },
+      { type:'activity', icon:'💧', title:'10:30am–12:00pm · Bushkill Falls', sub:'Fri hours 9:00am–6:00pm, last trail entry 17:00. Default Friday-morning plan — allows time for the shorter trails and stops with the children.', tag:'optional', url:'https://visitbushkillfalls.com/', urlLabel:'🔗 Hours & info' },
+      { type:'activity', icon:'🚂', title:'TRAIN ALTERNATIVE · Jim Thorpe scenic train instead of Bushkill', tag:'optional', sub:'If you choose the train, replace this Bushkill visit: arrive ~11:00, ride the 12:00 train (45 min), lunch ~13:00, then aim for Camelback ~15:30–16:00. Friday departures 11:00/12:00/13:00/15:00/16:00. Advance booking available for departures through 15:00, but tickets must still be collected at the station. Standard coach $68 for the family, open-air $76.', url:'https://www.lgsry.com/', urlLabel:'🎟 Hours & tickets' },
+      { type:'activity', icon:'🥪', title:'~1:00pm · Lunch in Tannersville', sub:'Barley Creek Brewing Company, 1774 Sullivan Trail, Tannersville · French Onion Burger, a jumbo pretzel to share, or BBQ ribs; kids\' pizza and burger options. Main pick near Camelback.', url:'https://www.google.com/maps/search/?api=1&query=Barley+Creek+Brewing+Company%2C+1774+Sullivan+Trail%2C+Tannersville%2C+PA+18372', urlLabel:'📍 Open in Google Maps' },
+      { type:'activity', icon:'🎢', title:'2:30pm–4:00pm · Camelback Mountain Adventures', sub:'243 Resort Dr, Tannersville · opens Friday at 12:00. Ride slots (mountain coaster, maybe mini golf) must be booked online in advance — arrive 30 min beforehand. One adult + one child per cart; riders must be at least 91 cm tall; closed-toe shoes required.', url:'https://camelbackmountainadventures.com/', urlLabel:'🎟 Hours & tickets' },
+      { type:'activity', icon:'🏠', title:'Evening · to accommodation', sub:'Lodging for the Poconos weekend is not yet booked in this dashboard — add it once confirmed.' },
+    ]
+  },
+  d13b: {
+    date: '2026-10-10', title: 'Quiet Valley Harvest Festival (+ optional Mazezilla)',
+    badge: 'explore', badgeLabel: 'Festival',
+    content: [
+      { type:'activity', icon:'🍳', title:'Breakfast', sub:'Compton\'s Pancake House, 110 Park Ave, Stroudsburg · open 6:00am–2:00pm. Banana-nut or blueberry pancakes, fruit French toast, or eggs with pancakes.', url:'https://www.google.com/maps/search/?api=1&query=Compton%27s+Pancake+House%2C+110+Park+Ave%2C+Stroudsburg%2C+PA+18360', urlLabel:'📍 Open in Google Maps' },
+      { type:'activity', icon:'🌾', title:'10:00am–1:30pm · Quiet Valley Harvest Festival, including lunch', sub:'347 Quiet Valley Rd, Stroudsburg · published hours 10:00am–5:00pm, Saturday and Sunday only. Admission for your four: $56, plus food and some activities. Lunch on site: BBQ chicken, chicken-corn chowder or sausage sandwiches, then apple dumplings, corn fritters and cider — selection can vary.', url:'https://quietvalley.org/harvest-festival/', urlLabel:'🎟 Hours & info' },
+      { type:'activity', icon:'🌽', title:'2:30pm–4:30pm · Mazezilla', tag:'optional', sub:'415 Route 115, Saylorsburg · opens 11:00 all three days; last maze entry 21:00 per the calendar, but best visited in daylight — weather dependent. If everyone still has energy after the festival.', url:'https://mazezilla.com/', urlLabel:'🔗 Hours & info' },
+      { type:'activity', icon:'🌙', title:'Relaxed evening', sub:'No further plans — a deliberately easy end to the day after the festival.' },
+    ]
+  },
+  d13c: {
+    date: '2026-10-11', title: 'Brodhead Creek run → Water Gap → head to NJ',
+    badge: 'drive', badgeLabel: 'Travel day',
+    content: [
+      { type:'activity', icon:'🏃', title:'Early · run at Brodhead Creek', tag:'optional', sub:'East Stroudsburg, PA · a quiet early-morning run near the Poconos base before breakfast and checkout.', gq:'Brodhead Creek, East Stroudsburg, PA' },
+      { type:'activity', icon:'🍳', title:'Breakfast and check-out', sub:'Sunday\'s Harvest Festival hours would be tight before the noon departure, so the festival stays a Saturday-only plan.' },
+      { type:'activity', icon:'🏖', title:'Short Water Gap outing', sub:'Smithfield Beach / McDade Trail, Delaware Water Gap NRA · a flexible riverside walk after breakfast and checkout.', url:'https://www.nps.gov/dewa/planyourvisit/swim.htm', urlLabel:'🔗 Hours & info' },
+      { type:'activity', icon:'🥧', title:'Sweet stop · Village Farmer & Bakery', sub:'23 Main St, Delaware Water Gap · apple pie, or chicken pot pie if you want something savoury.', url:'https://www.google.com/maps/search/?api=1&query=Village+Farmer+%26+Bakery%2C+23+Main+St%2C+Delaware+Water+Gap%2C+PA+18327', urlLabel:'📍 Open in Google Maps' },
+      { type:'drive', text: '~1 hr 15 min back toward NJ, around noon', route: { from: 'Delaware Water Gap, PA', to: 'Jersey City, NJ' } },
+      { type:'activity', icon:'🚆', title:'No car for the transfer', sub:'The rental went back on Oct 5, so getting back to Hoboken has to work on transit or a rideshare with four people, luggage and a stroller. The Hoboken apartment is not available until 4:00pm on Mon Oct 12.' },
     ]
   },
   d14: {
@@ -727,13 +803,13 @@ resources: {
       id: 'hotels',
       icon: '🏨',
       title: 'Hotels & Stays',
-      intro: 'Five stays are confirmed and paid or guaranteed: Lake Placid, Fir Tree Point (Finger Lakes), Niagara Falls, Jersey City and Hoboken. The three nights between the two NJ Airbnbs — <strong>Oct 9, 10 and 11</strong> — are the family\'s own out-of-town trip and are not covered here by design.',
+      intro: 'Five stays are confirmed and paid or guaranteed: Lake Placid, Fir Tree Point (Finger Lakes), Niagara Falls, Jersey City and Hoboken. The three nights between the two NJ Airbnbs — <strong>Oct 9, 10 and 11</strong> — are the family\'s own Poconos weekend; lodging for those nights is not yet booked here.',
       items: [
         { key: 'hotel-lp', label: 'Lake Placid Inn: Residences, 2050 Saranac Ave (5 nights) — CONFIRMED', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 25 – Sep 30', notes: '2050 Saranac Ave, Lake Placid, NY 12946 · check-in Fri Sep 25 from 4:00pm, check-out Wed Sep 30 until 10:00am. Booking.com confirmation 5967.307.623, PIN 9097. Superior apartment, 2 adults + 2 children (ages 1 and 4), US$1,171.47 total including the $80 cleaning fee and 5% city tax. First night charged as a deposit; free private parking, free Wi-Fi; an extra bed/crib was requested. Phone +1 518 523 6162.', refNote: 'Accommodation booking (iCloud)', refUrl: 'https://www.icloud.com/iclouddrive/00cnF63Bkv2tFuED7Waq6EBfg#Lake_placid_accommodation_' },
         { key: 'hotel-fl', label: 'Finger Lakes — Fir Tree Point, 21 Fir Tree Point Rd, Rock Stream (3 nights) — CONFIRMED & PAID', type: 'booking', priority: 'critical', status: 'done', dates: 'Sep 30 – Oct 3', notes: '21 Fir Tree Point Road, Rock Stream, NY 14878 (Seneca Lake, ~20 min north of Watkins Glen) · check-in Wed Sep 30 anytime after 3:00pm, checkout Sat Oct 3 at 10:00am. Confirmation HMWAHEAX5X, hosted by David, total $991.27. Host phone +1 919-605-2977. Directions: 11 km north of Watkins Glen on the west side of Seneca Lake — turn toward the lake on Fir Tree Point Rd; the cottage is the middle green cottage at the bottom of the road. Park to the right of the cottage, facing the signs. Front door code: 4821 — turn the handle on the inside of the door to release the lock. Wi-Fi network: Firtree, password: Cottage21. There is no public share link for this reservation — see Lodging/Finger lakes.pdf.', refNote: 'Confirmed booking, see Lodging/Finger lakes.pdf' },
         { key: 'hotel-niagara', label: 'Hyatt Place Niagara Falls — Queen Room with Sofa Bed (2 nights) — CONFIRMED', type: 'booking', priority: 'critical', status: 'done', dates: 'Oct 3 – Oct 5', url: 'https://www.hyatt.com/hyatt-place/en-US/iagzn-hyatt-place-niagara-falls', notes: '310 Rainbow Blvd South, Niagara Falls, NY 14303 · check-in Sat Oct 3 from 3:00pm, check-out Mon Oct 5 until 11:00am. Booking.com confirmation 6319943337, PIN 6208. Queen Room with Sofa Bed, 2 adults + 2 children (2 and 4), total US$719.34, guaranteed by Mastercard with no prepayment. Free cancellation until Oct 2 11:59pm EDT; after that the first night (US$340.20) is charged. Breakfast US$11 per person per night and parking at a seasonal daily rate are both extra. Photo ID + credit card at check-in. Phone +1 716-285-5000.', refNote: 'Booking.com confirmation (Lodging/Hyatt Place Niagara Falls reservation.pdf)' },
         { key: 'hotel-jc-airbnb', label: 'Airbnb — 272 Hoboken Avenue Apt 8, Jersey City (4 nights) — CONFIRMED & PAID', type: 'booking', priority: 'critical', status: 'done', dates: 'Oct 5 – Oct 9', notes: '272 Hoboken Avenue Apt 8, Jersey City, NJ 07306 · check-in Mon Oct 5 from 4:00pm, checkout Fri Oct 9 at 11:00am. “Luxury 2BR Escape | PATH to NYC &amp; MetLife Stadium”, confirmation code HMMTENAE2T, 4 guests, hosted by Luxury Rentals USA, $1,229.52 already paid. Host phone +1 786-566-0309. There is no public share link for this reservation — see Lodging/Airbnb272 Hoboken .pdf.', refNote: 'Confirmed booking, see Lodging/Airbnb272 Hoboken .pdf' },
-        { key: 'hotel-nj-gap', label: 'Oct 9 – Oct 11 — family away on its own trip, no NJ lodging needed', type: 'info', priority: 'recommended', status: 'pending', dates: 'Oct 9 – Oct 12', notes: 'Checkout from 272 Hoboken Ave is 11:00am Fri Oct 9 and check-in at 452 1st Street is 4:00pm Mon Oct 12. The three nights in between are the family\'s own out-of-town trip, so no NJ lodging and no NYC sightseeing are planned for them — the day cards deliberately stay empty for Oct 9–11. Only two things to carry: take everything out of Jersey City on the 9th, and remember the rental car went back on Oct 5, so both transfers have to work on transit or a rideshare with four people, luggage and a stroller.' },
+        { key: 'hotel-nj-gap', label: 'Oct 9 – Oct 11 — Poconos weekend lodging not yet booked', type: 'todo', priority: 'critical', status: 'pending', dates: 'Oct 9 – Oct 12', notes: 'Checkout from 272 Hoboken Ave is 11:00am Fri Oct 9 and check-in at 452 1st Street is 4:00pm Mon Oct 12. The three nights in between are the Poconos weekend (Quiet Valley Harvest Festival, Camelback, Bushkill/Jim Thorpe, optional Mazezilla) — see the Poconos chapter for the day-by-day plan. Lodging for these three nights still needs to be booked. Remember the rental car went back on Oct 5, so both transfers have to work on transit or a rideshare with four people, luggage and a stroller.' },
         { key: 'hotel-hoboken-airbnb', label: 'Airbnb — 452 1st Street Apt 3, Hoboken (3 nights) — CONFIRMED & PAID', type: 'booking', priority: 'critical', status: 'done', dates: 'Oct 12 – Oct 15', notes: '452 1st Street Apt 3, Hoboken, NJ 07030 · check-in Mon Oct 12 from 4:00pm, checkout Thu Oct 15 at 11:00am. “Jazz Suite — King Bed Studio 15 Min to NYC”, confirmation code HMT9MD8KEN, 4 guests, hosted by Luxanto Vacation Rentals (Shawn Cunningham), total $773.39. Host phone +1 702-895-7777. Checkout is 11:00am but the flight home is not until 21:00 — plan luggage storage for the afternoon. There is no public share link for this reservation — see Lodging/Airbnb 452 1st street.pdf.', refNote: 'Confirmed booking, see Lodging/Airbnb 452 1st street.pdf' },
       ]
     },
@@ -756,13 +832,17 @@ resources: {
         { key: 'act-maid', label: 'Maid of the Mist — official online voucher', type: 'booking', priority: 'critical', status: 'pending', url: 'https://www.maidofthemist.com/schedule-pricing/', dates: 'Oct 4', notes: 'Buy the voucher ahead — it skips the ticket-window queue but is <strong>not</strong> a timed reservation: boarding is first-come, first-served and boats leave about every 15 min. Valid any 2026 operating day, exchanged at the booth. 2026 prices: $30.25 adult, $19.75 ages 6–12, age 5 and under free. Season runs Apr 24 – Nov 8, first boat 9am daily.' },
         { key: 'act-cave', label: 'Cave of the Winds — same-day only, do NOT pre-book', type: 'todo', priority: 'recommended', status: 'pending', url: 'https://www.niagarafallsstatepark.com/attractions/cave-of-the-winds/', notes: 'Oct 4 · tickets are not sold online. Buy first thing at the Welcome Center / Cave desk for the earliest slot at or after 10:45am. Pack water-safe shoes.' },
         { key: 'act-canada-docs', label: 'Verify Canadian entry documents for every traveler', type: 'todo', priority: 'critical', status: 'pending', url: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html', notes: 'Planned pedestrian crossing Oct 4. Carry every adult and child passport; use the official checker for each traveler and re-check shortly before travel.' },
+        { key: 'act-camelback', label: 'Camelback Mountain Adventures — book ride slots online', type: 'booking', priority: 'critical', status: 'pending', url: 'https://camelbackmountainadventures.com/', dates: 'Oct 9', notes: 'Fri Oct 9, planned ~14:30–16:00 (or ~15:30–16:00 if the train is chosen). Individual ride slots (mountain coaster, mini golf, etc.) must be booked online in advance; arrive 30 min before the slot. One adult + one child per cart; riders must be at least 91 cm tall; closed-toe shoes required.' },
+        { key: 'act-jimthorpe-train', label: 'Jim Thorpe scenic train — optional, book if chosen', type: 'booking', priority: 'optional', status: 'pending', url: 'https://www.lgsry.com/', dates: 'Oct 9', notes: 'Only needed if the train replaces Friday\'s Bushkill visit. Friday departures 11:00, 12:00, 13:00, 15:00, 16:00; advance booking is available for departures through 15:00, but tickets must still be collected at the station. Standard coach $68 for the family, open-air $76. Plan: arrive ~11:00, ride the 12:00 train (45 min), lunch ~13:00, then Camelback ~15:30–16:00.' },
+        { key: 'act-quietvalley', label: 'Quiet Valley Harvest Festival — no booking needed', type: 'info', priority: 'optional', status: 'pending', url: 'https://quietvalley.org/harvest-festival/', dates: 'Oct 10', notes: 'Sat Oct 10, 10:00am–1:30pm including lunch. Published hours 10:00am–5:00pm, Saturday and Sunday only. Admission for the four of you is $56, plus food and some activities — pay at the gate.' },
+        { key: 'act-poconos-lodging', label: 'Book lodging for the Poconos weekend (Oct 9–11)', type: 'todo', priority: 'critical', status: 'pending', dates: 'Oct 9 – Oct 11', notes: 'Not yet booked. Needed between the Jersey City checkout (11:00am Fri Oct 9) and the Hoboken check-in (4:00pm Mon Oct 12).' },
       ]
     },
     {
       id: 'nyc',
       icon: '🗽',
       title: 'NYC days from the NJ base',
-      intro: 'Six sightseeing days run out of the two NJ Airbnbs: <strong>Oct 6, 7, 8, 12, 13 and 14</strong>. Oct 9–11 is the family\'s own out-of-town trip and has nothing planned. Only one of these venues is impossible without booking — the <strong>Museum of Ice Cream</strong> — but three more are meaningfully better with a slot held in advance. Everything here is reachable on PATH and the subway; there is no car after Oct 5.',
+      intro: 'Six sightseeing days run out of the two NJ Airbnbs: <strong>Oct 6, 7, 8, 12, 13 and 14</strong>. Oct 9–11 is the family\'s own Poconos weekend, covered in its own chapter. Only one of these venues is impossible without booking — the <strong>Museum of Ice Cream</strong> — but three more are meaningfully better with a slot held in advance. Everything here is reachable on PATH and the subway; there is no car after Oct 5.',
       items: [
         { key: 'nyc-amnh', label: 'AMNH — reserve a timed-entry slot', type: 'booking', priority: 'recommended', status: 'pending', url: 'https://www.amnh.org/plan-your-visit', dates: 'Oct 6', reservation_deadline: '2026-10-04', notes: '200 Central Park West at 79th St · open daily 10am–5:30pm. General admission $37 per adult for out-of-state visitors; children are cheaper and under-2s free. Walk-up is possible, but entry is timed in 30-minute windows and the queue on the steps is the thing a reservation actually buys you. Ticketed special exhibitions cost extra and need their own entry time — decide before booking whether you want one.' },
         { key: 'nyc-cmom', label: 'Children\'s Museum of Manhattan tickets', type: 'booking', priority: 'optional', status: 'pending', url: 'https://cmom.org/visit/', dates: 'Oct 7', notes: '212 W 83rd St · Tue–Sun 10am–5pm, <strong>closed Mondays</strong> — Wed Oct 7 is a normal open day, so the usual Monday warning does not apply. Tickets are sold at the door or online for about $1 less; admission is all-day with re-entry and includes the drop-in programs. No advance slot required.' },
